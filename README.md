@@ -5,7 +5,7 @@ Tecnologia Usada: React, Node.Js, MySQL Server.
 
 REGLAS IMPORTANTES
 
-Nadie trabaje en el main sin previo aviso
-Todo el mundo trabaje su rama por separado
-- Nadie trabaje en el main sin previo aviso
-- Todo el mundo trabaje su rama por separado
+-Clonen el repo
+-Todo el mundo trabaje su rama por separado (ya estan creadas frontend, backend y database)
+-Yo, César trabajare la database
+-No trabajar en el main. Hacer los pull de forma progresiva para evitar errores en todo el programa
