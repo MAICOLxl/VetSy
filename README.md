@@ -5,7 +5,7 @@ Tecnologia Usada: React, Node.Js, MySQL Server.
 
 REGLAS IMPORTANTES
 
-Nadie trabaje en el main sin previo aviso
-Todo el mundo trabaje su rama por separado
 - Nadie trabaje en el main sin previo aviso
 - Todo el mundo trabaje su rama por separado
+
+ACTUALIZACION: Trabajen en funcion al diseño de la base de datos
