@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Usuario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 🔝 MENÚ SUPERIOR -->
+    <header class="top-menu">
+        <h1>nombre</h1>
+        <nav>
+            <a href="/index.html">Inicio</a>
+            <a href="#">Área Médica</a>
+            <a href="#">Farmacia</a>
+            <a href="#">Administración</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 📂 MENÚ LATERAL -->
+        <aside class="sidebar">
+            <h3>Área Médica</h3>
+            <ul>
+                <li><a href="FormularioAreaMedica.html">Formulario Médico</a></li>
+                <li><a href="registro-vacunacion-Area-M.html">Registro de Vacunación</a></li>
+                <li><a href="historial.html">Historial</a></li>
+            </ul>
+        </aside>
+
+        <!-- 🧾 CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <div class="form-box">
+                <h2>Buscar Historial</h2>
+
+                <form action="buscar.php" method="GET">
+                    <label for="usuario">Nombre o ID del usuario:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+
+                    <button type="submit">Buscar</button>
+                </form>
+
+                <!-- Aquí aparecerán los resultados -->
+                <div class="resultado">
+                    <!-- El backend insertará datos -->
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
