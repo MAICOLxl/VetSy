@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Facturación de Pruebas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <header class="top-menu">
+        <h1>nombre</h1>
+        <nav>
+            <a href="/index.html">Inicio</a>
+            <a href="/pages/Area Medica/FormularioAreaMedica.html">Área Médica</a>
+            <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+            <a href="Facturacion.html">Facturación</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 📂 MENÚ LATERAL -->
+        <aside class="sidebar">
+            <h3>Facturación</h3>
+            <ul>
+                <li><a href="Facturacion.html">Nueva Factura</a></li>
+                
+            </ul>
+        </aside>
+
+        <!-- 💰 FORMULARIO -->
+        <form class="">
+            <h2>Facturación de Pruebas</h2>
+
+            <!-- Datos -->
+            <label>Nombre del Dueño:</label>
+            <input type="text" name="dueno" required>
+
+            <label>Nombre de la Mascota:</label>
+            <input type="text" name="mascota" required>
+
+            <label>Tipo de Animal:</label>
+            <select name="tipo">
+                <option>Perro</option>
+                <option>Gato</option>
+                <option>Otro</option>
+            </select>
+
+            <h3>Pruebas Disponibles</h3>
+
+            <div>
+                <input type="checkbox" name="hemograma">
+                Hemograma
+            </div>
+
+            <div>
+                <input type="checkbox" name="perfil_bioquimico">
+                Perfil Bioquímico
+            </div>
+
+            <div>
+                <input type="checkbox" name="rayosx">
+                Rayos X
+            </div>
+
+            <div>
+                <input type="checkbox" name="ultrasonido">
+                Ultrasonido
+            </div>
+
+            <div>
+                <input type="checkbox" name="parvovirus">
+                Prueba de Parvovirus
+            </div>
+
+            <div>
+                <input type="checkbox" name="moquillo">
+                Prueba de Moquillo
+            </div>
+
+            <button type="submit">Generar Factura</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

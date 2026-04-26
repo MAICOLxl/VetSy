@@ -1,0 +1,188 @@
+/* =========================
+   🎯 ejemplo del lo que quiero en el ccs con ia 
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* =========================
+   🔝 MENÚ SUPERIOR
+========================= */
+.top-menu {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.top-menu nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.top-menu nav a:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   🧱 LAYOUT PRINCIPAL
+========================= */
+.container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* =========================
+   📂 SIDEBAR
+========================= */
+.sidebar {
+    width: 220px;
+    background: #ffffff;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #007BFF;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 12px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #555;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: #007BFF;
+    color: white;
+}
+
+/* =========================
+   📄 CONTENIDO
+========================= */
+.contenido {
+    flex: 1;
+    padding: 30px;
+
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: flex-start; /* arriba */
+}
+
+/* =========================
+   🧾 FORMULARIO
+========================= */
+.f-area-medica {
+    width: 100%;
+    max-width: 550px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.f-area-medica h2 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+.f-area-medica h3 {
+    margin: 15px 0 10px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Inputs */
+.f-area-medica input,
+.f-area-medica textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.f-area-medica input:focus,
+.f-area-medica textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+/* Textarea */
+.f-area-medica textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botón */
+.f-area-medica button {
+    width: 100%;
+    padding: 12px;
+
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.f-area-medica button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   ✨ ANIMACIONES
+========================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
