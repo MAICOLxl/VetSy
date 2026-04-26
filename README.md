@@ -1,18 +1,23 @@
 # VetSy - DB
 
-He creado un esquema local (vetsyLocal.sql) para entender la logica de la base de datos y mantener un respaldo.
+He creado un esquema local (`vetsyLocal.sql`) para entender la lógica de la base de datos y mantener un respaldo.
 
-La app va a trabajar con el esquema vetsyRailway.sql que ya esta conectado en el hosting y 
-listo para el backend.
+La app va a trabajar con el esquema `vetsyRailway.sql`, que ya está conectado en el hosting y listo para el backend.
 
-Como conectarse en MySql:
+---
 
-host: shuttle.proxy.rlwy.net
-puerto: 16747
-contraeña: eDwAYeRgpWqyQVYXltqnMsySnVFNSWaS
-database: railway
-usuario: root
+## Cómo conectarse en MySQL
 
-IMPORTANTE:
-No usen el esquema local para desarrollo, el railway es para este proposito. 
-Los archivos que estan en el repo son los script de referencia.
+Host: shuttle.proxy.rlwy.net
+Puerto: 16747
+Usuario: root
+Contraseña: eDwAYeRgpWqyQVYXltqnMsySnVFNSWaS
+Database: railway
+
+---
+
+## IMPORTANTE
+
+- No usen el esquema local para desarrollo  
+- El esquema en Railway es el que se debe utilizar  
+- Los archivos en el repo son solo scripts de referencia  
