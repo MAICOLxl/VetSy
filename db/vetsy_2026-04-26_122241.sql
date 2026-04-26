@@ -36,13 +36,6 @@ CREATE TABLE `animal` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `animal`
---
-
-/*!40000 ALTER TABLE `animal` DISABLE KEYS */;
-/*!40000 ALTER TABLE `animal` ENABLE KEYS */;
-
---
 -- Table structure for table `aplicacionvacuna`
 --
 
@@ -64,13 +57,6 @@ CREATE TABLE `aplicacionvacuna` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aplicacionvacuna`
---
-
-/*!40000 ALTER TABLE `aplicacionvacuna` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aplicacionvacuna` ENABLE KEYS */;
-
---
 -- Table structure for table `cliente`
 --
 
@@ -87,13 +73,6 @@ CREATE TABLE `cliente` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cliente`
---
-
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 --
 -- Table structure for table `desparasitantes`
@@ -114,13 +93,6 @@ CREATE TABLE `desparasitantes` (
   CONSTRAINT `desparasitantes_ibfk_1` FOREIGN KEY (`idAnimal`) REFERENCES `animal` (`idAnimal`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `desparasitantes`
---
-
-/*!40000 ALTER TABLE `desparasitantes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `desparasitantes` ENABLE KEYS */;
 
 --
 -- Temporary view structure for view `expediente_clinico`
@@ -156,13 +128,6 @@ CREATE TABLE `historial` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historial`
---
-
-/*!40000 ALTER TABLE `historial` DISABLE KEYS */;
-/*!40000 ALTER TABLE `historial` ENABLE KEYS */;
-
---
 -- Table structure for table `movimiento`
 --
 
@@ -181,13 +146,6 @@ CREATE TABLE `movimiento` (
   CONSTRAINT `movimiento_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `movimiento`
---
-
-/*!40000 ALTER TABLE `movimiento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `movimiento` ENABLE KEYS */;
 
 --
 -- Table structure for table `producto`
@@ -210,13 +168,6 @@ CREATE TABLE `producto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `producto`
---
-
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
-
---
 -- Table structure for table `proveedor`
 --
 
@@ -233,13 +184,6 @@ CREATE TABLE `proveedor` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `proveedor`
---
-
-/*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
 
 --
 -- Table structure for table `servicio`
@@ -265,13 +209,6 @@ CREATE TABLE `servicio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `servicio`
---
-
-/*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
-
---
 -- Table structure for table `usuario`
 --
 
@@ -293,13 +230,6 @@ CREATE TABLE `usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
---
-
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-
---
 -- Table structure for table `vacuna`
 --
 
@@ -313,13 +243,6 @@ CREATE TABLE `vacuna` (
   PRIMARY KEY (`idVacuna`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vacuna`
---
-
-/*!40000 ALTER TABLE `vacuna` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vacuna` ENABLE KEYS */;
 
 --
 -- Dumping routines for database 'vetsy'
@@ -352,4 +275,4 @@ CREATE TABLE `vacuna` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-26 12:13:12
+-- Dump completed on 2026-04-26 12:22:50
