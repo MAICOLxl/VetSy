@@ -1,0 +1,17 @@
+{
+  "name": "vetsy-backend",
+  "version": "1.0.0",
+  "description": "Backend para sistema de veterinaria",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["veterinaria", "mascotas"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
