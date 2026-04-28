@@ -8,11 +8,11 @@ La app va a trabajar con el esquema `vetsyRailway.sql`, que ya está conectado e
 
 ## Cómo conectarse en MySQL
 
-Host: shuttle.proxy.rlwy.net
-Puerto: 16747
-Usuario: root
-Contraseña: eDwAYeRgpWqyQVYXltqnMsySnVFNSWaS
-Database: railway
+Host: shuttle.proxy.rlwy.net \n
+Puerto: 16747 \n
+Usuario: root \n
+Contraseña: eDwAYeRgpWqyQVYXltqnMsySnVFNSWaS \n
+Database: railway \n
 
 ---
 
