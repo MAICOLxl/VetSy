@@ -1,4 +1,4 @@
-import { pool } from "../config/db.js";
+import { pool } from "../configuracionDB/db.js";
 
 export async function crearServicio(data) {
   const { idAnimal, idUsuario, tipoServicio, descripcion, fechaServicio, precio } = data;

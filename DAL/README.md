@@ -1,0 +1,1 @@
+#Funciones para manejar el CRUD de cada tabla, para su uso creare los endpoints.
