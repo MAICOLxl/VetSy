@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Servicios</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) window.location.href = "../../login.html";
+</script>
+
+<header class="top-menu">
+    <h1>nombre</h1>
+    <nav>
+        <a href="/index.html">Inicio</a>
+        <a href="FormularioAreaMedica.html">Área Médica</a>
+        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- 📂 MENÚ LATERAL -->
+    <aside class="sidebar">
+        <h3>Área Médica</h3>
+        <ul>
+            <li><a href="FormularioAreaMedica.html">Formulario Médico</a></li>
+            <li><a href="registro-vacunacion-Area-M.html">Registro de Vacunación</a></li>
+            <li><a href="historial.html">Historial</a></li>
+        </ul>
+    </aside>
+
+    <!-- 📌 CONTENIDO PRINCIPAL -->
+    <main class="content">
+
+        <h2>💉 Registrar Servicio</h2>
+
+        <form id="formServicio">
+
+            <input type="number" id="idAnimal" placeholder="ID Animal" required>
+
+            <input type="number" id="idUsuario" placeholder="ID Usuario" required>
+
+            <select id="tipoServicio" required>
+                <option value="">Tipo de servicio</option>
+                <option value="Consulta">Consulta</option>
+                <option value="Vacuna">Vacuna</option>
+                <option value="Cirugia">Cirugia</option>
+                <option value="Desparasitacion">Desparasitacion</option>
+            </select>
+
+            <input type="text" id="descripcion" placeholder="Descripción">
+
+            <input type="date" id="fechaServicio" required>
+
+            <input type="number" id="precio" placeholder="Precio" required>
+
+            <button type="submit">Guardar Servicio</button>
+
+        </form>
+
+        <h2>📊 Servicios Registrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mascota</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="tablaServicios"></tbody>
+        </table>
+
+    </main>
+
+</div>
+
+<script src="/Js/servicios.js"></script>
+
+</body>
+</html>
