@@ -2,85 +2,85 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Consultar Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos — VetSy</title>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-<!-- 🔝 MENÚ SUPERIOR -->
-<header class="top-menu">
-    <h1>nombre</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/FormularioAreaMedica.html">Área Médica</a>
-        <a href="AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
-</header>
+    <header class="top-menu">
+        <div class="logo-esquina">
+            <img src="/assets/images/logo.png" alt="Logo VetSy">
+        </div>
+        <h1>VetSy</h1>
+        <nav>
+            <a href="/index.html">Inicio</a>
+            <a href="/pages/Area Medica/FormularioAreaMedica.html">Área Médica</a>
+            <a href="/pages/Inventario/AgregarProducto.html" class="active">Inventario</a>
+            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+        </nav>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <!-- 📂 MENÚ LATERAL -->
-    <aside class="sidebar">
-        <h3>Inventario</h3>
-        <ul>
-            <li><a href="AgregarProducto.html">Agregar Producto</a></li>
-            <li><a href="ListadeProductos.html">Lista de Productos</a></li>
-        </ul>
-    </aside>
+        <aside class="sidebar">
+            <h3>Inventario</h3>
+            <ul>
+                <li><a href="AgregarProducto.html">
+                    <span class="nav-icon">➕</span> Agregar Producto
+                </a></li>
+                <li><a href="ListadeProductos.html" class="active">
+                    <span class="nav-icon">📋</span> Lista de Productos
+                </a></li>
+            </ul>
+        </aside>
 
-    <!-- 📋 CONTENIDO PRINCIPAL -->
-    <section class="f2-area-medica">
-        <h2>Buscar Productos</h2>
+        <main class="contenido">
 
-        <!-- 🔍 Buscador -->
-        <input type="text" id="buscador" placeholder="Buscar por nombre, tipo...">
+            <h1 class="page-title">Lista de Productos</h1>
+            <p class="page-subtitle">Consulta y administra el inventario</p>
 
-        <!-- 📊 Tabla -->
-        <table border="1" width="100%" cellspacing="0" cellpadding="8">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
+            <section class="f2-area-medica">
 
-            <tbody id="tabla-productos">
+                <input type="text" id="buscador" placeholder="Buscar por nombre, tipo...">
 
-                <tr>
-                    <td>1</td>
-                    <td>Amoxicilina</td>
-                    <td>Medicamento</td>
-                    <td>250</td>
-                    <td>20</td>
-                    <td>
-                        <button onclick="eliminarProducto(1, this)">Eliminar</button>
-                    </td>
-                </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-productos">
+                        <tr>
+                            <td>1</td>
+                            <td>Amoxicilina</td>
+                            <td>Medicamento</td>
+                            <td>RD$ 250</td>
+                            <td>20</td>
+                            <td><button onclick="eliminarProducto(1, this)">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Vacuna Rabia</td>
+                            <td>Vacuna</td>
+                            <td>RD$ 500</td>
+                            <td>15</td>
+                            <td><button onclick="eliminarProducto(2, this)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <tr>
-                    <td>2</td>
-                    <td>Vacuna Rabia</td>
-                    <td>Vacuna</td>
-                    <td>500</td>
-                    <td>15</td>
-                    <td>
-                        <button onclick="eliminarProducto(2, this)">Eliminar</button>
-                    </td>
-                </tr>
+            </section>
+        </main>
+    </div>
 
-            </tbody>
-        </table>
-    </section>
-
-</div>
-
-<!-- JS separado -->
-<script src="buscador.js"></script>
+    <script src="/js/buscador.js"></script>
 
 </body>
 </html>
