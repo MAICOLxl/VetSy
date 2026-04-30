@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>Animales</title>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Área Médica — VetSy</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+>>>>>>> 4caf2fdfac870e2d5b428b206eda3d331401f099
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <!-- 🔐 Protección -->
 <script>
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) window.location.href = "../../login.html";
 </script>
+=======
+    <header class="top-menu">
+        <div class="logo-esquina">
+            <img src="/assets/images/logo.png" alt="Logo VetSy">
+        </div>
+        <h1>VetSy</h1>
+        <nav>
+            <a href="/index.html">Inicio</a>
+            <a href="/pages/Area Medica/FormularioAreaMedica.html" class="active">Área Médica</a>
+            <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+        </nav>
+    </header>
+>>>>>>> 4caf2fdfac870e2d5b428b206eda3d331401f099
 
 <h2>Registrar Animal</h2>
 
+<<<<<<< HEAD
 <form id="formAnimal">
 
   <input type="number" id="idCliente" placeholder="ID Cliente" required><br><br>
@@ -54,6 +78,88 @@ if (!user) window.location.href = "../../login.html";
 </table>
 
 <script src="../../js/animales.js"></script>
+=======
+        <aside class="sidebar">
+            <h3>Área Médica</h3>
+            <ul>
+                <li><a href="FormularioAreaMedica.html" class="active">
+                    <span class="nav-icon">📋</span> Formulario Médico
+                </a></li>
+                <li><a href="registro-vacunacion-Area-M.html">
+                    <span class="nav-icon">💉</span> Registro de Vacunación
+                </a></li>
+                <li><a href="historial.html">
+                    <span class="nav-icon">📁</span> Historial
+                </a></li>
+            </ul>
+        </aside>
+
+        <main class="contenido">
+
+            <h1 class="page-title">Formulario Área Médica</h1>
+            <p class="page-subtitle">Registra los datos del dueño y su mascota</p>
+
+            <form class="f-area-medica" id="formAreaMedica">
+
+                <h3>Datos del Dueño</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Ej: Pérez" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 809-555-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación</label>
+                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Santo Domingo" required>
+                    </div>
+                </div>
+
+                <h3>Datos de la Mascota</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mascota">Nombre de la Mascota</label>
+                        <input type="text" id="mascota" name="mascota" placeholder="Ej: Max" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Mascota</label>
+                        <input type="text" id="tipo" name="tipo" placeholder="Ej: Perro, Gato" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edad">Edad (años)</label>
+                        <input type="number" id="edad" name="edad" placeholder="Ej: 3" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="text" id="peso" name="peso" placeholder="Ej: 12.5 kg" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="estatura">Estatura / Talla</label>
+                    <input type="text" id="estatura" name="estatura" placeholder="Ej: 45 cm">
+                </div>
+
+                <button type="submit">Guardar Registro</button>
+
+            </form>
+        </main>
+    </div>
+>>>>>>> 4caf2fdfac870e2d5b428b206eda3d331401f099
 
 </body>
 </html>

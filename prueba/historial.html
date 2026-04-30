@@ -2,55 +2,59 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Historial de Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial — VetSy</title>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-    <!-- 🔝 MENÚ SUPERIOR -->
     <header class="top-menu">
-        <h1>nombre</h1>
+        <div class="logo-esquina">
+            <img src="/assets/images/logo.png" alt="Logo VetSy">
+        </div>
+        <h1>VetSy</h1>
         <nav>
             <a href="/index.html">Inicio</a>
-            <a href="FormularioAreaMedica.html">Área Médica</a>
-            <a href="/pages/Inventario/AgregarProducto.html">inventario</a>
-            <a href="/pages/Facturacion/Facturacion.html">Facturacion</a>
+            <a href="/pages/Area Medica/FormularioAreaMedica.html" class="active">Área Médica</a>
+            <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
         </nav>
     </header>
 
     <div class="container">
 
-        <!-- 📂 MENÚ LATERAL -->
         <aside class="sidebar">
             <h3>Área Médica</h3>
             <ul>
-                <li><a href="FormularioAreaMedica.html">Formulario Médico</a></li>
-                <li><a href="registro-vacunacion-Area-M.html">Registro de Vacunación</a></li>
-                <li><a href="historial.html">Historial</a></li>
+                <li><a href="FormularioAreaMedica.html">
+                    <span class="nav-icon">📋</span> Formulario Médico
+                </a></li>
+                <li><a href="registro-vacunacion-Area-M.html">
+                    <span class="nav-icon">💉</span> Registro de Vacunación
+                </a></li>
+                <li><a href="historial.html" class="active">
+                    <span class="nav-icon">📁</span> Historial
+                </a></li>
             </ul>
         </aside>
 
-        <!-- 🧾 CONTENIDO PRINCIPAL -->
         <main class="contenido">
+
+            <h1 class="page-title">Historial de Pacientes</h1>
+            <p class="page-subtitle">Busca el historial médico de una mascota</p>
 
             <div class="form-box">
                 <h2>Buscar Historial</h2>
-
                 <form action="buscar.php" method="GET">
-                    <label for="usuario">Nombre o ID del usuario:</label>
-                    <input type="text" id="usuario" name="usuario" required>
-
+                    <label for="usuario">Nombre o ID del usuario</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Ej: Juan Pérez o ID-001" required>
                     <button type="submit">Buscar</button>
                 </form>
-
-                <!-- Aquí aparecerán los resultados -->
-                <div class="resultado">
-                    <!-- El backend insertará datos -->
-                </div>
+                <div class="resultado"></div>
             </div>
 
         </main>
-
     </div>
 
 </body>
