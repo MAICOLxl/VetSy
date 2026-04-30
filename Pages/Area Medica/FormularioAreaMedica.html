@@ -2,73 +2,107 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario Área Médica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Área Médica — VetSy</title>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
     <header class="top-menu">
-        <h1>nombre</h1>
+        <div class="logo-esquina">
+            <img src="/assets/images/logo.png" alt="Logo VetSy">
+        </div>
+        <h1>VetSy</h1>
         <nav>
             <a href="/index.html">Inicio</a>
-            <a href="FormularioAreaMedica.html">Área Médica</a>
-            <a href="/pages/Inventario/AgregarProducto.html">inventario</a>
-            <a href="/pages/Facturacion/Facturacion.html">Facturacion</a>
+            <a href="/pages/Area Medica/FormularioAreaMedica.html" class="active">Área Médica</a>
+            <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
         </nav>
     </header>
 
     <div class="container">
 
-        <!-- 📂 MENÚ LATERAL -->
         <aside class="sidebar">
             <h3>Área Médica</h3>
             <ul>
-                <li><a href="FormularioAreaMedica.html">Formulario Médico</a></li>
-                <li><a href="registro-vacunacion-Area-M.html">Registro de Vacunación</a></li>
-                <li><a href="historial.html">Historial</a></li>
-                </ul>
-            </aside>
-    
+                <li><a href="FormularioAreaMedica.html" class="active">
+                    <span class="nav-icon">📋</span> Formulario Médico
+                </a></li>
+                <li><a href="registro-vacunacion-Area-M.html">
+                    <span class="nav-icon">💉</span> Registro de Vacunación
+                </a></li>
+                <li><a href="historial.html">
+                    <span class="nav-icon">📁</span> Historial
+                </a></li>
+            </ul>
+        </aside>
 
+        <main class="contenido">
 
-    <form class="f-area-medica">
-        <h2>Formulario Área Médica</h2>
+            <h1 class="page-title">Formulario Área Médica</h1>
+            <p class="page-subtitle">Registra los datos del dueño y su mascota</p>
 
-        <h3>Datos del dueño </h3>
+            <form class="f-area-medica" id="formAreaMedica">
 
-        <!-- Datos de la persona -->
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+                <h3>Datos del Dueño</h3>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Ej: Pérez" required>
+                    </div>
+                </div>
 
-        <label for="telefono">Número de Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 809-555-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación</label>
+                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Santo Domingo" required>
+                    </div>
+                </div>
 
-        <label for="ubicacion">Ubicación:</label>
-        <input type="text" id="ubicacion" name="ubicacion" required>
+                <h3>Datos de la Mascota</h3>
 
-        <!-- Datos de la mascota -->
-        <h3>Datos de la Mascota</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mascota">Nombre de la Mascota</label>
+                        <input type="text" id="mascota" name="mascota" placeholder="Ej: Max" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Mascota</label>
+                        <input type="text" id="tipo" name="tipo" placeholder="Ej: Perro, Gato" required>
+                    </div>
+                </div>
 
-        <label for="mascota">Nombre de la Mascota:</label>
-        <input type="text" id="mascota" name="mascota" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edad">Edad (años)</label>
+                        <input type="number" id="edad" name="edad" placeholder="Ej: 3" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="text" id="peso" name="peso" placeholder="Ej: 12.5 kg" required>
+                    </div>
+                </div>
 
-        <label for="tipo">Tipo de Mascota:</label>
-        <input type="text" id="tipo" name="tipo" required>
+                <div class="form-group">
+                    <label for="estatura">Estatura / Talla</label>
+                    <input type="text" id="estatura" name="estatura" placeholder="Ej: 45 cm">
+                </div>
 
-        <label for="edad">Edad de la Mascota:</label>
-        <input type="number" id="edad" name="edad" required>
+                <button type="submit">Guardar Registro</button>
 
-        <label for="estatura">Estatura:</label>
-        <input type="text" id="estatura" name="estatura" required>
-
-        <label for="peso">Peso:</label>
-        <input type="text" id="peso" name="peso" required>
-
-        <button type="submit">Enviar</button>
-    </form>
+            </form>
+        </main>
     </div>
 
 </body>
