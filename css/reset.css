@@ -1,0 +1,59 @@
+/* ============================================================
+   VetSy — reset.css  |  Variables globales + normalize
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a2332;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+img  { max-width: 100%; display: block; }
+button, input, textarea, select { font-family: inherit; font-size: inherit; }
+button { cursor: pointer; border: none; background: none; }
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --primary:       #1B6CA8;
+  --primary-dark:  #134f7a;
+  --primary-light: #e8f3fb;
+  --accent:        #00C9A7;
+  --danger:        #e74c3c;
+  --warning:       #f39c12;
+  --success:       #27ae60;
+
+  --bg:            #f0f4f8;
+  --bg-card:       #ffffff;
+  --border:        #d9e2ec;
+  --text:          #1a2332;
+  --text-muted:    #6b7a8d;
+  --text-light:    #a0adb8;
+
+  --sidebar-bg:    #0d1b2a;
+  --sidebar-text:  #c8d6e5;
+  --sidebar-w:     230px;
+  --header-h:      62px;
+
+  --shadow-sm:     0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:     0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:     0 8px 32px rgba(0,0,0,0.14);
+
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  16px;
+  --t:     0.25s ease;
+}
