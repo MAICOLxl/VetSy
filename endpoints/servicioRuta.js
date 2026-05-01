@@ -4,7 +4,7 @@ import {
   obtenerServicios,
   actualizarServicio,
   eliminarServicio
-} from "../dal/servicio.js";
+} from "../DAL/servicio.js";
 
 const router = express.Router();
 

@@ -4,7 +4,7 @@ import {
   obtenerUsuarios,
   actualizarUsuario,
   eliminarUsuario
-} from "../dal/usuario.js";
+} from "../DAL/usuario.js";
 
 const router = express.Router();
 

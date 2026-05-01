@@ -2,7 +2,7 @@ import express from "express";
 import {
   crearHistorial,
   obtenerHistorial
-} from "../dal/historial.js";
+} from "../DAL/historial.js";
 
 const router = express.Router();
 

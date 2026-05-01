@@ -2,7 +2,7 @@ import express from "express";
 import {
   aplicarVacuna,
   obtenerVacunasAplicadas
-} from "../dal/aplicacionVacuna.js";
+} from "../DAL/aplicacionVacuna.js";
 
 const router = express.Router();
 

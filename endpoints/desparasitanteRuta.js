@@ -2,7 +2,7 @@ import express from "express";
 import {
   crearDesparasitante,
   obtenerDesparasitantes
-} from "../dal/desparasitante.js";
+} from "../DAL/desparasitante.js";
 
 const router = express.Router();
 
