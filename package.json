@@ -2,10 +2,10 @@
   "name": "vetsy",
   "version": "1.0.0",
   "description": "VetSy es un programa web para la gestion de veterinarias.",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
