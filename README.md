@@ -5,7 +5,6 @@ Tecnologia Usada: React, Node.Js, MySQL Server.
 
 REGLAS IMPORTANTES
 
-<<<<<<< HEAD
 - Nadie trabaje en el main sin previo aviso
 - Todo el mundo trabaje su rama por separado
 
@@ -18,9 +17,3 @@ ACTUALIZACION: Trabajen en funcion al diseño de la base de datos
 - DAL\n
 
 Maneja el CRUD de cada tabla de la base de datos.
-=======
--Clonen el repo
--Todo el mundo trabaje su rama por separado (ya estan creadas frontend, backend y database)
--Yo, César trabajare la database
--No trabajar en el main. Hacer los pull de forma progresiva para evitar errores en todo el programa
->>>>>>> 7ccf1c744972584339b83b32c3f868b60bf08cd1
