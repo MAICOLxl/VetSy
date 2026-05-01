@@ -13,6 +13,7 @@ import aplicacionVacunaRuta from "./endpoints/aplicacionVacunaRuta.js";
 import desparasitanteRuta from "./endpoints/desparasitanteRuta.js";
 import productoRuta from "./endpoints/productoRuta.js";
 import proveedorRuta from "./endpoints/proveedorRuta.js";
+import cors from "cors";
 app.use("/clientes", clienteRuta);
 app.use("/animales", animalRuta);
 app.use("/servicios", servicioRuta);
@@ -24,5 +25,10 @@ app.use("/aplicacion-vacuna", aplicacionVacunaRuta);
 app.use("/desparasitantes", desparasitanteRuta);
 app.use("/productos", productoRuta);
 app.use("/proveedores", proveedorRuta);
+app.use(cors());
+
 
 export default app;
+
+
+
