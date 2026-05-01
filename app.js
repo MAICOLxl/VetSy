@@ -1,6 +1,7 @@
 import express from "express";
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 import clienteRuta from "./endpoints/clienteRuta.js";
 import animalRuta from "./endpoints/animalRuta.js";
@@ -25,7 +26,7 @@ app.use("/aplicacion-vacuna", aplicacionVacunaRuta);
 app.use("/desparasitantes", desparasitanteRuta);
 app.use("/productos", productoRuta);
 app.use("/proveedores", proveedorRuta);
-app.use(cors());
+
 
 
 export default app;
