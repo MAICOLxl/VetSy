@@ -4,7 +4,7 @@ import {
   obtenerProductos,
   actualizarProducto,
   eliminarProducto
-} from "../dal/producto.js";
+} from "../DAL/producto.js";
 
 const router = express.Router();
 

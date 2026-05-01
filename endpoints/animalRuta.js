@@ -4,7 +4,7 @@ import {
   obtenerAnimales,
   actualizarAnimal,
   eliminarAnimal
-} from "../dal/animal.js";
+} from "../DAL/animal.js";
 
 const router = express.Router();
 

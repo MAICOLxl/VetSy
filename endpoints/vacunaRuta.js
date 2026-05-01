@@ -4,7 +4,7 @@ import {
   obtenerVacunas,
   actualizarVacuna,
   eliminarVacuna
-} from "../dal/vacuna.js";
+} from "../DAL/vacuna.js";
 
 const router = express.Router();
 

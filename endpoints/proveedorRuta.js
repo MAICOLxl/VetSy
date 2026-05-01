@@ -4,7 +4,7 @@ import {
   obtenerProveedores,
   actualizarProveedor,
   eliminarProveedor
-} from "../dal/proveedor.js";
+} from "../DAL/proveedor.js";
 
 const router = express.Router();
 

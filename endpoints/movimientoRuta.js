@@ -2,7 +2,7 @@ import express from "express";
 import {
   crearMovimiento,
   obtenerMovimientos
-} from "../dal/movimiento.js";
+} from "../DAL/movimiento.js";
 
 const router = express.Router();
 
