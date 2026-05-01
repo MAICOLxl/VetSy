@@ -2,7 +2,7 @@ import { actualizarCliente } from "../DAL/cliente.js";
 
 async function testUpdate() {
   try {
-    const id = 1; // ⚠️ cambia este ID por uno que exista
+    const id = 1; // cambiar id por uno que exista obvio
 
     const resultado = await actualizarCliente(id, {
       nombre: "Ana Actualizada",
