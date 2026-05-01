@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Animales</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/reset.css">
+</head>
+
+<body>
+
+<!-- 🔐 Protección -->
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) window.location.href = "../../login.html";
+</script>
+
+<!-- 🔝 HEADER -->
+<header class="top-menu">
+    <h1>Veterinaria</h1>
+    <nav>
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- 📂 MENÚ LATERAL -->
+    <aside class="sidebar">
+        <h3>Registrar Animales</h3>
+        <ul>
+            <li><a href="/pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
+            <li><a href="Animales.html">Registrar Animales</a></li>
+            <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
+            <li><a href="#">Lista de Clientes</a></li>
+        </ul>
+    </aside>
+
+    <!-- 📄 CONTENIDO -->
+    <main class="contenido">
+
+        <h2>Registrar Animal</h2>
+
+        <form id="formAnimal">
+
+          <input type="number" id="idCliente" placeholder="ID Cliente" required><br><br>
+
+          <input type="text" id="nombre" placeholder="Nombre del animal" required><br><br>
+
+          <input type="date" id="fechaNacimiento"><br><br>
+
+          <input type="text" id="raza" placeholder="Raza"><br><br>
+
+          <select id="genero" required>
+            <option value="">Seleccione género</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select><br><br>
+
+          <button type="submit">Guardar Animal</button>
+
+        </form>
+
+        <hr>
+
+        <h2>Lista de Animales</h2>
+
+        <table border="1">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Género</th>
+          <th>Dueño</th>
+          <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody id="tablaAnimales"></tbody>
+        </table>
+
+    </main>
+
+</div>
+
+<script src="/Js/animales.js"></script>
+
+</body>
+</html>
