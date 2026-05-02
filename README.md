@@ -1,5 +1,7 @@
 # VetSy
 VetSy es un programa web para la gestion de veterinarias.
+Para usar la base de datos utilicen la siguiente API que ya esta configurada y alojada en un servidor:
+
 Conectarse a la API: https://vetsy-production.up.railway.app
 
 ejemplo se uso con la tabla clientes:
