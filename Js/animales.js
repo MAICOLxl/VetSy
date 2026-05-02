@@ -68,4 +68,10 @@ async function eliminarAnimal(id) {
 }
 
 // 🚀 Inicial
+<<<<<<< Updated upstream
 cargarAnimales();
+=======
+cargarAnimales();
+
+
+>>>>>>> Stashed changes
