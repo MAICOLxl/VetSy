@@ -44,6 +44,7 @@ if (!user) window.location.href = "../../login.html";
 
         <h2>Registrar Cliente</h2>
 
+        <!-- 🔹 FORMULARIO CREAR -->
         <form id="formCliente">
             <input type="text" id="nombre" placeholder="Nombre" required><br><br>
             <input type="text" id="telefono" placeholder="Teléfono" required><br><br>
@@ -55,6 +56,8 @@ if (!user) window.location.href = "../../login.html";
         <hr>
 
         <h2>Lista de Clientes</h2>
+
+        <button onclick="obtenerClientes()">Actualizar lista</button>
 
         <table border="1">
             <thead>
@@ -73,7 +76,18 @@ if (!user) window.location.href = "../../login.html";
 
 </div>
 
-<script src="/endpoints/clienteRuta.js"></script>
+<!-- 🔥 JS EXTERNO (IMPORTANTE) -->
+<script src="/Js/clientes.js"></script>
+
+<!-- 🔥 CONTROL DEL FORMULARIO -->
+<script>
+document.getElementById("formCliente").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    await crearCliente();
+    document.getElementById("formCliente").reset();
+});
+</script>
 
 </body>
 </html>
