@@ -9,13 +9,11 @@
 
 <body>
 
-<!-- 🔐 Protección -->
 <script>
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) window.location.href = "../../login.html";
 </script>
 
-<!-- 🔝 HEADER -->
 <header class="top-menu">
     <h1>Veterinaria</h1>
     <nav>
@@ -28,30 +26,57 @@ if (!user) window.location.href = "../../login.html";
 
 <div class="container">
 
-    <!-- 📂 MENÚ LATERAL -->
     <aside class="sidebar">
-        <h3>Registrar Cliente</h3>
+        <h3>Menú</h3>
         <ul>
             <li><a href="Clientes.html">Registrar Clientes</a></li>
             <li><a href="/Pages/Area Medica/Animales.html">Registrar Animales</a></li>
             <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="#">Lista de Clientes</a></li>
         </ul>
     </aside>
 
-    <!-- 📄 CONTENIDO -->
     <main class="contenido">
 
         <h2>Registrar Cliente</h2>
 
-        <!-- 🔹 FORMULARIO CREAR -->
         <form id="formCliente">
             <input type="text" id="nombre" placeholder="Nombre" required><br><br>
             <input type="text" id="telefono" placeholder="Teléfono" required><br><br>
             <input type="email" id="email" placeholder="Email"><br><br>
             <input type="text" id="direccion" placeholder="Dirección"><br><br>
+
             <button type="submit">Guardar Cliente</button>
         </form>
+
+        <hr>
+
+        <h2>Editar Cliente</h2>
+
+        <!-- 🔎 BUSCADOR -->
+        <input type="text"
+               id="buscarEditar"
+               placeholder="Buscar cliente..."
+               oninput="buscarClienteEditar(this.value)"
+               autocomplete="off">
+
+        <div id="sugerenciasEditar" class="sugerencias"></div>
+
+        <!-- 🟡 FORM EDITAR OCULTO -->
+        <div id="panelEditar" style="display:none;">
+            
+            <br>
+
+            <input type="hidden" id="idActualizar">
+
+            <input type="text" id="nombreUpd" placeholder="Nombre"><br><br>
+            <input type="text" id="telefonoUpd" placeholder="Teléfono"><br><br>
+            <input type="email" id="emailUpd" placeholder="Email"><br><br>
+            <input type="text" id="direccionUpd" placeholder="Dirección"><br><br>
+
+            <button onclick="actualizarCliente()">Actualizar Cliente</button>
+            <button onclick="cerrarEditar()" type="button">Cerrar</button>
+
+        </div>
 
         <hr>
 
@@ -76,14 +101,11 @@ if (!user) window.location.href = "../../login.html";
 
 </div>
 
-<!-- 🔥 JS EXTERNO (IMPORTANTE) -->
 <script src="/Js/clientes.js"></script>
 
-<!-- 🔥 CONTROL DEL FORMULARIO -->
 <script>
 document.getElementById("formCliente").addEventListener("submit", async (e) => {
     e.preventDefault();
-
     await crearCliente();
     document.getElementById("formCliente").reset();
 });

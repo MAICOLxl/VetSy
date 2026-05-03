@@ -9,13 +9,11 @@
 
 <body>
 
-<!-- 🔐 Protección -->
 <script>
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) window.location.href = "../../login.html";
 </script>
 
-<!-- 🔝 HEADER -->
 <header class="top-menu">
     <h1>Veterinaria</h1>
     <nav>
@@ -28,18 +26,15 @@ if (!user) window.location.href = "../../login.html";
 
 <div class="container">
 
-    <!-- 📂 MENÚ LATERAL -->
     <aside class="sidebar">
-        <h3>Registrar Animales</h3>
+        <h3>Animales</h3>
         <ul>
             <li><a href="/pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
             <li><a href="Animales.html">Registrar Animales</a></li>
             <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="#">Lista de Clientes</a></li>
         </ul>
     </aside>
 
-    <!-- 📄 CONTENIDO -->
     <main class="contenido">
 
         <h2>Registrar Animal</h2>
@@ -63,6 +58,56 @@ if (!user) window.location.href = "../../login.html";
           <button type="submit">Guardar Animal</button>
 
         </form>
+
+        <hr>
+
+        <h2>Editar Animal</h2>
+
+        
+
+
+        <!-- 🔎 BUSCADOR -->
+        <input type="text"
+               id="buscarAnimal"
+               placeholder="Buscar animal..."
+               oninput="buscarAnimalEditar(this.value)"
+               autocomplete="off">
+
+        <div id="sugerenciasAnimales" class="sugerencias"></div>
+
+        <h3>-------------------------------</h3>
+
+        <!-- 🟡 EDITOR OCULTO -->
+        <div id="panelAnimal" style="display:none;">
+
+            
+            <h3>id</h3>
+
+            <input type="hidden" id="idAnimal">
+
+            <input type="number" id="idClienteUpd" placeholder="ID Cliente"><br><br>
+
+            <h3>Nombre</h3>
+
+            <input type="text" id="nombreUpd" placeholder="Nombre animal"><br><br>
+
+            <h3>fecha</h3>
+
+            <input type="date" id="fechaUpd"><br><br>
+            <h3>Raza</h3>
+
+            <input type="text" id="razaUpd" placeholder="Raza"><br><br>
+            <h3>genero</h3>
+
+            <select id="generoUpd">
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select><br><br>
+
+            <button onclick="actualizarAnimal()">Actualizar</button>
+            <button onclick="cerrarAnimal()" type="button">Cerrar</button>
+
+        </div>
 
         <hr>
 

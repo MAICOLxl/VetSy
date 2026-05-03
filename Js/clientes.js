@@ -1,110 +1,145 @@
 const BASE_URL = "https://vetsy-production.up.railway.app";
 
+let clientesCache = [];
+
 /* =========================
-   🔹 OBTENER CLIENTES (Y RENDER EN TABLA)
+   OBTENER CLIENTES
 ========================= */
 async function obtenerClientes() {
-  try {
-    const res = await fetch(`${BASE_URL}/clientes`);
-    const data = await res.json();
+  const res = await fetch(`${BASE_URL}/clientes`);
+  const data = await res.json();
 
-    const tabla = document.getElementById("tablaClientes");
+  clientesCache = data;
 
-    tabla.innerHTML = data.map(cliente => `
-      <tr>
-        <td>${cliente.id}</td>
-        <td>${cliente.nombre}</td>
-        <td>${cliente.telefono}</td>
-        <td>${cliente.email || ""}</td>
-        <td>
-          <button onclick="eliminarCliente(${cliente.id})">Eliminar</button>
-        </td>
-      </tr>
-    `).join("");
-
-  } catch (error) {
-    console.error("Error al obtener clientes:", error);
-  }
+  document.getElementById("tablaClientes").innerHTML = data.map(c => `
+    <tr>
+      <td>${c.idCliente}</td>
+      <td>${c.nombre}</td>
+      <td>${c.telefono}</td>
+      <td>${c.email || ""}</td>
+      <td>
+        <button onclick="cargarEnEditar(${c.idCliente})">Editar</button>
+        <button onclick="eliminarCliente(${c.idCliente})">Eliminar</button>
+      </td>
+    </tr>
+  `).join("");
 }
 
 /* =========================
-   🔹 CREAR CLIENTE
+   BUSCADOR SOLO EDITAR
+========================= */
+function buscarClienteEditar(texto) {
+  const box = document.getElementById("sugerenciasEditar");
+
+  if (!texto) {
+    box.innerHTML = "";
+    return;
+  }
+
+  const filtrados = clientesCache.filter(c =>
+    c.nombre.toLowerCase().includes(texto.toLowerCase())
+  );
+
+  box.innerHTML = filtrados.map(c => `
+    <div class="sugerencia" onclick="cargarEnEditar(${c.idCliente})">
+      ${c.nombre}
+    </div>
+  `).join("");
+}
+
+/* =========================
+   CARGAR EN FORM EDITAR
+========================= */
+function cargarEnEditar(id) {
+  const c = clientesCache.find(x => x.idCliente === id);
+
+  document.getElementById("idActualizar").value = c.idCliente;
+  document.getElementById("nombreUpd").value = c.nombre;
+  document.getElementById("telefonoUpd").value = c.telefono;
+  document.getElementById("emailUpd").value = c.email;
+  document.getElementById("direccionUpd").value = c.direccion;
+
+  document.getElementById("buscarEditar").value = c.nombre;
+  document.getElementById("sugerenciasEditar").innerHTML = "";
+}
+
+/* =========================
+   CREAR
 ========================= */
 async function crearCliente() {
   const cliente = {
-    nombre: document.getElementById("nombre").value,
-    telefono: document.getElementById("telefono").value,
-    email: document.getElementById("email").value,
-    direccion: document.getElementById("direccion").value
+    nombre: nombre.value,
+    telefono: telefono.value,
+    email: email.value,
+    direccion: direccion.value
   };
 
-  try {
-    await fetch(`${BASE_URL}/clientes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(cliente)
-    });
+  await fetch(`${BASE_URL}/clientes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cliente)
+  });
 
-    alert("Cliente creado ✅");
-    obtenerClientes();
-
-  } catch (error) {
-    console.error("Error al crear cliente:", error);
-  }
+  obtenerClientes();
 }
 
 /* =========================
-   🔹 ACTUALIZAR CLIENTE
+   ACTUALIZAR
 ========================= */
 async function actualizarCliente() {
-  const id = document.getElementById("idActualizar").value;
+  const id = idActualizar.value;
 
-  const cliente = {
-    nombre: document.getElementById("nombreUpd").value,
-    telefono: document.getElementById("telefonoUpd").value,
-    email: document.getElementById("emailUpd").value,
-    direccion: document.getElementById("direccionUpd").value
-  };
+  await fetch(`${BASE_URL}/clientes/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      nombre: nombreUpd.value,
+      telefono: telefonoUpd.value,
+      email: emailUpd.value,
+      direccion: direccionUpd.value
+    })
+  });
 
-  try {
-    await fetch(`${BASE_URL}/clientes/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(cliente)
-    });
-
-    alert("Cliente actualizado 🔄");
-    obtenerClientes();
-
-  } catch (error) {
-    console.error("Error al actualizar cliente:", error);
-  }
+  obtenerClientes();
 }
 
 /* =========================
-   🔹 ELIMINAR CLIENTE
+   ELIMINAR
 ========================= */
 async function eliminarCliente(id) {
-  try {
-    await fetch(`${BASE_URL}/clientes/${id}`, {
-      method: "DELETE"
-    });
+  await fetch(`${BASE_URL}/clientes/${id}`, {
+    method: "DELETE"
+  });
 
-    alert("Cliente eliminado ❌");
-    obtenerClientes();
-
-  } catch (error) {
-    console.error("Error al eliminar cliente:", error);
-  }
+  obtenerClientes();
 }
 
 /* =========================
-   🔹 AUTO CARGAR LISTA
+   INIT
 ========================= */
-document.addEventListener("DOMContentLoaded", () => {
-  obtenerClientes();
-});
+document.addEventListener("DOMContentLoaded", obtenerClientes);
+
+function cargarEnEditar(id) {
+  const c = clientesCache.find(x => x.idCliente === id);
+
+  document.getElementById("idActualizar").value = c.idCliente;
+  document.getElementById("nombreUpd").value = c.nombre;
+  document.getElementById("telefonoUpd").value = c.telefono;
+  document.getElementById("emailUpd").value = c.email;
+  document.getElementById("direccionUpd").value = c.direccion;
+
+  document.getElementById("panelEditar").style.display = "block";
+  document.getElementById("sugerenciasEditar").innerHTML = "";
+  document.getElementById("buscarEditar").value = c.nombre;
+}
+
+/* 🔴 cerrar formulario */
+function cerrarEditar() {
+  document.getElementById("panelEditar").style.display = "none";
+
+  document.getElementById("idActualizar").value = "";
+  document.getElementById("nombreUpd").value = "";
+  document.getElementById("telefonoUpd").value = "";
+  document.getElementById("emailUpd").value = "";
+  document.getElementById("direccionUpd").value = "";
+}

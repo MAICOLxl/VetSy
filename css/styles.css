@@ -642,3 +642,12 @@ select {
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
 }
+
+
+#panelEditar {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 8px;
+}
