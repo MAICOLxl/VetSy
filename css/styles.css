@@ -672,7 +672,7 @@ th {
   border: 1px solid #ccc;
   max-width: 300px;
   background: white;
-  position: absolute;
+  
   z-index: 999;
 }
 
