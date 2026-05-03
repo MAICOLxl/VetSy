@@ -5,17 +5,16 @@
     <title>Registro de Servicios</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/reset.css">
+    
 </head>
 
 <body>
 
-<!-- 🔐 Protección -->
 <script>
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) window.location.href = "../../login.html";
 </script>
 
-<!-- 🔝 HEADER -->
 <header class="top-menu">
     <h1>Veterinaria</h1>
     <nav>
@@ -28,26 +27,23 @@ if (!user) window.location.href = "../../login.html";
 
 <div class="container">
 
-    <!-- 📂 MENÚ LATERAL -->
     <aside class="sidebar">
-        <h3>Registrar Servicios</h3>
+        <h3>Servicios</h3>
         <ul>
             <li><a href="/Pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
-            <li><a href="/Pages/Area Medica/Animales.html">Registrar Animales</a></li>
+            <li><a href="/Pages/Area Medica/Animales.html">🐾 Registrar Animales</a></li>
             <li><a href="Servicios.html">Registrar Servicios</a></li>
-            <li><a href="#">Lista de Clientes</a></li>
+            <li><a href="Historial .html">📊 Historial de Clientes</a></li>
         </ul>
     </aside>
 
-    <!-- 📄 CONTENIDO -->
     <main class="contenido">
 
-        <h2>💉 Registrar Servicio</h2>
+        <h2>Registrar Servicio</h2>
 
         <form id="formServicio">
 
             <input type="number" id="idAnimal" placeholder="ID Animal" required>
-
             <input type="number" id="idUsuario" placeholder="ID Usuario" required>
 
             <select id="tipoServicio" required>
@@ -59,9 +55,7 @@ if (!user) window.location.href = "../../login.html";
             </select>
 
             <input type="text" id="descripcion" placeholder="Descripción">
-
             <input type="date" id="fechaServicio" required>
-
             <input type="number" id="precio" placeholder="Precio" required>
 
             <button type="submit">Guardar Servicio</button>
@@ -70,16 +64,57 @@ if (!user) window.location.href = "../../login.html";
 
         <hr>
 
-        <h2>📊 Servicios Registrados</h2>
+        <h2>Editar Servicio</h2>
 
-        <table border="1">
+        <!-- 🔎 BUSCADOR -->
+        <input type="text"
+               id="buscarServicio"
+               placeholder="Buscar servicio..."
+               oninput="buscarServicioEditar(this.value)"
+               autocomplete="off">
+
+        <div id="sugerenciasServicios" class="sugerencias"></div>
+
+        <!-- 🟡 EDITOR OCULTO -->
+        <div id="panelServicio" style="display:none;">
+
+            <input type="hidden" id="idServicio">
+
+            <input type="number" id="idAnimalUpd" placeholder="ID Animal">
+            <input type="number" id="idUsuarioUpd" placeholder="ID Usuario">
+
+            <select id="tipoServicioUpd">
+                <option value="Consulta">Consulta</option>
+                <option value="Vacuna">Vacuna</option>
+                <option value="Cirugia">Cirugia</option>
+                <option value="Desparasitacion">Desparasitacion</option>
+            </select>
+
+            <input type="text" id="descripcionUpd" placeholder="Descripción">
+            <input type="date" id="fechaServicioUpd">
+            <input type="number" id="precioUpd" placeholder="Precio">
+
+            <button type="button" onclick="actualizarServicio()">Actualizar</button>
+            <button type="button" onclick="cerrarServicio()">Cerrar</button>
+
+        </div>
+
+        <hr>
+
+        <h2>Servicios Registrados</h2>
+
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Mascota</th>
+                    <th>Animal</th>
+                    <th>Dueño</th>
+                    <th>Usuario</th>
                     <th>Tipo</th>
+                    <th>Descripción</th>
                     <th>Fecha</th>
                     <th>Precio</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody id="tablaServicios"></tbody>
@@ -89,7 +124,7 @@ if (!user) window.location.href = "../../login.html";
 
 </div>
 
-<script src=""></script>
+<script src="/Js/servicios.js"></script>
 
 </body>
 </html>

@@ -651,3 +651,43 @@ select {
   margin-top: 10px;
   border-radius: 8px;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #f4f4f4;
+}
+
+.sugerencias {
+  border: 1px solid #ccc;
+  max-width: 300px;
+  background: white;
+  position: absolute;
+  z-index: 999;
+}
+
+.sugerencia {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sugerencia:hover {
+  background: #eee;
+}
+
+#panelServicio {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+}

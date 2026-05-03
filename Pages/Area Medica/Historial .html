@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Clientes</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/reset.css">
+
+</head>
+
+<body>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) window.location.href = "../../login.html";
+</script>
+
+<header class="top-menu">
+    <h1>Veterinaria</h1>
+    <nav>
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Animales</h3>
+        <ul>
+            <li><a href="/pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
+            <li><a href="Animales.html">🐾 Registrar Animales</a></li>
+            <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
+            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
+        </ul>
+    </aside>
+
+    <div class="contenido">
+
+        <h2>📊 Historial de Clientes</h2>
+
+        <input type="text" id="buscador" placeholder="Buscar por nombre o ID...">
+
+        <div class="historial-wrapper">
+            <table class="historial-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th># Animales</th>
+                        <th>Animales</th>
+                        <th>Tipos de Consultas</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaHistorial"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/Js/historialClientes.js"></script>
+
+</body>
+</html>
