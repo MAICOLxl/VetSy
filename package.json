@@ -1,0 +1,30 @@
+{
+  "name": "vetsy",
+  "version": "1.0.0",
+  "description": "VetSy es un programa web para la gestion de veterinarias.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAICOLxl/VetSy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MAICOLxl/VetSy/issues"
+  },
+  "homepage": "https://github.com/MAICOLxl/VetSy#readme",
+  "devDependencies": {
+    "eslint": "^10.2.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.3"
+  }
+}
