@@ -1,5 +1,5 @@
 /* ============================================================
-   VetSy — Variables y Reset
+   VetSy — variables de entorno
    ============================================================ */
 :root {
   --header-h: 60px;
@@ -9,8 +9,6 @@
   --bg: #f0f4f8;
   --bg-card: #ffffff;
   --primary: #1b6ca8;
-  --primary-dark: #145385;
-  --primary-light: #e1f0fa;
   --text: #2d3436;
   --text-muted: #636e72;
   --border: #e2e8f0;
@@ -20,7 +18,8 @@
   --t: 0.3s;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+/* ── Layout base ─────────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
 body {
   padding-top: var(--header-h);
@@ -28,7 +27,6 @@ body {
   color: var(--text);
 }
 
-/* ── Layout ── */
 .main-container {
   display: flex;
   min-height: calc(100vh - var(--header-h));
@@ -55,35 +53,25 @@ body {
   width: auto;
   border-radius: 6px;
   object-fit: contain;
-  display: block;
 }
 
 .top-menu h1 {
   font-size: 20px;
-  font-weight: 700;
   color: #fff;
-  flex-grow: 1;
   margin-left: 15px;
+  flex-grow: 1;
 }
 
-.top-menu nav {
-  display: flex;
-  gap: 10px;
-}
+.top-menu nav { display: flex; gap: 8px; }
 
 .top-menu nav a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.7);
+  padding: 8px 12px;
   text-decoration: none;
   font-size: 14px;
-  padding: 8px 12px;
-  border-radius: var(--r-md);
-  transition: var(--t);
 }
 
-.top-menu nav a.active, .top-menu nav a:hover {
-  background: var(--primary);
-  color: #fff;
-}
+.top-menu nav a.active { background: var(--primary); color: #fff; border-radius: var(--r-md); }
 
 /* ═══════════════════════════════════════════════════════════════
    SIDEBAR
@@ -95,18 +83,15 @@ body {
   position: fixed;
   top: var(--header-h);
   left: 0; bottom: 0;
-  z-index: 90;
 }
 
 .sidebar h3 {
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.3);
   padding: 0 20px;
   margin-bottom: 15px;
 }
-
-.sidebar ul { list-style: none; }
 
 .sidebar ul li a {
   display: flex;
@@ -115,33 +100,23 @@ body {
   padding: 12px 20px;
   color: var(--sidebar-text);
   text-decoration: none;
-  font-size: 14px;
   transition: var(--t);
 }
 
-.sidebar ul li a:hover, .sidebar ul li a.active {
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  border-left: 4px solid var(--primary);
-}
+.sidebar ul li a.active { background: rgba(255,255,255,0.05); color: #fff; border-left: 4px solid var(--primary); }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONTENIDO
+   CONTENIDO Y DASHBOARD
 ═══════════════════════════════════════════════════════════════ */
 .contenido {
   margin-left: var(--sidebar-w);
   flex: 1;
   padding: 30px;
-  width: 100%;
 }
 
-.page-title { font-size: 24px; margin-bottom: 5px; }
-.page-subtitle { color: var(--text-muted); margin-bottom: 25px; }
-
-/* Dashboard Stats */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
 }
@@ -151,42 +126,26 @@ body {
   padding: 20px;
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   box-shadow: var(--shadow-sm);
 }
 
-.stat-icon { font-size: 30px; margin-bottom: 10px; }
-.stat-value { font-size: 28px; font-weight: 700; color: var(--primary); }
-.stat-label { font-size: 14px; color: var(--text-muted); }
-
-.info {
-  background: #fff;
-  padding: 20px;
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  margin-top: 20px;
-}
+.stat-value { font-size: 26px; font-weight: 700; color: var(--primary); display: block; }
+.stat-label { font-size: 13px; color: var(--text-muted); }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE (Para tu Celular)[span_1](start_span)[span_1](end_span)
+   RESPONSIVE (OPTIMIZADO PARA TU CELULAR)[span_5](start_span)[span_5](end_span)
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .sidebar { display: none; } /* Ocultar sidebar en móvil */
-  
-  .contenido { 
-    margin-left: 0; 
-    padding: 20px 15px; 
-  }
-
-  .top-menu nav { display: none; } /* Ocultar links arriba para que no choquen */
+  .sidebar { display: none; }
+  .contenido { margin-left: 0; padding: 20px 15px; }
+  .top-menu nav { display: none; }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr; /* Dos columnas en el celular */
+    grid-template-columns: 1fr 1fr; /* Dos columnas en móvil */
     gap: 12px;
   }
 
   .stat-card { padding: 15px; }
-  .stat-value { font-size: 22px; }
+  .stat-value { font-size: 20px; }
 }
