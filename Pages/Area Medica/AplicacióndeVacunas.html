@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Aplicación de Vacunas</title>
+
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/reset.css">
+</head>
+
+<body>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) window.location.href = "../../login.html";
+</script>
+
+<!-- HEADER -->
+<header class="top-menu">
+    <h1>Veterinaria</h1>
+    <nav>
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h3>Área Médica</h3>
+        <ul>
+            <li><a href="/pages/Area Medica/Clientes.html">Clientes</a></li>
+            <li><a href="/pages/Area Medica/Animales.html">Animales</a></li>
+            <li><a href="/pages/Area Medica/Servicios.html">Servicios</a></li>
+            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
+            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
+            <li><a href="/pages/Area Medica/AplicarVacunas.html">💉 Aplicar Vacunas</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+        <h2>💉 Aplicación de Vacunas</h2>
+
+        <!-- FORMULARIO -->
+        <section class="form-card">
+
+            <h3>Registrar Vacunación</h3>
+
+            <div class="form-grid">
+
+                <!-- ANIMAL -->
+                <div class="form-group">
+                    <label>Animal</label>
+                    <select id="animalSelect">
+                        <option value="">Seleccione un animal</option>
+                    </select>
+                </div>
+
+                <!-- VACUNA -->
+                <div class="form-group">
+                    <label>Vacuna</label>
+                    <select id="vacunaSelect">
+                        <option value="">Seleccione una vacuna</option>
+                    </select>
+                </div>
+
+                <!-- FECHA VACUNA -->
+                <div class="form-group">
+                    <label>Fecha de Aplicación</label>
+                    <input type="date" id="fechaVacuna">
+                </div>
+
+                <!-- FECHA PROXIMA -->
+                <div class="form-group">
+                    <label>Próxima Vacuna</label>
+                    <input type="date" id="fechaProximaVacuna">
+                </div>
+
+            </div>
+
+            <button id="btnAplicar" class="btn-primary">
+                ➕ Aplicar Vacuna
+            </button>
+
+        </section>
+
+        <!-- BUSCADOR -->
+        <section class="search-card">
+            <h3>Buscar Aplicaciones</h3>
+
+            <input 
+                type="text" 
+                id="buscarVacuna" 
+                placeholder="Buscar por animal, vacuna o ID..."
+            >
+        </section>
+
+        <!-- TABLA -->
+        <section class="table-card">
+
+            <h3>Historial de Vacunación</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Animal</th>
+                        <th>Vacuna</th>
+                        <th>Fecha Aplicación</th>
+                        <th>Próxima</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody id="tablaVacunas">
+                    <!-- JS -->
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- JS -->
+<script src="/js/aplicarVacunas.js"></script>
+
+</body>
+</html>
