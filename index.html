@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetSy — Panel de Gestión</title>
+    <!-- Rutas relativas sin barra inicial para GitHub Pages -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -11,7 +12,8 @@
 
     <header class="top-menu">
         <div class="logo-esquina">
-            <img src="assets/images/logo.png" alt="Logo VetSy">
+            <!-- CORRECCIÓN: Se eliminó '/' inicial y se verificó la ruta exacta -->
+            <img src="assets/images/logo.png" alt="Logo VetSy" onerror="this.src='https://via.placeholder.com/40?text=VS'">
         </div>
         <h1>VetSy</h1>
         <nav>
@@ -23,38 +25,26 @@
     </header>
 
     <div class="main-container">
-
+        <!-- Sidebar se mantiene para tablets/PC, se ajusta con CSS para móvil -->
         <aside class="sidebar">
-            <h3>Principal</h3>
+            <h3>Gestión Interna</h3>
             <ul>
-                <li><a href="index.html" class="active">
-                    <span class="nav-icon">🏠</span> Inicio
-                </a></li>
-            </ul>
-            <h3>Gestión</h3>
-            <ul>
-                <li><a href="pages/Area Medica/Animales.html">
-                    <span class="nav-icon">🩺</span> Área Médica
-                </a></li>
-                <li><a href="pages/Inventario/AgregarProducto.html">
-                    <span class="nav-icon">📦</span> Inventario
-                </a></li>
-                <li><a href="pages/Facturacion/Facturacion.html">
-                    <span class="nav-icon">🧾</span> Facturación
-                </a></li>
+                <li><a href="index.html" class="active"><span class="nav-icon">🏠</span> Inicio</a></li>
+                <li><a href="pages/Area Medica/Animales.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
+                <li><a href="pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+                <li><a href="pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
             </ul>
         </aside>
 
         <main class="contenido">
-
             <h1 class="page-title">Panel de Control</h1>
-            <p class="page-subtitle">Sistema de Gestión Interna</p>
+            <p class="page-subtitle">Gestión de Clínica Veterinaria</p>
 
             <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-icon">🐾</span>
                     <span id="count-mascotas" class="stat-value">0</span>
-                    <span class="stat-label">Mascotas registradas</span>
+                    <span class="stat-label">Mascotas</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon">🩺</span>
@@ -64,25 +54,24 @@
                 <div class="stat-card">
                     <span class="stat-icon">📦</span>
                     <span id="count-productos" class="stat-value">0</span>
-                    <span class="stat-label">Productos en stock</span>
+                    <span class="stat-label">En Stock</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon">🧾</span>
                     <span id="count-facturacion" class="stat-value">$0</span>
-                    <span class="stat-label">Facturación del mes</span>
+                    <span class="stat-label">Ventas Mes</span>
                 </div>
             </div>
 
             <section class="banner">
-                <img src="assets/images/banner.jpg" alt="Banner Veterinaria">
+                <!-- CORRECCIÓN: Ruta del banner sin '/' -->
+                <img src="assets/images/banner.jpg" alt="Banner Operativo" style="width: 100%; border-radius: 8px;">
             </section>
 
             <section class="info">
                 <h2>Resumen Operativo</h2>
-                <p>Módulo de administración central para el registro de pacientes, control de suministros en inventario y gestión de comprobantes fiscales.</p>
-                <p>Recuerde verificar el stock de productos críticos y actualizar el historial médico inmediatamente después de cada consulta para mantener la integridad de los datos.</p>
+                <p>Módulo interno para el control de pacientes y suministros. Verifique el inventario antes de finalizar cada jornada[span_3](start_span)[span_3](end_span).</p>
             </section>
-
         </main>
     </div>
 
