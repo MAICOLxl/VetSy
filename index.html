@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetSy — Panel de Gestión</title>
-    <!-- Rutas relativas sin barra inicial para GitHub Pages -->
-    <link rel="stylesheet" href="css/reset.css">
+    <!-- Rutas relativas corregidas para GitHub Pages -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <header class="top-menu">
         <div class="logo-esquina">
-            <!-- CORRECCIÓN: Se eliminó '/' inicial y se verificó la ruta exacta -->
+            <!-- El logo ahora tiene un respaldo por si no encuentra la imagen -->
             <img src="assets/images/logo.png" alt="Logo VetSy" onerror="this.src='https://via.placeholder.com/40?text=VS'">
         </div>
         <h1>VetSy</h1>
@@ -25,7 +24,6 @@
     </header>
 
     <div class="main-container">
-        <!-- Sidebar se mantiene para tablets/PC, se ajusta con CSS para móvil -->
         <aside class="sidebar">
             <h3>Gestión Interna</h3>
             <ul>
@@ -64,7 +62,6 @@
             </div>
 
             <section class="banner">
-                <!-- CORRECCIÓN: Ruta del banner sin '/' -->
                 <img src="assets/images/banner.jpg" alt="Banner Operativo" style="width: 100%; border-radius: 8px;">
             </section>
 
