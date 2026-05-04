@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetSy — Inicio</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>VetSy — Panel de Gestión</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <header class="top-menu">
         <div class="logo-esquina">
-            <img src="/assets/images/logo.png" alt="Logo VetSy">
+            <img src="assets/images/logo.png" alt="Logo VetSy">
         </div>
         <h1>VetSy</h1>
         <nav>
-            <a href="/index.html" class="active">Inicio</a>
-            <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-            <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="pages/Area Medica/Animales.html">Área Médica</a>
+            <a href="pages/Inventario/AgregarProducto.html">Inventario</a>
+            <a href="pages/Facturacion/Facturacion.html">Facturación</a>
         </nav>
     </header>
 
-    <div class="">
+    <div class="main-container">
 
         <aside class="sidebar">
             <h3>Principal</h3>
             <ul>
-                <li><a href="/index.html" class="active">
+                <li><a href="index.html" class="active">
                     <span class="nav-icon">🏠</span> Inicio
                 </a></li>
             </ul>
             <h3>Gestión</h3>
             <ul>
-                <li><a href="/pages/Area Medica/Animales.html">
+                <li><a href="pages/Area Medica/Animales.html">
                     <span class="nav-icon">🩺</span> Área Médica
                 </a></li>
-                <li><a href="/pages/Inventario/AgregarProducto.html">
+                <li><a href="pages/Inventario/AgregarProducto.html">
                     <span class="nav-icon">📦</span> Inventario
                 </a></li>
-                <li><a href="/pages/Facturacion/Facturacion.html">
+                <li><a href="pages/Facturacion/Facturacion.html">
                     <span class="nav-icon">🧾</span> Facturación
                 </a></li>
             </ul>
@@ -47,50 +47,45 @@
 
         <main class="contenido">
 
-            <h1 class="page-title">Panel Principal</h1>
-            <p class="page-subtitle">Bienvenido al sistema de gestión VetSy</p>
+            <h1 class="page-title">Panel de Control</h1>
+            <p class="page-subtitle">Sistema de Gestión Interna</p>
 
             <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-icon">🐾</span>
-                    <span class="stat-value">0</span>
+                    <span id="count-mascotas" class="stat-value">0</span>
                     <span class="stat-label">Mascotas registradas</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon">🩺</span>
-                    <span class="stat-value">0</span>
+                    <span id="count-consultas" class="stat-value">0</span>
                     <span class="stat-label">Consultas hoy</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon">📦</span>
-                    <span class="stat-value">0</span>
+                    <span id="count-productos" class="stat-value">0</span>
                     <span class="stat-label">Productos en stock</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon">🧾</span>
-                    <span class="stat-value">$0</span>
+                    <span id="count-facturacion" class="stat-value">$0</span>
                     <span class="stat-label">Facturación del mes</span>
                 </div>
             </div>
 
             <section class="banner">
-                <img src="/assets/images/banner.jpg" alt="Banner Veterinaria">
-            </section>
-
-            <section class="logo-central">
-                <img src="/assets/images/logo.png" alt="Logo VetSy">
-                <h2>Bienvenido a nuestra Clínica</h2>
+                <img src="assets/images/banner.jpg" alt="Banner Veterinaria">
             </section>
 
             <section class="info">
-                <h2>Sobre Nuestra Aplicación</h2>
-                <p>Esta aplicación está diseñada para facilitar la gestión completa de una clínica veterinaria. Permite registrar los datos de las mascotas, llevar control de vacunas, historial médico y seguimiento de tratamientos.</p>
-                <p>También integra módulos administrativos como inventario y contabilidad, ayudando a mantener una organización eficiente dentro del centro veterinario.</p>
-                <p>Nuestro objetivo es mejorar la calidad del servicio, optimizar el tiempo del personal y garantizar el bienestar de cada mascota atendida.</p>
+                <h2>Resumen Operativo</h2>
+                <p>Módulo de administración central para el registro de pacientes, control de suministros en inventario y gestión de comprobantes fiscales.</p>
+                <p>Recuerde verificar el stock de productos críticos y actualizar el historial médico inmediatamente después de cada consulta para mantener la integridad de los datos.</p>
             </section>
 
         </main>
     </div>
 
+    <script src="Js/dashboard.js"></script>
 </body>
 </html>
