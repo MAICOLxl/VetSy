@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Producto — VetSy</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Producto — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<script>
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
+</script>
 
-    <header class="top-menu">
-        <div class="logo-esquina">
-            <img src="/assets/images/logo.png" alt="Logo VetSy">
+<header class="top-menu">
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html" class="active">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <h3>Inventario</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html" class="active"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+      <li><a href="/Pages/Inventario/ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+    </ul>
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+    </ul>
+  </aside>
+
+  <main class="contenido">
+    <h1 class="page-title">Agregar Producto</h1>
+    <p class="page-subtitle">Registra un nuevo medicamento, vacuna o accesorio</p>
+
+    <form class="f-area-medica" id="formProducto" action="/guardar-producto" method="POST">
+      <h2>Nuevo Producto</h2>
+
+      <div class="form-group">
+        <label>Nombre del Producto</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Amoxicilina 500mg" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tipo</label>
+          <select id="tipo" name="tipo">
+            <option>Medicamento</option>
+            <option>Vacuna</option>
+            <option>Accesorio</option>
+            <option>Otro</option>
+          </select>
         </div>
-        <h1>VetSy</h1>
-        <nav>
-            <a href="/index.html">Inicio</a>
-            <a href="/pages/Area Medica/FormularioAreaMedica.html">Área Médica</a>
-            <a href="/pages/Inventario/AgregarProducto.html" class="active">Inventario</a>
-            <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-        </nav>
-    </header>
+        <div class="form-group">
+          <label>Fecha de Vencimiento</label>
+          <input type="date" id="vencimiento" name="vencimiento">
+        </div>
+      </div>
 
-    <div class="container">
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto..."></textarea>
+      </div>
 
-        <aside class="sidebar">
-            <h3>Inventario</h3>
-            <ul>
-                <li><a href="AgregarProducto.html" class="active">
-                    <span class="nav-icon">➕</span> Agregar Producto
-                </a></li>
-                <li><a href="ListadeProductos.html">
-                    <span class="nav-icon">📋</span> Lista de Productos
-                </a></li>
-            </ul>
-        </aside>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio (RD$)</label>
+          <input type="number" id="precio" name="precio" step="0.01" placeholder="Ej: 250.00" required>
+        </div>
+        <div class="form-group">
+          <label>Cantidad en Stock</label>
+          <input type="number" id="stock" name="stock" placeholder="Ej: 50" required>
+        </div>
+      </div>
 
-        <main class="contenido">
-
-            <h1 class="page-title">Agregar Producto</h1>
-            <p class="page-subtitle">Registra un nuevo medicamento, vacuna o accesorio</p>
-
-            <form class="f2-area-medica" id="formProducto" action="/guardar-producto" method="POST">
-
-                <div class="form-group">
-                    <label for="nombre">Nombre del Producto</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Amoxicilina 500mg" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="tipo">Tipo</label>
-                        <select id="tipo" name="tipo">
-                            <option>Medicamento</option>
-                            <option>Vacuna</option>
-                            <option>Accesorio</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="vencimiento">Fecha de Vencimiento</label>
-                        <input type="date" id="vencimiento" name="vencimiento">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto..."></textarea>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="precio">Precio (RD$)</label>
-                        <input type="number" id="precio" name="precio" step="0.01" placeholder="Ej: 250.00" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="stock">Cantidad en Stock</label>
-                        <input type="number" id="stock" name="stock" placeholder="Ej: 50" required>
-                    </div>
-                </div>
-
-                <button type="submit">Guardar Producto</button>
-
-            </form>
-        </main>
-    </div>
-
+      <button type="submit" class="btn-primary">Guardar Producto</button>
+    </form>
+  </main>
+</div>
 </body>
 </html>
