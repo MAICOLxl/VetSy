@@ -1,81 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Registro de Vacunas</title>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Vacunas — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) window.location.href = "../../login.html";
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
-    <h1>Veterinaria</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html" class="active">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
 </header>
 
 <div class="container">
+  <aside class="sidebar">
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html" class="active"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-    <aside class="sidebar">
-        <h3>Registrar Vacunas</h3>
-        <ul>
-            <li><a href="/Pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
-            <li><a href="/Pages/Area Medica/Animales.html">🐾 Registrar Animales</a></li>
-            <li><a href="../Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
-            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
-            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
-        </ul>
-    </aside>
+  <main class="contenido">
+    <h1 class="page-title">Registro de Vacunas</h1>
+    <p class="page-subtitle">Administra el catálogo de vacunas disponibles</p>
 
-    <main class="contenido">
-
-        <h2>Registro de Vacunas</h2>
-
-        <!-- FORMULARIO -->
-        <div class="form-box">
-            <form id="formVacuna">
-                <input type="hidden" id="idVacuna">
-
-                <label>Nombre de la vacuna</label>
-                <input type="text" id="nombre" required>
-
-                <label>Descripción</label>
-                <textarea id="descripcion" required></textarea>
-
-                <button type="submit">Guardar</button>
-            </form>
+    <div class="form-box">
+      <h2>Nueva Vacuna</h2>
+      <form id="formVacuna">
+        <input type="hidden" id="idVacuna">
+        <div class="form-group">
+          <label>Nombre de la Vacuna</label>
+          <input type="text" id="nombre" placeholder="Ej: Rabia, Parvovirus..." required>
         </div>
-
-        <!-- TABLA -->
-        <div class="table-card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaVacunas"></tbody>
-            </table>
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea id="descripcion" placeholder="Descripción de la vacuna..." required></textarea>
         </div>
+        <button type="submit">Guardar Vacuna</button>
+      </form>
+    </div>
 
-    </main>
+    <div class="table-card" style="margin-top:24px;">
+      <div class="table-header"><h2>Vacunas Registradas</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr>
+          </thead>
+          <tbody id="tablaVacunas"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </div>
 
 <script src="/Js/vacunas.js"></script>
-
 </body>
 </html>
