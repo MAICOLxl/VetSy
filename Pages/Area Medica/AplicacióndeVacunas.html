@@ -1,135 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Aplicación de Vacunas</title>
-
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicación de Vacunas — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) window.location.href = "../../login.html";
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
 </script>
 
-<!-- HEADER -->
 <header class="top-menu">
-    <h1>Veterinaria</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html" class="active">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
 </header>
 
 <div class="container">
+  <aside class="sidebar">
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html" class="active"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-    <aside class="sidebar">
-        <h3>Aplicar Vacunas</h3>
-        <ul>
-            <li><a href="/Pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
-            <li><a href="/Pages/Area Medica/Animales.html">🐾 Registrar Animales</a></li>
-            <li><a href="../Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
-            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
-            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
-        </ul>
-    </aside>
+  <main class="contenido">
+    <h1 class="page-title">Aplicación de Vacunas</h1>
+    <p class="page-subtitle">Registra las vacunas aplicadas a cada animal</p>
 
-    <!-- CONTENIDO -->
-    <main class="contenido">
+    <div class="form-card">
+      <h2>Registrar Vacunación</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Animal</label>
+          <select id="animalSelect">
+            <option value="">Seleccione un animal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Vacuna</label>
+          <select id="vacunaSelect">
+            <option value="">Seleccione una vacuna</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fecha de Aplicación</label>
+          <input type="date" id="fechaVacuna">
+        </div>
+        <div class="form-group">
+          <label>Próxima Vacuna</label>
+          <input type="date" id="fechaProximaVacuna">
+        </div>
+      </div>
+      <button id="btnAplicar" class="btn btn-primary" style="width:100%;padding:12px;">
+        ➕ Aplicar Vacuna
+      </button>
+    </div>
 
-        <h2>💉 Aplicación de Vacunas</h2>
+    <div class="search-card">
+      <h3>Buscar Aplicaciones</h3>
+      <input type="text" id="buscarVacuna" placeholder="Buscar por animal, vacuna o ID...">
+    </div>
 
-        <!-- FORMULARIO -->
-        <section class="form-card">
-
-            <h3>Registrar Vacunación</h3>
-
-            <div class="form-grid">
-
-                <!-- ANIMAL -->
-                <div class="form-group">
-                    <label>Animal</label>
-                    <select id="animalSelect">
-                        <option value="">Seleccione un animal</option>
-                    </select>
-                </div>
-
-                <!-- VACUNA -->
-                <div class="form-group">
-                    <label>Vacuna</label>
-                    <select id="vacunaSelect">
-                        <option value="">Seleccione una vacuna</option>
-                    </select>
-                </div>
-
-                <!-- FECHA VACUNA -->
-                <div class="form-group">
-                    <label>Fecha de Aplicación</label>
-                    <input type="date" id="fechaVacuna">
-                </div>
-
-                <!-- FECHA PROXIMA -->
-                <div class="form-group">
-                    <label>Próxima Vacuna</label>
-                    <input type="date" id="fechaProximaVacuna">
-                </div>
-
-            </div>
-
-            <button id="btnAplicar" class="btn-primary">
-                ➕ Aplicar Vacuna
-            </button>
-
-        </section>
-
-        <!-- BUSCADOR -->
-        <section class="search-card">
-            <h3>Buscar Aplicaciones</h3>
-
-            <input 
-                type="text" 
-                id="buscarVacuna" 
-                placeholder="Buscar por animal, vacuna o ID..."
-            >
-        </section>
-
-        <!-- TABLA -->
-        <section class="table-card">
-
-            <h3>Historial de Vacunación</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Animal</th>
-                        <th>Vacuna</th>
-                        <th>Fecha Aplicación</th>
-                        <th>Próxima</th>
-                        
-                    </tr>
-                </thead>
-
-                <tbody id="tablaVacunas">
-                    <!-- JS -->
-                </tbody>
-
-            </table>
-
-        </section>
-
-    </main>
-
+    <div class="table-card">
+      <div class="table-header"><h2>Historial de Vacunación</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Animal</th><th>Vacuna</th>
+              <th>Fecha Aplicación</th><th>Próxima</th>
+            </tr>
+          </thead>
+          <tbody id="tablaVacunas"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </div>
 
-<!-- JS -->
 <script src="/js/aplicarVacunas.js"></script>
-
 </body>
 </html>
