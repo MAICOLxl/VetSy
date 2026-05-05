@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Historial de Clientes</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/reset.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) window.location.href = "../../login.html";
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
-    <h1>Veterinaria</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html" class="active">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
 </header>
 
 <div class="container">
+  <aside class="sidebar">
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html" class="active"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-    <aside class="sidebar">
-        <h3>Animales</h3>
-        <ul>
-            <li><a href="/pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
-            <li><a href="Animales.html">🐾 Registrar Animales</a></li>
-            <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
-            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
-            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
-        </ul>
-    </aside>
+  <main class="contenido">
+    <h1 class="page-title">Historial de Clientes</h1>
+    <p class="page-subtitle">Consulta el historial médico por cliente</p>
 
-    <div class="contenido">
-
-        <h2>📊 Historial de Clientes</h2>
-
-        <input type="text" id="buscador" placeholder="Buscar por nombre o ID...">
-
-        <div class="historial-wrapper">
-            <table class="historial-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cliente</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
-                        <th># Animales</th>
-                        <th>Animales</th>
-                        <th>Tipos de Consultas</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaHistorial"></tbody>
-            </table>
-        </div>
-
+    <div class="search-card">
+      <h3>Buscar</h3>
+      <input type="text" id="buscador" placeholder="Buscar por nombre o ID...">
     </div>
 
+    <div class="table-card">
+      <div class="table-header"><h2>Historial</h2></div>
+      <div class="historial-wrapper table-wrapper">
+        <table class="historial-table">
+          <thead>
+            <tr>
+              <th>ID</th><th>Cliente</th><th>Teléfono</th><th>Email</th>
+              <th># Animales</th><th>Animales</th><th>Tipos de Consultas</th>
+            </tr>
+          </thead>
+          <tbody id="tablaHistorial"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </div>
 
 <script src="/Js/historialClientes.js"></script>
-
 </body>
 </html>
