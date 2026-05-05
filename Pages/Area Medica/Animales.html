@@ -1,140 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Animales</title>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) window.location.href = "../../login.html";
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
-    <h1>Veterinaria</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html" class="active">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
 </header>
 
 <div class="container">
+  <aside class="sidebar">
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html" class="active"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-    <aside class="sidebar">
-        <h3>Animales</h3>
-        <ul>
-            <li><a href="/pages/Area Medica/Clientes.html">Registrar Clientes</a></li>
-            <li><a href="Animales.html">🐾 Registrar Animales</a></li>
-            <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
-            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
-            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
-        </ul>
-    </aside>
+  <main class="contenido">
+    <h1 class="page-title">Animales</h1>
+    <p class="page-subtitle">Registra y administra los animales de los clientes</p>
 
-    <main class="contenido">
+    <div id="mensajeError" class="alert alert-danger" style="display:none;"></div>
 
-        <h2>Registrar Animal</h2>
+    <!-- Formulario registrar -->
+    <form class="f-area-medica" id="formAnimal">
+      <h2>Registrar Animal</h2>
 
-        <form id="formAnimal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>ID del Cliente</label>
+          <input type="number" id="idCliente" placeholder="Ej: 101" required>
+        </div>
+        <div class="form-group">
+          <label>Nombre del Animal</label>
+          <input type="text" id="nombre" placeholder="Ej: Max" required>
+        </div>
+      </div>
 
-          <input type="number" id="idCliente" placeholder="ID Cliente" required><br><br>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha de Nacimiento</label>
+          <input type="date" id="fechaNacimiento">
+        </div>
+        <div class="form-group">
+          <label>Raza</label>
+          <input type="text" id="raza" placeholder="Ej: Labrador">
+        </div>
+      </div>
 
-          <input type="text" id="nombre" placeholder="Nombre del animal" required><br><br>
+      <div class="form-group">
+        <label>Género</label>
+        <select id="genero" required>
+          <option value="">Seleccione género</option>
+          <option value="Macho">Macho</option>
+          <option value="Hembra">Hembra</option>
+        </select>
+      </div>
 
-          <input type="date" id="fechaNacimiento"><br><br>
+      <button type="submit" class="btn-primary">Guardar Animal</button>
+    </form>
 
-          <input type="text" id="raza" placeholder="Raza"><br><br>
+    <hr>
 
-          <select id="genero" required>
-            <option value="">Seleccione género</option>
+    <!-- Editar animal -->
+    <div class="f-area-medica" style="margin-top:0;">
+      <h2>Editar Animal</h2>
+      <input type="text" id="buscarAnimal" placeholder="Buscar animal por nombre..." oninput="buscarAnimalEditar(this.value)" autocomplete="off" style="width:100%;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-main);font-size:14px;outline:none;margin-bottom:8px;">
+      <div id="sugerenciasAnimales" class="sugerencias"></div>
+
+      <div id="panelAnimal" style="display:none;">
+        <input type="hidden" id="idAnimal">
+        <div class="form-row">
+          <div class="form-group">
+            <label>ID Cliente</label>
+            <input type="number" id="idClienteUpd" placeholder="ID Cliente">
+          </div>
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombreUpd" placeholder="Nombre animal">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" id="fechaUpd">
+          </div>
+          <div class="form-group">
+            <label>Raza</label>
+            <input type="text" id="razaUpd" placeholder="Raza">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Género</label>
+          <select id="generoUpd">
             <option value="Macho">Macho</option>
             <option value="Hembra">Hembra</option>
-          </select><br><br>
-
-          <button type="submit" class="btn-primary">Guardar Animal</button>
-
-        </form>
-
-        <hr>
-
-        <h2>Editar Animal</h2>
-
-
-
-        <!-- 🔎 BUSCADOR -->
-        <input type="text"
-               id="buscarAnimal"
-               placeholder="Buscar animal..."
-               oninput="buscarAnimalEditar(this.value)"
-               autocomplete="off">
-
-        <div id="sugerenciasAnimales" class="sugerencias"></div>
-
-        <h3>-------------------------------</h3>
-
-        <!-- 🟡 EDITOR OCULTO -->
-        <div id="panelAnimal" style="display:none;">
-
-            
-            <h3>id</h3>
-
-            <input type="hidden" id="idAnimal">
-
-            <input type="number" id="idClienteUpd" placeholder="ID Cliente"><br><br>
-
-            <h3>Nombre</h3>
-
-            <input type="text" id="nombreUpd" placeholder="Nombre animal"><br><br>
-
-            <h3>Fecha</h3>
-
-            <input type="date" id="fechaUpd"><br><br>
-            <h3>Raza</h3>
-
-            <input type="text" id="razaUpd" placeholder="Raza"><br><br>
-            <h3>Genero</h3>
-
-            <select id="generoUpd">
-              <option value="Macho">Macho</option>
-              <option value="Hembra">Hembra</option>
-            </select><br><br>
-
-            <button onclick="actualizarAnimal()">Actualizar</button>
-            <button onclick="cerrarAnimal()" type="button">Cerrar</button>
-
+          </select>
         </div>
+        <div style="display:flex;gap:10px;margin-top:8px;">
+          <button onclick="actualizarAnimal()" class="btn btn-primary" style="flex:1;width:auto;">Actualizar</button>
+          <button onclick="cerrarAnimal()" class="btn btn-secondary" style="width:auto;" type="button">Cerrar</button>
+        </div>
+      </div>
+    </div>
 
-        <hr>
-
+    <!-- Tabla -->
+    <div class="table-card" style="margin-top:24px;">
+      <div class="table-header">
         <h2>Lista de Animales</h2>
-
-        <table border="1">
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Raza</th>
-          <th>Género</th>
-          <th>Dueño</th>
-          <th>fecha</th>
-          <th>Acción</th>
-        </tr>
-        </thead>
-        <tbody id="tablaAnimales"></tbody>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Raza</th><th>Género</th><th>Dueño</th><th>Fecha Nac.</th><th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tablaAnimales"></tbody>
         </table>
-
-    </main>
-
+      </div>
+    </div>
+  </main>
 </div>
 
 <script src="/Js/animales.js"></script>
-
 </body>
 </html>
