@@ -1,119 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Clientes</title>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
-if (!user) window.location.href = "../../login.html";
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
-    <h1>Veterinaria</h1>
-    <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/pages/Facturacion/Facturacion.html">Facturación</a>
-    </nav>
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Clientes.html" class="active">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
 </header>
 
 <div class="container">
+  <aside class="sidebar">
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html" class="active"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-    <aside class="sidebar">
-        <h3>Menú</h3>
-        <ul>
-            <li><a href="Clientes.html">Registrar Clientes</a></li>
-            <li><a href="/Pages/Area Medica/Animales.html">🐾 Registrar Animales</a></li>
-            <li><a href="/Pages/Area Medica/Servicios.html">Registrar Servicios</a></li>
-            <li><a href="../Area Medica/RegistrodeVacunas.html">Registrar Vacunas</a></li>
-            <li><a href="../Area Medica/AplicacióndeVacunas.html">Aplicar Vacunas</a></li>
-            <li><a href="../Area Medica/Historial .html">📊 Historial de Clientes</a></li>
-        
-        </ul>
-    </aside>
+  <main class="contenido">
+    <h1 class="page-title">Clientes</h1>
+    <p class="page-subtitle">Registra y administra los clientes de la clínica</p>
 
-    <main class="contenido">
-
-        <h2>Registrar Cliente</h2>
-
-        <form id="formCliente">
-            <input type="text" id="nombre" placeholder="Nombre" required><br><br>
-            <input type="text" id="telefono" placeholder="Teléfono" required><br><br>
-            <input type="email" id="email" placeholder="Email"><br><br>
-            <input type="text" id="direccion" placeholder="Dirección"><br><br>
-
-            <button type="submit">Guardar Cliente</button>
-        </form>
-
-        <hr>
-
-        <h2>Editar Cliente</h2>
-
-        <!-- 🔎 BUSCADOR -->
-        <input type="text"
-               id="buscarEditar"
-               placeholder="Buscar cliente..."
-               oninput="buscarClienteEditar(this.value)"
-               autocomplete="off">
-
-        <div id="sugerenciasEditar" class="sugerencias"></div>
-
-        <!-- 🟡 FORM EDITAR OCULTO -->
-        <div id="panelEditar" style="display:none;">
-            
-            <br>
-
-            <input type="hidden" id="idActualizar">
-
-            <input type="text" id="nombreUpd" placeholder="Nombre"><br><br>
-            <input type="text" id="telefonoUpd" placeholder="Teléfono"><br><br>
-            <input type="email" id="emailUpd" placeholder="Email"><br><br>
-            <input type="text" id="direccionUpd" placeholder="Dirección"><br><br>
-
-            <button onclick="actualizarCliente()">Actualizar Cliente</button>
-            <button onclick="cerrarEditar()" type="button">Cerrar</button>
-
+    <form class="f-area-medica" id="formCliente">
+      <h2>Registrar Cliente</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" id="nombre" placeholder="Nombre completo" required>
         </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" id="telefono" placeholder="Ej: 809-555-0000" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input type="text" id="direccion" placeholder="Dirección">
+        </div>
+      </div>
+      <button type="submit" class="btn-primary">Guardar Cliente</button>
+    </form>
 
-        <hr>
+    <hr>
 
+    <div class="f-area-medica" style="margin-top:0;">
+      <h2>Editar Cliente</h2>
+      <input type="text" id="buscarEditar" placeholder="Buscar cliente..." oninput="buscarClienteEditar(this.value)" autocomplete="off" style="width:100%;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-main);font-size:14px;outline:none;margin-bottom:8px;">
+      <div id="sugerenciasEditar" class="sugerencias"></div>
+
+      <div id="panelEditar" style="display:none;">
+        <input type="hidden" id="idActualizar">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombreUpd" placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" id="telefonoUpd" placeholder="Teléfono">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="emailUpd" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <input type="text" id="direccionUpd" placeholder="Dirección">
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:8px;">
+          <button onclick="actualizarCliente()" class="btn btn-primary" style="flex:1;width:auto;">Actualizar</button>
+          <button onclick="cerrarEditar()" class="btn btn-secondary" style="width:auto;" type="button">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-card" style="margin-top:24px;">
+      <div class="table-header">
         <h2>Lista de Clientes</h2>
-
-        <button onclick="obtenerClientes()">Actualizar lista</button>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Teléfono</th>
-                    <th>Email</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody id="tablaClientes"></tbody>
+        <button onclick="obtenerClientes()" class="btn btn-secondary btn-sm">Actualizar</button>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>Email</th><th>Acción</th></tr>
+          </thead>
+          <tbody id="tablaClientes"></tbody>
         </table>
-
-    </main>
-
+      </div>
+    </div>
+  </main>
 </div>
 
 <script src="/Js/clientes.js"></script>
-
 <script>
 document.getElementById("formCliente").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    await crearCliente();
-    document.getElementById("formCliente").reset();
+  e.preventDefault();
+  await crearCliente();
+  document.getElementById("formCliente").reset();
 });
 </script>
-
 </body>
 </html>
