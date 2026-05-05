@@ -1,77 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetSy — Panel de Gestión</title>
-    <!-- Rutas relativas corregidas para GitHub Pages -->
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetSy — Dashboard</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<script>
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "/login.html";
+</script>
 
-    <header class="top-menu">
-        <div class="logo-esquina">
-            <!-- El logo ahora tiene un respaldo por si no encuentra la imagen -->
-            <img src="assets/images/logo.png" alt="Logo VetSy" onerror="this.src='https://via.placeholder.com/40?text=VS'">
-        </div>
-        <h1>VetSy</h1>
-        <nav>
-            <a href="index.html" class="active">Inicio</a>
-            <a href="pages/Area Medica/Animales.html">Área Médica</a>
-            <a href="pages/Inventario/AgregarProducto.html">Inventario</a>
-            <a href="pages/Facturacion/Facturacion.html">Facturación</a>
-        </nav>
-    </header>
+<header class="top-menu">
+  <div class="logo-area">
+    <h1>🐾 VetSy</h1>
+  </div>
+  <div class="header-welcome" id="headerWelcome"></div>
+  <nav>
+    <a href="/index.html" class="active">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
+  <div class="header-user" id="headerUser">
+    <div class="avatar" id="headerAvatar">V</div>
+    <span id="headerName">Usuario</span>
+  </div>
+</header>
 
-    <div class="main-container">
-        <aside class="sidebar">
-            <h3>Gestión Interna</h3>
-            <ul>
-                <li><a href="index.html" class="active"><span class="nav-icon">🏠</span> Inicio</a></li>
-                <li><a href="pages/Area Medica/Animales.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
-                <li><a href="pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
-                <li><a href="pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
-            </ul>
-        </aside>
+<div class="container">
+  <aside class="sidebar">
+    <h3>Principal</h3>
+    <ul>
+      <li><a href="/index.html" class="active"><span class="nav-icon">🏠</span> Inicio</a></li>
+    </ul>
+    <h3>Área Médica</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
 
-        <main class="contenido">
-            <h1 class="page-title">Panel de Control</h1>
-            <p class="page-subtitle">Gestión de Clínica Veterinaria</p>
+  <main class="contenido">
+    <h1 class="page-title">Panel Principal</h1>
+    <p class="page-subtitle">Bienvenido al sistema de gestión VetSy</p>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-icon">🐾</span>
-                    <span id="count-mascotas" class="stat-value">0</span>
-                    <span class="stat-label">Mascotas</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">🩺</span>
-                    <span id="count-consultas" class="stat-value">0</span>
-                    <span class="stat-label">Consultas hoy</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">📦</span>
-                    <span id="count-productos" class="stat-value">0</span>
-                    <span class="stat-label">En Stock</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">🧾</span>
-                    <span id="count-facturacion" class="stat-value">$0</span>
-                    <span class="stat-label">Ventas Mes</span>
-                </div>
-            </div>
-
-            <section class="banner">
-                <img src="assets/images/banner.jpg" alt="Banner Operativo" style="width: 100%; border-radius: 8px;">
-            </section>
-
-            <section class="info">
-                <h2>Resumen Operativo</h2>
-                <p>Módulo interno para el control de pacientes y suministros. Verifique el inventario antes de finalizar cada jornada[span_3](start_span)[span_3](end_span).</p>
-            </section>
-        </main>
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <span class="stat-icon">🐾</span>
+        <span class="stat-value" id="statAnimales">—</span>
+        <span class="stat-label">Animales registrados</span>
+      </div>
+      <div class="stat-card green">
+        <span class="stat-icon">👤</span>
+        <span class="stat-value" id="statClientes">—</span>
+        <span class="stat-label">Clientes registrados</span>
+      </div>
+      <div class="stat-card yellow">
+        <span class="stat-icon">💉</span>
+        <span class="stat-value" id="statVacunas">—</span>
+        <span class="stat-label">Vacunas aplicadas</span>
+      </div>
+      <div class="stat-card red">
+        <span class="stat-icon">🩺</span>
+        <span class="stat-value" id="statServicios">—</span>
+        <span class="stat-label">Servicios registrados</span>
+      </div>
     </div>
 
-    <script src="Js/dashboard.js"></script>
+    <section class="info">
+      <h2>Sobre VetSy</h2>
+      <p>Sistema diseñado para facilitar la gestión completa de una clínica veterinaria. Permite registrar datos de mascotas, llevar control de vacunas, historial médico y seguimiento de tratamientos.</p>
+      <p>Integra módulos de inventario y facturación para una organización eficiente del centro veterinario.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const BASE_URL = "https://vetsy-production.up.railway.app";
+
+// Mostrar nombre del usuario
+const u = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "{}");
+if (u) {
+  document.getElementById("headerName").textContent = u.username || u.nombre || "Usuario";
+  document.getElementById("headerAvatar").textContent = (u.username || u.nombre || "V")[0].toUpperCase();
+}
+
+// Cargar stats del dashboard
+async function cargarStats() {
+  try {
+    const [rA, rC, rV, rS] = await Promise.all([
+      fetch(`${BASE_URL}/animales`),
+      fetch(`${BASE_URL}/clientes`),
+      fetch(`${BASE_URL}/aplicacion-vacuna`),
+      fetch(`${BASE_URL}/servicios`)
+    ]);
+    if (rA.ok) document.getElementById("statAnimales").textContent = (await rA.json()).length;
+    if (rC.ok) document.getElementById("statClientes").textContent = (await rC.json()).length;
+    if (rV.ok) document.getElementById("statVacunas").textContent  = (await rV.json()).length;
+    if (rS.ok) document.getElementById("statServicios").textContent = (await rS.json()).length;
+  } catch(e) { console.log("Stats no disponibles"); }
+}
+
+cargarStats();
+</script>
 </body>
 </html>
