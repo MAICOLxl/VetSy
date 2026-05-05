@@ -1,119 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VetSy — Dashboard</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-<script>
-  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "/login.html";
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VetSy — Dashboard</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <script>
+      /* const user = JSON.parse(
+        sessionStorage.getItem("usuario") ||
+          localStorage.getItem("usuario") ||
+          "null",
+      );
+      if (!user) window.location.href = "/login.html"; */
+    </script>
 
-<header class="top-menu">
-  <div class="logo-area">
-    <h1>🐾 VetSy</h1>
-  </div>
-  <div class="header-welcome" id="headerWelcome"></div>
-  <nav>
-    <a href="/index.html" class="active">Inicio</a>
-    <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
-    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
-  </nav>
-  <div class="header-user" id="headerUser">
-    <div class="avatar" id="headerAvatar">V</div>
-    <span id="headerName">Usuario</span>
-  </div>
-</header>
+    <header class="top-menu">
+      <div class="logo-area">
+        <h1>🐾 VetSy</h1>
+      </div>
+      <div class="header-welcome" id="headerWelcome"></div>
+      <nav>
+        <a href="/index.html" class="active">Inicio</a>
+        <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+      </nav>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">V</div>
+        <span id="headerName">Usuario</span>
+      </div>
+    </header>
 
-<div class="container">
-  <aside class="sidebar">
-    <h3>Principal</h3>
-    <ul>
-      <li><a href="/index.html" class="active"><span class="nav-icon">🏠</span> Inicio</a></li>
-    </ul>
-    <h3>Área Médica</h3>
-    <ul>
-      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
-      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
-      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
-      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
-      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
-    </ul>
-    <h3>Gestión</h3>
-    <ul>
-      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
-      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
-    </ul>
-  </aside>
+    <div class="container">
+      <aside class="sidebar">
+        <h3>Principal</h3>
+        <ul>
+          <li>
+            <a href="/index.html" class="active"
+              ><span class="nav-icon">🏠</span> Inicio</a
+            >
+          </li>
+        </ul>
+        <h3>Área Médica</h3>
+        <ul>
+          <li>
+            <a href="/Pages/Area Medica/Clientes.html"
+              ><span class="nav-icon">👤</span> Clientes</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Area Medica/Animales.html"
+              ><span class="nav-icon">🐾</span> Animales</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Area Medica/Servicios.html"
+              ><span class="nav-icon">🩺</span> Servicios</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Area Medica/RegistrodeVacunas.html"
+              ><span class="nav-icon">💉</span> Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Area Medica/AplicacióndeVacunas.html"
+              ><span class="nav-icon">📋</span> Aplicar Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Area Medica/Historial .html"
+              ><span class="nav-icon">📊</span> Historial</a
+            >
+          </li>
+        </ul>
+        <h3>Gestión</h3>
+        <ul>
+          <li>
+            <a href="/Pages/Inventario/AgregarProducto.html"
+              ><span class="nav-icon">📦</span> Inventario</a
+            >
+          </li>
+          <li>
+            <a href="/Pages/Facturacion/Facturacion.html"
+              ><span class="nav-icon">🧾</span> Facturación</a
+            >
+          </li>
+        </ul>
+      </aside>
 
-  <main class="contenido">
-    <h1 class="page-title">Panel Principal</h1>
-    <p class="page-subtitle">Bienvenido al sistema de gestión VetSy</p>
+      <main class="contenido">
+        <h1 class="page-title">Panel Principal</h1>
+        <p class="page-subtitle">Bienvenido al sistema de gestión VetSy</p>
 
-    <div class="stats-grid">
-      <div class="stat-card blue">
-        <span class="stat-icon">🐾</span>
-        <span class="stat-value" id="statAnimales">—</span>
-        <span class="stat-label">Animales registrados</span>
-      </div>
-      <div class="stat-card green">
-        <span class="stat-icon">👤</span>
-        <span class="stat-value" id="statClientes">—</span>
-        <span class="stat-label">Clientes registrados</span>
-      </div>
-      <div class="stat-card yellow">
-        <span class="stat-icon">💉</span>
-        <span class="stat-value" id="statVacunas">—</span>
-        <span class="stat-label">Vacunas aplicadas</span>
-      </div>
-      <div class="stat-card red">
-        <span class="stat-icon">🩺</span>
-        <span class="stat-value" id="statServicios">—</span>
-        <span class="stat-label">Servicios registrados</span>
-      </div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Buscar mascota o cliente..."
+            id="globalSearch"
+          />
+          <button class="search-btn">
+            <!-- Icono SVG de lupa -->
+            <svg
+              xmlns="http://w3.org"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card blue">
+            <span class="stat-icon">🐾</span>
+            <span class="stat-value" id="statAnimales">—</span>
+            <span class="stat-label">Animales registrados</span>
+          </div>
+          <div class="stat-card green">
+            <span class="stat-icon">👤</span>
+            <span class="stat-value" id="statClientes">—</span>
+            <span class="stat-label">Clientes registrados</span>
+          </div>
+          <div class="stat-card yellow">
+            <span class="stat-icon">💉</span>
+            <span class="stat-value" id="statVacunas"> </span>
+            <span class="stat-label">Vacunas aplicadas</span>
+          </div>
+          <div class="stat-card red">
+            <span class="stat-icon">🩺</span>
+            <span class="stat-value" id="statServicios">—</span>
+            <span class="stat-label">Servicios registrados</span>
+          </div>
+        </div>
+
+        <section class="info">
+          <h2>Sobre VetSy</h2>
+          <p>
+            Sistema diseñado para facilitar la gestión completa de una clínica
+            veterinaria. Permite registrar datos de mascotas, llevar control de
+            vacunas, historial médico y seguimiento de tratamientos.
+          </p>
+          <p>
+            Integra módulos de inventario y facturación para una organización
+            eficiente del centro veterinario.
+          </p>
+        </section>
+      </main>
     </div>
 
-    <section class="info">
-      <h2>Sobre VetSy</h2>
-      <p>Sistema diseñado para facilitar la gestión completa de una clínica veterinaria. Permite registrar datos de mascotas, llevar control de vacunas, historial médico y seguimiento de tratamientos.</p>
-      <p>Integra módulos de inventario y facturación para una organización eficiente del centro veterinario.</p>
-    </section>
-  </main>
-</div>
+    <script>
+      const BASE_URL = "https://vetsy-production.up.railway.app";
 
-<script>
-const BASE_URL = "https://vetsy-production.up.railway.app";
+      // Mostrar nombre del usuario
+      const u = JSON.parse(
+        sessionStorage.getItem("usuario") ||
+          localStorage.getItem("usuario") ||
+          "{}",
+      );
+      if (u) {
+        document.getElementById("headerName").textContent =
+          u.username || u.nombre || "Usuario";
+        document.getElementById("headerAvatar").textContent = (u.username ||
+          u.nombre ||
+          "V")[0].toUpperCase();
+      }
 
-// Mostrar nombre del usuario
-const u = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "{}");
-if (u) {
-  document.getElementById("headerName").textContent = u.username || u.nombre || "Usuario";
-  document.getElementById("headerAvatar").textContent = (u.username || u.nombre || "V")[0].toUpperCase();
-}
+      // Cargar stats del dashboard
+      async function cargarStats() {
+        try {
+          const [rA, rC, rV, rS] = await Promise.all([
+            fetch(`${BASE_URL}/animales`),
+            fetch(`${BASE_URL}/clientes`),
+            fetch(`${BASE_URL}/aplicacion-vacuna`),
+            fetch(`${BASE_URL}/servicios`),
+          ]);
+          if (rA.ok)
+            document.getElementById("statAnimales").textContent = (
+              await rA.json()
+            ).length;
+          if (rC.ok)
+            document.getElementById("statClientes").textContent = (
+              await rC.json()
+            ).length;
+          if (rV.ok)
+            document.getElementById("statVacunas").textContent = (
+              await rV.json()
+            ).length;
+          if (rS.ok)
+            document.getElementById("statServicios").textContent = (
+              await rS.json()
+            ).length;
+        } catch (e) {
+          console.log("Stats no disponibles");
+        }
+      }
 
-// Cargar stats del dashboard
-async function cargarStats() {
-  try {
-    const [rA, rC, rV, rS] = await Promise.all([
-      fetch(`${BASE_URL}/animales`),
-      fetch(`${BASE_URL}/clientes`),
-      fetch(`${BASE_URL}/aplicacion-vacuna`),
-      fetch(`${BASE_URL}/servicios`)
-    ]);
-    if (rA.ok) document.getElementById("statAnimales").textContent = (await rA.json()).length;
-    if (rC.ok) document.getElementById("statClientes").textContent = (await rC.json()).length;
-    if (rV.ok) document.getElementById("statVacunas").textContent  = (await rV.json()).length;
-    if (rS.ok) document.getElementById("statServicios").textContent = (await rS.json()).length;
-  } catch(e) { console.log("Stats no disponibles"); }
-}
+      // Función para ejecutar la búsqueda en la API
+      async function ejecutarBusqueda() {
+        const query = document
+          .getElementById("globalSearch")
+          .value.trim()
+          .toLowerCase();
+        if (query.length < 2) return;
 
-cargarStats();
-</script>
-</body>
+        try {
+          // Consultamos los 4 endpoints clave en paralelo
+          const [resA, resC, resP, resV] = await Promise.all([
+            fetch(`${BASE_URL}/animales`),
+            fetch(`${BASE_URL}/clientes`),
+            fetch(`${BASE_URL}/productos`),
+            fetch(`${BASE_URL}/vacunas`),
+          ]);
+
+          // Convertimos a JSON (manejando posibles errores de ruta)
+          const animales = resA.ok ? await resA.json() : [];
+          const clientes = resC.ok ? await resC.json() : [];
+          const productos = resP.ok ? await resP.json() : [];
+          const vacunas = resV.ok ? await resV.json() : [];
+
+          // Lógica de coincidencia
+          const mascota = animales.find((a) =>
+            a.nombre.toLowerCase().includes(query),
+          );
+          const cliente = clientes.find((c) =>
+            (c.nombre || "").toLowerCase().includes(query),
+          );
+          const producto = productos.find((p) =>
+            p.nombre.toLowerCase().includes(query),
+          );
+          const vacuna = vacunas.find((v) =>
+            v.nombre.toLowerCase().includes(query),
+          );
+
+          // Redirección priorizada
+          if (mascota) {
+            window.location.href = `/Pages/Area Medica/Animales.html?buscar=${mascota.nombre}`;
+          } else if (cliente) {
+            window.location.href = `/Pages/Area Medica/Clientes.html?buscar=${cliente.nombre}`;
+          } else if (producto) {
+            window.location.href = `/Pages/Inventario/AgregarProducto.html?buscar=${producto.nombre}`;
+          } else if (vacuna) {
+            window.location.href = `/Pages/Area Medica/RegistrodeVacunas.html?buscar=${vacuna.nombre}`;
+          } else {
+            alert("No se encontró ningún registro que coincida con: " + query);
+          }
+        } catch (error) {
+          console.error("Error en la búsqueda global:", error);
+          alert("Error al conectar con el servidor.");
+        }
+      }
+
+      document
+        .querySelector(".search-btn")
+        .addEventListener("click", ejecutarBusqueda);
+      document
+        .getElementById("globalSearch")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            ejecutarBusqueda();
+          }
+        });
+
+      cargarStats();
+    </script>
+  </body>
 </html>

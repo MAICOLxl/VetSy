@@ -37,7 +37,7 @@ async function obtenerAnimales() {
 
     const [resAnimales, resClientes] = await Promise.all([
       fetch(`${BASE_URL}/animales`),
-      fetch(`${BASE_URL}/clientes`)
+      fetch(`${BASE_URL}/clientes`),
     ]);
 
     if (!resAnimales.ok || !resClientes.ok) {
@@ -55,10 +55,11 @@ async function obtenerAnimales() {
       return acc;
     }, {});
 
-    document.getElementById("tablaAnimales").innerHTML = animales.map(a => {
-      const cliente = clientesMap[a.idCliente];
+    document.getElementById("tablaAnimales").innerHTML = animales
+      .map((a) => {
+        const cliente = clientesMap[a.idCliente];
 
-      return `
+        return `
         <tr>
           <td>${a.idAnimal}</td>
           <td>${a.nombre}</td>
@@ -75,8 +76,8 @@ async function obtenerAnimales() {
           </td>
         </tr>
       `;
-    }).join("");
-
+      })
+      .join("");
   } catch (error) {
     mostrarError("Error al obtener animales");
   }
@@ -92,15 +93,15 @@ async function crearAnimal() {
     const res = await fetch(`${BASE_URL}/animales`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         idCliente: Number(document.getElementById("idCliente").value),
         nombre: document.getElementById("nombre").value,
         fechaNacimiento: document.getElementById("fechaNacimiento").value,
         raza: document.getElementById("raza").value,
-        genero: document.getElementById("genero").value
-      })
+        genero: document.getElementById("genero").value,
+      }),
     });
 
     if (!res.ok) {
@@ -109,7 +110,6 @@ async function crearAnimal() {
 
     document.getElementById("formAnimal").reset();
     obtenerAnimales();
-
   } catch (error) {
     mostrarError("Error al crear animal");
   }
@@ -122,7 +122,7 @@ function cargarAnimal(id) {
   limpiarError();
 
   const idNum = Number(id);
-  const a = animalesCache.find(x => Number(x.idAnimal) === idNum);
+  const a = animalesCache.find((x) => Number(x.idAnimal) === idNum);
 
   if (!a) {
     mostrarError(`Animal con ID ${id} no encontrado`);
@@ -132,10 +132,11 @@ function cargarAnimal(id) {
   document.getElementById("idAnimal").value = a.idAnimal;
   document.getElementById("idClienteUpd").value = a.idCliente;
   document.getElementById("nombreUpd").value = a.nombre;
-  document.getElementById("fechaUpd").value = a.fechaNacimiento ? a.fechaNacimiento.split("T")[0] : "";
+  document.getElementById("fechaUpd").value = a.fechaNacimiento
+    ? a.fechaNacimiento.split("T")[0]
+    : "";
   document.getElementById("razaUpd").value = a.raza;
   document.getElementById("generoUpd").value = a.genero;
-
   document.getElementById("panelAnimal").style.display = "block";
 }
 
@@ -151,15 +152,15 @@ async function actualizarAnimal() {
     const res = await fetch(`${BASE_URL}/animales/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         idCliente: Number(document.getElementById("idClienteUpd").value),
         nombre: document.getElementById("nombreUpd").value,
         fechaNacimiento: document.getElementById("fechaUpd").value,
         raza: document.getElementById("razaUpd").value,
-        genero: document.getElementById("generoUpd").value
-      })
+        genero: document.getElementById("generoUpd").value,
+      }),
     });
 
     if (!res.ok) {
@@ -168,7 +169,6 @@ async function actualizarAnimal() {
 
     cerrarAnimal();
     obtenerAnimales();
-
   } catch (error) {
     mostrarError("Error al actualizar animal");
   }
@@ -182,7 +182,7 @@ async function eliminarAnimal(id) {
     limpiarError();
 
     const res = await fetch(`${BASE_URL}/animales/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
     });
 
     if (!res.ok) {
@@ -190,7 +190,6 @@ async function eliminarAnimal(id) {
     }
 
     obtenerAnimales();
-
   } catch (error) {
     mostrarError("Error al eliminar animal");
   }
@@ -207,15 +206,19 @@ function buscarAnimalEditar(texto) {
     return;
   }
 
-  const filtrados = animalesCache.filter(a =>
-    a.nombre.toLowerCase().includes(texto.toLowerCase())
+  const filtrados = animalesCache.filter((a) =>
+    a.nombre.toLowerCase().includes(texto.toLowerCase()),
   );
 
-  box.innerHTML = filtrados.map(a => `
+  box.innerHTML = filtrados
+    .map(
+      (a) => `
     <div class="sugerencia" onclick="cargarAnimal(${a.idAnimal})">
       ${a.nombre}
     </div>
-  `).join("");
+  `,
+    )
+    .join("");
 }
 
 /* =========================
