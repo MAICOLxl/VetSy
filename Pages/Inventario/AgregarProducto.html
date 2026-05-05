@@ -9,8 +9,8 @@
 </head>
 <body>
 <script>
-  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "/login.html";
+  //const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  //if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
@@ -27,13 +27,15 @@
   <aside class="sidebar">
     <h3>Inventario</h3>
     <ul>
-      <li><a href="/Pages/Inventario/AgregarProducto.html" class="active"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+      <li><a href="/Pages/Inventario/AgregarMovimientos.html" class="active"><span class="nav-icon">🔄</span> Registrar Movimiento</a></li>
       <li><a href="/Pages/Inventario/ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+      <li><a href="/Pages/Inventario/AgregarProveedor.html"><span class="nav-icon">🏭</span> Proveedores</a></li>
     </ul>
-    <h3>Área Médica</h3>
+    <h3>Gestión</h3>
     <ul>
-      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
     </ul>
   </aside>
 
@@ -41,43 +43,61 @@
     <h1 class="page-title">Agregar Producto</h1>
     <p class="page-subtitle">Registra un nuevo medicamento, vacuna o accesorio</p>
 
-    <form class="f-area-medica" id="formProducto" action="/guardar-producto" method="POST">
+    <!-- id="formProducto" sin action/method — lo maneja el JS -->
+    <form class="f-area-medica" id="formProducto">
       <h2>Nuevo Producto</h2>
 
+      <!-- nombre VARCHAR(50) -->
       <div class="form-group">
-        <label>Nombre del Producto</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ej: Amoxicilina 500mg" required>
+        <label for="nombre">Nombre del Producto</label>
+        <input type="text" id="nombre" name="nombre"
+               placeholder="Ej: Amoxicilina 500mg" maxlength="50" required>
       </div>
 
+      <!-- descripcion VARCHAR(200) -->
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion"
+                  placeholder="Descripción del producto..." maxlength="200"></textarea>
+      </div>
+
+      <!-- categoria VARCHAR(50) -->
+      <div class="form-group">
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+          <option value="">-- Selecciona una categoría --</option>
+          <option value="Medicamento">Medicamento</option>
+          <option value="Vacuna">Vacuna</option>
+          <option value="Accesorio">Accesorio</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <!-- precioCompra DECIMAL(10,2) | precioVenta DECIMAL(10,2) -->
       <div class="form-row">
         <div class="form-group">
-          <label>Tipo</label>
-          <select id="tipo" name="tipo">
-            <option>Medicamento</option>
-            <option>Vacuna</option>
-            <option>Accesorio</option>
-            <option>Otro</option>
-          </select>
+          <label for="precioCompra">Precio de Compra (RD$)</label>
+          <input type="number" id="precioCompra" name="precioCompra"
+                 step="0.01" min="0" placeholder="Ej: 150.00" required>
         </div>
         <div class="form-group">
-          <label>Fecha de Vencimiento</label>
-          <input type="date" id="vencimiento" name="vencimiento">
+          <label for="precioVenta">Precio de Venta (RD$)</label>
+          <input type="number" id="precioVenta" name="precioVenta"
+                 step="0.01" min="0" placeholder="Ej: 250.00" required>
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Descripción</label>
-        <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto..."></textarea>
-      </div>
-
+      <!-- stockActual INT | stockMinimo INT -->
       <div class="form-row">
         <div class="form-group">
-          <label>Precio (RD$)</label>
-          <input type="number" id="precio" name="precio" step="0.01" placeholder="Ej: 250.00" required>
+          <label for="stockActual">Stock Actual</label>
+          <input type="number" id="stockActual" name="stockActual"
+                 min="0" placeholder="Ej: 50" required>
         </div>
         <div class="form-group">
-          <label>Cantidad en Stock</label>
-          <input type="number" id="stock" name="stock" placeholder="Ej: 50" required>
+          <label for="stockMinimo">Stock Mínimo</label>
+          <input type="number" id="stockMinimo" name="stockMinimo"
+                 min="0" placeholder="Ej: 10" required>
         </div>
       </div>
 
@@ -85,5 +105,8 @@
     </form>
   </main>
 </div>
+
+<!-- Script del formulario -->
+<script src="/js/Agregarproducto.js"></script>
 </body>
 </html>

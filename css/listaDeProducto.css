@@ -1,0 +1,123 @@
+/* ── Controles de búsqueda ── */
+.lista-controles {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.lista-controles input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: .9rem;
+}
+
+.lista-controles select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: .9rem;
+}
+
+#contador {
+  margin-left: auto;
+  font-size: .85rem;
+  color: #6b7280;
+}
+
+/* ── Tabla ── */
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+
+.tabla-productos tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ── Stock bajo ── */
+.stock-bajo {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.badge-alerta {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: .75rem;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+/* ── Botones de acción ── */
+.td-acciones {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.btn-editar {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.btn-editar:hover {
+  background: #bfdbfe;
+}
+
+.btn-eliminar {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-eliminar:hover {
+  background: #fecaca;
+}
+
+/* ── Loader / sin resultados ── */
+#loader {
+  text-align: center;
+  padding: 24px;
+  color: #6b7280;
+  display: none;
+}
+
+#sinResultados {
+  text-align: center;
+  padding: 24px;
+  color: #6b7280;
+  display: none;
+}
+
+/* ── Botón nuevo producto ── */
+.btn-nuevo {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 9px 18px;
+  background: var(--color-primary, #16a34a);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.btn-nuevo:hover {
+  opacity: .9;
+}

@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Productos — VetSy</title>
+
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/listaDeProducto.css">
 </head>
 <body>
+
 <script>
-  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "/login.html";
+  //const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  //if (!user) window.location.href = "/login.html";
 </script>
 
 <header class="top-menu">
@@ -28,50 +31,61 @@
     <h3>Inventario</h3>
     <ul>
       <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">➕</span> Agregar Producto</a></li>
-      <li><a href="/Pages/Inventario/ListadeProductos.html" class="active"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+      <li><a href="/Pages/Inventario/AgregarMovimientos.html" class="active"><span class="nav-icon">🔄</span> Registrar Movimiento</a></li>
+      <li><a href="/Pages/Inventario/ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+      <li><a href="/Pages/Inventario/AgregarProveedor.html"><span class="nav-icon">🏭</span> Proveedores</a></li>
     </ul>
-    <h3>Área Médica</h3>
+    <h3>Gestión</h3>
     <ul>
-      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
     </ul>
   </aside>
 
   <main class="contenido">
     <h1 class="page-title">Lista de Productos</h1>
-    <p class="page-subtitle">Consulta y administra el inventario</p>
+    <p class="page-subtitle">Consulta y administra el inventario de productos</p>
 
-    <div class="table-card">
-      <div class="table-header">
-        <h2>Productos</h2>
-        <input type="text" id="buscador" placeholder="Buscar producto..." style="padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-main);font-size:13px;outline:none;width:220px;">
-      </div>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th><th>Nombre</th><th>Tipo</th>
-              <th>Precio</th><th>Stock</th><th>Acción</th>
-            </tr>
-          </thead>
-          <tbody id="tabla-productos">
-            <tr>
-              <td>1</td><td>Amoxicilina</td><td>Medicamento</td>
-              <td>RD$ 250</td><td>20</td>
-              <td><button onclick="eliminarProducto(1, this)">Eliminar</button></td>
-            </tr>
-            <tr>
-              <td>2</td><td>Vacuna Rabia</td><td>Vacuna</td>
-              <td>RD$ 500</td><td>15</td>
-              <td><button onclick="eliminarProducto(2, this)">Eliminar</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <a href="/Pages/Inventario/AgregarProducto.html" class="btn-nuevo">➕ Nuevo Producto</a>
+
+    <div class="lista-controles">
+      <input type="text" id="buscador" placeholder="Buscar por nombre o ID...">
+
+      <select id="filtroCategoria">
+        <option value="">Todas las categorías</option>
+        <option value="Medicamento">Medicamento</option>
+        <option value="Vacuna">Vacuna</option>
+        <option value="Accesorio">Accesorio</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <span id="contador"></span>
     </div>
+
+    <div id="loader">⏳ Cargando productos...</div>
+
+    <div class="tabla-wrapper">
+      <table class="">
+        <thead>
+          <tr>
+            <th>#ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>P. Compra</th>
+            <th>P. Venta</th>
+            <th>Stock Actual</th>
+            <th>Stock Mínimo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaBody"></tbody>
+      </table>
+    </div>
+
+    <div id="sinResultados"></div>
   </main>
 </div>
 
-<script src="/Js/buscador.js"></script>
+<script src="/js/Listadeproductos.js"></script>
 </body>
 </html>

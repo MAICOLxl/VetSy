@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Movimiento — VetSy</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header class="top-menu">
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="/index.html">Inicio</a>
+    <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
+    <a href="/Pages/Inventario/AgregarProducto.html" class="active">Inventario</a>
+    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <h3>Inventario</h3>
+    <ul>
+      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+      <li><a href="/Pages/Inventario/AgregarMovimientos.html" class="active"><span class="nav-icon">🔄</span> Registrar Movimiento</a></li>
+      <li><a href="/Pages/Inventario/ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+      <li><a href="/Pages/Inventario/AgregarProveedor.html"><span class="nav-icon">🏭</span> Proveedores</a></li>
+    </ul>
+    <h3>Gestión</h3>
+    <ul>
+      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
+      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+    </ul>
+  </aside>
+
+  <main class="contenido">
+    <h1 class="page-title">Registrar Movimiento</h1>
+    <p class="page-subtitle">Registra una entrada o salida de inventario</p>
+
+    <form class="f-area-medica" id="formMovimiento">
+      <h2>Nuevo Movimiento</h2>
+
+      <!-- PRODUCTO (ANTES ID) -->
+      <div class="form-group">
+        <label for="idProducto">Producto</label>
+        <select id="idProducto" name="idProducto" required>
+          <option value="">-- Selecciona un producto --</option>
+        </select>
+      </div>
+
+      <!-- TIPO -->
+      <div class="form-group">
+        <label for="tipoMovimiento">Tipo de Movimiento</label>
+        <select id="tipoMovimiento" name="tipoMovimiento" required>
+          <option value="E">Entrada</option>
+          <option value="S">Salida</option>
+        </select>
+      </div>
+
+      <!-- CANTIDAD + FECHA -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cantidad">Cantidad</label>
+          <input type="number" id="cantidad" name="cantidad" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fechaMovimiento">Fecha del Movimiento</label>
+          <input type="date" id="fechaMovimiento" name="fechaMovimiento" required>
+        </div>
+      </div>
+
+      <!-- REFERENCIA -->
+      <div class="form-group">
+        <label for="referencia">Referencia</label>
+        <input type="text" id="referencia" name="referencia" maxlength="100">
+      </div>
+
+      <button type="submit" class="btn-primary">Guardar Movimiento</button>
+    </form>
+  </main>
+</div>
+
+<script src="/js/Agregarmovimiento.js"></script>
+</body>
+</html>
