@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Productos — VetSy</title>
 
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/styles.css" />
-    <link rel="stylesheet" href="../../css/listaDeProducto.css" />
-    <script src="../../Js/themeSwitcher.js"></script>
-    <script src="../../Js/themeEvents.js"></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/listaDeProducto.css" />
+    <script src="/Js/themeSwitcher.js"></script>
+    <script src="/Js/themeEvents.js"></script>
   </head>
   <body>
     <script>
@@ -18,20 +18,20 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "../../login.html";
+      if (!user) window.location.href = "/login.html";
     </script>
 
     <header class="top-menu">
       <div class="logo-area"><h1>🐾 VetSy</h1></div>
       <nav>
-        <a href="../../index.html">Inicio</a>
-        <a href="../Area Medica/Animales.html">Área Médica</a>
-        <a href="../Inventario/AgregarProducto.html" class="active"
+        <a href="/index.html">Inicio</a>
+        <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="/Pages/Inventario/AgregarProducto.html" class="active"
           >Inventario</a
         >
-        <a href="../Facturacion/Facturacion.html">Facturación</a>
+        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
       </nav>
-      <div class="header-controls" style="margin-left: auto">
+      <div class="header-controls">
         <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
           🌙
         </button>
@@ -48,7 +48,7 @@
         <h3>Principal</h3>
         <ul>
           <li>
-            <a href="../../index.html">
+            <a href="/index.html">
               <span class="nav-icon">🏠</span> Inicio</a
             >
           </li>
@@ -56,22 +56,22 @@
         <h3>Inventario</h3>
         <ul>
           <li>
-            <a href="../Inventario/AgregarProducto.html"
+            <a href="/Pages/Inventario/AgregarProducto.html"
               ><span class="nav-icon">➕</span> Agregar Producto</a
             >
           </li>
           <li>
-            <a href="../Inventario/AgregarMovimientos.html"
+            <a href="/Pages/Inventario/AgregarMovimientos.html"
               ><span class="nav-icon">🔄</span> Registrar Movimiento</a
             >
           </li>
           <li>
-            <a href="../Inventario/ListadeProductos.html" class="active"
+            <a href="/Pages/Inventario/ListadeProductos.html" class="active"
               ><span class="nav-icon">📋</span> Lista de Productos</a
             >
           </li>
           <li>
-            <a href="../Inventario/AgregarProveedor.html"
+            <a href="/Pages/Inventario/AgregarProveedor.html"
               ><span class="nav-icon">🏭</span> Proveedores</a
             >
           </li>
@@ -79,12 +79,12 @@
         <h3>Gestión</h3>
         <ul>
           <li>
-            <a href="../Area Medica/Clientes.html"
+            <a href="/Pages/Area Medica/Clientes.html"
               ><span class="nav-icon">🩺</span> Área Médica</a
             >
           </li>
           <li>
-            <a href="../Facturacion/Facturacion.html"
+            <a href="/Pages/Facturacion/Facturacion.html"
               ><span class="nav-icon">🧾</span> Facturación</a
             >
           </li>
@@ -97,7 +97,7 @@
           Consulta y administra el inventario de productos
         </p>
 
-        <a href="../Inventario/AgregarProducto.html" class="btn-nuevo"
+        <a href="/Pages/Inventario/AgregarProducto.html" class="btn-nuevo"
           >➕ Nuevo Producto</a
         >
 

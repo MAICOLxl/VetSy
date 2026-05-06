@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agregar Movimiento</title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <script src="/Js/themeSwitcher.js"></script>
     <script src="/Js/themeEvents.js"></script>
   </head>
@@ -16,7 +16,7 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "../../login.html";
+      if (!user) window.location.href = "/login.html";
     </script>
 
     <header class="top-menu">
@@ -29,7 +29,7 @@
         >
         <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
       </nav>
-      <div class="header-controls" style="margin-left: auto">
+      <div class="header-controls">
         <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
           🌙
         </button>
@@ -46,7 +46,7 @@
         <h3>Principal</h3>
         <ul>
           <li>
-            <a href="../../index.html"
+            <a href="/index.html"
               ><span class="nav-icon">🏠</span> Inicio</a
             >
           </li>
