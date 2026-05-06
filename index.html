@@ -21,8 +21,10 @@
     </script>
 
     <header class="top-menu">
-      <div class="logo-area" id="logoArea">
-        <h1>🐾 VetSy</h1>
+      <div class="logo-area" >
+        <a href="index.html">
+          <span id="logoArea">🐾 VetSy</span>
+        </a>
       </div>
       <div>
         <nav>
@@ -34,14 +36,14 @@
       </div>
 
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema de la aplicación">
           🌙
         </button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn">Cerrar sesión</button>
+        <button id="logoutBtn" aria-label="Cerrar sesión de usuario">Cerrar sesión</button>
       </div>
     </header>
 
@@ -83,7 +85,7 @@
             >
           </li>
           <li>
-            <a href="Pages/Area Medica/Historial .html"
+            <a href="Pages/Area Medica/Historial.html"
               ><span class="nav-icon">📊</span> Historial</a
             >
           </li>
@@ -120,11 +122,15 @@
               id="globalSearch"
               autocomplete="off"
             />
-            <button class="search-btn" id="searchBtn">
+            <button 
+              class="search-btn" 
+              id="searchBtn" 
+              aria-label="Realizar búsqueda"
+              onclick="ejecutarBusqueda()">
               <svg
                 xmlns="http://w3.org"
-                width="36"
-                height="36"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -140,17 +146,17 @@
 
           <!-- FILTROS DE BÚSQUEDA -->
           <div class="search-filters" id="searchFilters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="animales">
+            <button class="filter-btn active" data-filter="all" aria-label="Mostrar todos los resultados">Todos</button>
+            <button class="filter-btn" data-filter="animales" aria-label="Filtrar por animales">
               🐾 Animales
             </button>
-            <button class="filter-btn" data-filter="clientes">
+            <button class="filter-btn" data-filter="clientes" aria-label="Filtrar por clientes">
               👤 Clientes
             </button>
-            <button class="filter-btn" data-filter="productos">
+            <button class="filter-btn" data-filter="productos" aria-label="Filtrar por productos">
               📦 Productos
             </button>
-            <button class="filter-btn" data-filter="vacunas">💉 Vacunas</button>
+            <button class="filter-btn" data-filter="vacunas" aria-label="Filtrar por vacunas">💉 Vacunas</button>
           </div>
 
           <!-- SUGERENCIAS DE BÚSQUEDA -->
@@ -161,7 +167,7 @@
           >
             <div class="suggestions-header">
               <span>Resultados encontrados</span>
-              <button class="close-suggestions" id="closeSuggestions">✕</button>
+              <button class="close-suggestions" id="closeSuggestions" aria-label="Cerrar sugerencias de búsqueda">✕</button>
             </div>
             <div class="suggestions-list" id="suggestionsList"></div>
           </div>
@@ -242,19 +248,21 @@
           </div>
           <div class="features-grid">
             <div class="feature-item">
-              <span class="feature-icon">🏥</span>
-              <span class="feature-text">Gestión médica completa</span>
-            </div>
-            <div class="feature-item">
-              <span class="feature-icon">💾</span>
+              <a href="/Pages/Area Medica/Historial.html" class="action-card">
+                <span class="feature-icon">💾</span>
+              </a>
               <span class="feature-text">Historial de pacientes</span>
             </div>
             <div class="feature-item">
-              <span class="feature-icon">📊</span>
+              <a href="/Pages/Area Medica/Reportes.html" class="action-card">
+                <span class="feature-icon">📊</span>
+              </a>
               <span class="feature-text">Reportes detallados</span>
             </div>
             <div class="feature-item">
-              <span class="feature-icon">🔐</span>
+              <a href="/data/datosSeguros.json" class="action-card">
+                <span class="feature-icon">🔐</span>
+              </a>
               <span class="feature-text">Datos seguros</span>
             </div>
           </div>

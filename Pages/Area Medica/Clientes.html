@@ -20,7 +20,11 @@
     </script>
 
     <header class="top-menu">
-      <div class="logo-area"><h1>🐾 VetSy</h1></div>
+       <div class="logo-area" >
+        <a href="/index.html">
+          <span id="logoArea">🐾 VetSy</span>
+        </a>
+      </div>
       <nav>
         <a href="/index.html">Inicio</a>
         <a href="/Pages/Area Medica/Clientes.html" class="active">Área Médica</a>
@@ -28,14 +32,14 @@
         <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema de la aplicación">
           🌙
         </button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn">Cerrar sesión</button>
+        <button id="logoutBtn" aria-label="Cerrar sesión de usuario">Cerrar sesión</button>
       </div>
     </header>
 
@@ -152,6 +156,7 @@
                 onclick="actualizarCliente()"
                 class="btn-primary"
                 style="flex: 1; width: auto"
+                aria-label="Actualizar datos del cliente"
               >
                 Actualizar
               </button>
@@ -160,6 +165,7 @@
                 class="btn btn-secondary"
                 style="width: auto"
                 type="button"
+                aria-label="Cerrar formulario de edición"
               >
                 Cerrar
               </button>
@@ -200,7 +206,7 @@
               <input type="text" id="direccion" placeholder="Dirección" />
             </div>
           </div>
-          <button type="submit" class="btn-primary">Guardar Cliente</button>
+          <button type="submit" class="btn-primary" aria-label="Guardar nuevo cliente">Guardar Cliente</button>
         </form>
 
         <hr />
@@ -211,6 +217,7 @@
             <button
               onclick="obtenerClientes()"
               class="btn btn-secondary btn-sm"
+              aria-label="Actualizar lista de clientes"
             >
               Actualizar
             </button>

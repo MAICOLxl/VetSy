@@ -42,7 +42,7 @@ body {
   border-radius: var(--radius-sm);
 }
 
-.top-menu .logo-area h1 {
+.top-menu .logo-area span {
   font-family: "Sora", sans-serif;
   font-size: 20px;
   font-weight: 800;
