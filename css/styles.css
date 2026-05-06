@@ -442,7 +442,6 @@ body {
   border-radius: var(--radius-lg);
   padding: 28px 32px;
   width: 100%;
-  max-width: 700px;
   animation: fadeUp 0.35s ease;
 }
 
@@ -683,7 +682,8 @@ select {
 .f-inventario button[type="submit"],
 .form-card button[type="submit"],
 .form-box button[type="submit"] {
-  width: 100%;
+  justify-content: center;
+  align-items: center;
   padding: 12px;
   background: var(--primary);
   color: #0d1117;

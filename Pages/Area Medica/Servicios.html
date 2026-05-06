@@ -11,27 +11,31 @@
   </head>
   <body>
     <script>
-      /*
       const user = JSON.parse(
         sessionStorage.getItem("usuario") ||
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "../../login.html"; */
+      if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
       <div class="logo-area"><h1>🐾 VetSy</h1></div>
       <nav>
         <a href="../../index.html">Inicio</a>
-        <a href="../Area Medica/Animales.html" class="active"
-          >Área Médica</a
-        >
+        <a href="../Area Medica/Animales.html" class="active">Área Médica</a>
         <a href="../Inventario/AgregarProducto.html">Inventario</a>
         <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
-      <div class="header-controls" style="margin-left: auto;">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+      <div class="header-controls" style="margin-left: auto">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+          🌙
+        </button>
+      </div>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">V</div>
+        <span id="headerName">Usuario</span>
+        <button id="logoutBtn">Cerrar sesión</button>
       </div>
     </header>
 
@@ -40,9 +44,7 @@
         <h3>Principal</h3>
         <ul>
           <li>
-            <a href="index.html" 
-              ><span class="nav-icon">🏠</span> Inicio</a
-            >
+            <a href="index.html"><span class="nav-icon">🏠</span> Inicio</a>
           </li>
         </ul>
         <h3>Área Médica</h3>
@@ -96,62 +98,6 @@
       <main class="contenido">
         <h1 class="page-title">Servicios</h1>
         <p class="page-subtitle">Registra los servicios médicos realizados</p>
-
-        <form class="f-area-medica" id="formServicio">
-          <h2>Registrar Servicio</h2>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>ID Animal</label>
-              <input type="number" id="idAnimal" placeholder="Ej: 1" required />
-            </div>
-            <div class="form-group">
-              <label>ID Usuario</label>
-              <input
-                type="number"
-                id="idUsuario"
-                placeholder="Ej: 1"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Tipo de Servicio</label>
-              <select id="tipoServicio" required>
-                <option value="">Seleccione tipo</option>
-                <option value="Consulta">Consulta</option>
-                <option value="Vacuna">Vacuna</option>
-                <option value="Cirugia">Cirugía</option>
-                <option value="Desparasitacion">Desparasitación</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Fecha</label>
-              <input type="date" id="fechaServicio" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Descripción</label>
-              <input
-                type="text"
-                id="descripcion"
-                placeholder="Descripción del servicio"
-              />
-            </div>
-            <div class="form-group">
-              <label>Precio (RD$)</label>
-              <input type="number" id="precio" placeholder="Ej: 500" required />
-            </div>
-          </div>
-
-          <button type="submit" class="btn-primary">Guardar Servicio</button>
-        </form>
-
-        <hr />
 
         <!-- Editar Servicio -->
         <div class="f-area-medica" style="margin-top: 0">
@@ -241,6 +187,63 @@
             </div>
           </div>
         </div>
+        <hr />
+
+        <form class="f-area-medica" id="formServicio">
+          <h2>Registrar Servicio</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>ID Animal</label>
+              <input type="number" id="idAnimal" placeholder="Ej: 1" required />
+            </div>
+            <div class="form-group">
+              <label>ID Usuario</label>
+              <input
+                type="number"
+                id="idUsuario"
+                placeholder="Ej: 1"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo de Servicio</label>
+              <select id="tipoServicio" required>
+                <option value="">Seleccione tipo</option>
+                <option value="Consulta">Consulta</option>
+                <option value="Vacuna">Vacuna</option>
+                <option value="Cirugia">Cirugía</option>
+                <option value="Desparasitacion">Desparasitación</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" id="fechaServicio" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Descripción</label>
+              <input
+                type="text"
+                id="descripcion"
+                placeholder="Descripción del servicio"
+              />
+            </div>
+            <div class="form-group">
+              <label>Precio (RD$)</label>
+              <input type="number" id="precio" placeholder="Ej: 500" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Guardar Servicio</button>
+        </form>
+
+        <hr />
 
         <!-- Tabla -->
         <div class="table-card" style="margin-top: 24px">

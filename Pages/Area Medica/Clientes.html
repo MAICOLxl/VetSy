@@ -27,61 +27,74 @@
         <a href="../Inventario/AgregarProducto.html">Inventario</a>
         <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
-  <div class="header-controls" style="margin-left: auto;">
-    <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
-  </div>
-              <a href="../../index.html"
-                ><span class="nav-icon">🏠</span>Inicio</a
-              >
-            </li>
-          </ul>
-          <h3>Área Médica</h3>
-          <ul>
-            <li>
-              <a href="../Area Medica/Clientes.html" class="active"
-                ><span class="nav-icon">👤</span> Clientes</a
-              >
-            </li>
-            <li>
-              <a href="../Area Medica/Animales.html"
-                ><span class="nav-icon">🐾</span> Animales</a
-              >
-            </li>
-            <li>
-              <a href="../Area Medica/Servicios.html"
-                ><span class="nav-icon">🩺</span> Servicios</a
-              >
-            </li>
-            <li>
-              <a href="../Area Medica/RegistrodeVacunas.html"
-                ><span class="nav-icon">💉</span> Vacunas</a
-              >
-            </li>
-            <li>
-              <a href="../Area Medica/AplicacióndeVacunas.html"
-                ><span class="nav-icon">📋</span> Aplicar Vacunas</a
-              >
-            </li>
-            <li>
-              <a href="../Area Medica/Historial .html"
-                ><span class="nav-icon">📊</span> Historial</a
-              >
-            </li>
-          </ul>
-          <h3>Gestión</h3>
-          <ul>
-            <li>
-              <a href="../Inventario/AgregarProducto.html"
-                ><span class="nav-icon">📦</span> Inventario</a
-              >
-            </li>
-            <li>
-              <a href="../Facturacion/Facturacion.html"
-                ><span class="nav-icon">🧾</span> Facturación</a
-              >
-            </li>
-          </ul>
-        </nav>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+          🌙
+        </button>
+      </div>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">V</div>
+        <span id="headerName">Usuario</span>
+        <button id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <h3>Principal</h3>
+        <ul>
+          <li>
+            <a href="../../index.html"
+              ><span class="nav-icon">🏠</span>Inicio</a
+            >
+          </li>
+        </ul>
+        <h3>Área Médica</h3>
+        <ul>
+          <li>
+            <a href="../Area Medica/Clientes.html" class="active"
+              ><span class="nav-icon">👤</span> Clientes</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Animales.html"
+              ><span class="nav-icon">🐾</span> Animales</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Servicios.html"
+              ><span class="nav-icon">🩺</span> Servicios</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/RegistrodeVacunas.html"
+              ><span class="nav-icon">💉</span> Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/AplicacióndeVacunas.html"
+              ><span class="nav-icon">📋</span> Aplicar Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Historial .html"
+              ><span class="nav-icon">📊</span> Historial</a
+            >
+          </li>
+        </ul>
+        <h3>Gestión</h3>
+        <ul>
+          <li>
+            <a href="../Inventario/AgregarProducto.html"
+              ><span class="nav-icon">📦</span> Inventario</a
+            >
+          </li>
+          <li>
+            <a href="../Facturacion/Facturacion.html"
+              ><span class="nav-icon">🧾</span> Facturación</a
+            >
+          </li>
+        </ul>
       </aside>
 
       <main class="contenido">
@@ -89,43 +102,6 @@
         <p class="page-subtitle">
           Registra y administra los clientes de la clínica
         </p>
-
-        <form class="f-area-medica" id="formCliente">
-          <h2>Registrar Cliente</h2>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                placeholder="Nombre completo"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label>Teléfono</label>
-              <input
-                type="text"
-                id="telefono"
-                placeholder="Ej: 809-555-0000"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" id="email" placeholder="correo@ejemplo.com" />
-            </div>
-            <div class="form-group">
-              <label>Dirección</label>
-              <input type="text" id="direccion" placeholder="Dirección" />
-            </div>
-          </div>
-          <button type="submit" class="btn-primary">Guardar Cliente</button>
-        </form>
-
-        <hr />
 
         <div class="f-area-medica" style="margin-top: 0">
           <h2>Editar Cliente</h2>
@@ -174,7 +150,7 @@
             <div style="display: flex; gap: 10px; margin-top: 8px">
               <button
                 onclick="actualizarCliente()"
-                class="btn btn-primary"
+                class="btn-primary"
                 style="flex: 1; width: auto"
               >
                 Actualizar
@@ -190,6 +166,44 @@
             </div>
           </div>
         </div>
+        <hr />
+
+        <form class="f-area-medica" id="formCliente">
+          <h2>Registrar Cliente</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre completo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input
+                type="text"
+                id="telefono"
+                placeholder="Ej: 809-555-0000"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="correo@ejemplo.com" />
+            </div>
+            <div class="form-group">
+              <label>Dirección</label>
+              <input type="text" id="direccion" placeholder="Dirección" />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Guardar Cliente</button>
+        </form>
+
+        <hr />
 
         <div class="table-card" style="margin-top: 24px">
           <div class="table-header">

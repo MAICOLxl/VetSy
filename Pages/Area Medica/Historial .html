@@ -1,85 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historial — VetSy</title>
-  <link rel="stylesheet" href="../../css/reset.css">
-  <link rel="stylesheet" href="../../css/styles.css">
-  <script src="../../Js/themeSwitcher.js"></script>
-  <script src="../../Js/themeEvents.js"></script>
-</head>
-<body>
-<script>
-  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "../../login.html";
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historial — VetSy</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script src="../../Js/themeSwitcher.js"></script>
+    <script src="../../Js/themeEvents.js"></script>
+  </head>
+  <body>
+    <script>
+      const user = JSON.parse(
+        sessionStorage.getItem("usuario") ||
+          localStorage.getItem("usuario") ||
+          "null",
+      );
+      if (!user) window.location.href = "../../login.html";
+    </script>
 
-<header class="top-menu">
-  <div class="logo-area"><h1>🐾 VetSy</h1></div>
-  <nav>
-    <a href="../../index.html">Inicio</a>
-    <a href="../Area Medica/Animales.html" class="active">Área Médica</a>
-    <a href="../Inventario/AgregarProducto.html">Inventario</a>
-    <a href="../Facturacion/Facturacion.html">Facturación</a>
-  </nav>  <div class="header-controls" style="margin-left: auto;">
-    <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
-  </div></header>
+    <header class="top-menu">
+      <div class="logo-area"><h1>🐾 VetSy</h1></div>
+      <nav>
+        <a href="../../index.html">Inicio</a>
+        <a href="../Area Medica/Animales.html" class="active">Área Médica</a>
+        <a href="../Inventario/AgregarProducto.html">Inventario</a>
+        <a href="../Facturacion/Facturacion.html">Facturación</a>
+      </nav>
+      <div class="header-controls" style="margin-left: auto">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+          🌙
+        </button>
+      </div>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">V</div>
+        <span id="headerName">Usuario</span>
+        <button id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </header>
 
-<div class="container">
-  <aside class="sidebar">
-    <h3>Principal</h3>
+    <div class="container">
+      <aside class="sidebar">
+        <h3>Principal</h3>
         <ul>
           <li>
-            <a href="index.html" 
-              ><span class="nav-icon">🏠</span> Inicio</a
+            <a href="index.html"><span class="nav-icon">🏠</span> Inicio</a>
+          </li>
+        </ul>
+        <h3>Área Médica</h3>
+        <ul>
+          <li>
+            <a href="../Area Medica/Clientes.html"
+              ><span class="nav-icon">👤</span> Clientes</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Animales.html"
+              ><span class="nav-icon">🐾</span> Animales</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Servicios.html"
+              ><span class="nav-icon">🩺</span> Servicios</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/RegistrodeVacunas.html"
+              ><span class="nav-icon">💉</span> Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/AplicacióndeVacunas.html"
+              ><span class="nav-icon">📋</span> Aplicar Vacunas</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Historial .html" class="active"
+              ><span class="nav-icon">📊</span> Historial</a
             >
           </li>
         </ul>
-    <h3>Área Médica</h3>
-    <ul>
-      <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
-      <li><a href="../Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
-      <li><a href="../Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
-      <li><a href="../Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
-      <li><a href="../Area Medica/Historial .html" class="active"><span class="nav-icon">📊</span> Historial</a></li>
-    </ul>
-    <h3>Gestión</h3>
-    <ul>
-      <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
-      <li><a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
-    </ul>
-  </aside>
+        <h3>Gestión</h3>
+        <ul>
+          <li>
+            <a href="../Inventario/AgregarProducto.html"
+              ><span class="nav-icon">📦</span> Inventario</a
+            >
+          </li>
+          <li>
+            <a href="../Facturacion/Facturacion.html"
+              ><span class="nav-icon">🧾</span> Facturación</a
+            >
+          </li>
+        </ul>
+      </aside>
 
-  <main class="contenido">
-    <h1 class="page-title">Historial de Clientes</h1>
-    <p class="page-subtitle">Consulta el historial médico por cliente</p>
+      <main class="contenido">
+        <h1 class="page-title">Historial de Clientes</h1>
+        <p class="page-subtitle">Consulta el historial médico por cliente</p>
 
-    <div class="search-card">
-      <h3>Buscar</h3>
-      <input type="text" id="buscador" placeholder="Buscar por nombre o ID...">
+        <div class="search-card">
+          <h3>Buscar</h3>
+          <input
+            type="text"
+            id="buscador"
+            placeholder="Buscar por nombre o ID..."
+          />
+        </div>
+
+        <div class="table-card">
+          <div class="table-header"><h2>Historial</h2></div>
+          <div class="historial-wrapper table-wrapper">
+            <table class="historial-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th># Animales</th>
+                  <th>Animales</th>
+                  <th>Tipos de Consultas</th>
+                </tr>
+              </thead>
+              <tbody id="tablaHistorial"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <div class="table-card">
-      <div class="table-header"><h2>Historial</h2></div>
-      <div class="historial-wrapper table-wrapper">
-        <table class="historial-table">
-          <thead>
-            <tr>
-              <th>ID</th><th>Cliente</th><th>Teléfono</th><th>Email</th>
-              <th># Animales</th><th>Animales</th><th>Tipos de Consultas</th>
-            </tr>
-          </thead>
-          <tbody id="tablaHistorial"></tbody>
-        </table>
-      </div>
-    </div>
-  </main>
-</div>
-
-<script src="../../Js/historialClientes.js"></script>
-<script>
+    <script src="../../Js/historialClientes.js"></script>
+    <script>
       // Al cargar la página, verificamos si venimos de una búsqueda del index
       window.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -105,5 +157,5 @@
         }
       });
     </script>
-</body>
+  </body>
 </html>

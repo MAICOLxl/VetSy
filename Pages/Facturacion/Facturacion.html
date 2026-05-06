@@ -1,92 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facturación — VetSy</title>
-  <link rel="stylesheet" href="../../css/reset.css">
-  <link rel="stylesheet" href="../../css/styles.css">
-  <script src="../../Js/themeSwitcher.js"></script>
-  <script src="../../Js/themeEvents.js"></script>
-</head>
-<body>
-<script>
-  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "../../login.html";
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facturación — VetSy</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script src="../../Js/themeSwitcher.js"></script>
+    <script src="../../Js/themeEvents.js"></script>
+  </head>
+  <body>
+    <script>
+      const user = JSON.parse(
+        sessionStorage.getItem("usuario") ||
+          localStorage.getItem("usuario") ||
+          "null",
+      );
+      if (!user) window.location.href = "../../login.html";
+    </script>
 
-<header class="top-menu">
-  <div class="logo-area"><h1>🐾 VetSy</h1></div>
-  <nav>
-    <a href="../../index.html">Inicio</a>
-    <a href="../Area Medica/Animales.html">Área Médica</a>
-    <a href="../Inventario/AgregarProducto.html">Inventario</a>
-    <a href="../Facturacion/Facturacion.html" class="active">Facturación</a>
-  </nav>
-  <div class="header-controls" style="margin-left: auto;">
-    <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
-  </div>
-</header>
+    <header class="top-menu">
+      <div class="logo-area"><h1>🐾 VetSy</h1></div>
+      <nav>
+        <a href="../../index.html">Inicio</a>
+        <a href="../Area Medica/Animales.html">Área Médica</a>
+        <a href="../Inventario/AgregarProducto.html">Inventario</a>
+        <a href="../Facturacion/Facturacion.html" class="active">Facturación</a>
+      </nav>
+      <div class="header-controls" style="margin-left: auto">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
+          🌙
+        </button>
+      </div>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">V</div>
+        <span id="headerName">Usuario</span>
+        <button id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </header>
 
-<div class="container">
-  <aside class="sidebar">
-    <h3>Principal</h3>
+    <div class="container">
+      <aside class="sidebar">
+        <h3>Principal</h3>
         <ul>
           <li>
-            <a href="../../index.html" 
+            <a href="../../index.html"
               ><span class="nav-icon">🏠</span> Inicio</a
             >
           </li>
         </ul>
-    <h3>Facturación</h3>
-    <ul>
-      <li><a href="../Facturacion/Facturacion.html" class="active"><span class="nav-icon">🧾</span> Nueva Factura</a></li>
-    </ul>
-    <h3>Área Médica</h3>
-    <ul>
-      <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
-    </ul>
-  </aside>
+        <h3>Facturación</h3>
+        <ul>
+          <li>
+            <a href="../Facturacion/Facturacion.html" class="active"
+              ><span class="nav-icon">🧾</span> Nueva Factura</a
+            >
+          </li>
+        </ul>
+        <h3>Área Médica</h3>
+        <ul>
+          <li>
+            <a href="../Area Medica/Clientes.html"
+              ><span class="nav-icon">👤</span> Clientes</a
+            >
+          </li>
+          <li>
+            <a href="../Area Medica/Animales.html"
+              ><span class="nav-icon">🐾</span> Animales</a
+            >
+          </li>
+        </ul>
+      </aside>
 
-  <main class="contenido">
-    <h1 class="page-title">Facturación</h1>
-    <p class="page-subtitle">Genera facturas para las pruebas y servicios realizados</p>
+      <main class="contenido">
+        <h1 class="page-title">Facturación</h1>
+        <p class="page-subtitle">
+          Genera facturas para las pruebas y servicios realizados
+        </p>
 
-    <form class="f-facturacion" id="formFacturacion">
-      <h2>Nueva Factura</h2>
+        <form class="f-facturacion" id="formFacturacion">
+          <h2>Nueva Factura</h2>
 
-      <h3>Datos del Cliente</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre del Dueño</label>
-          <input type="text" id="dueno" name="dueno" placeholder="Ej: Juan Pérez" required>
-        </div>
-        <div class="form-group">
-          <label>Nombre de la Mascota</label>
-          <input type="text" id="mascota" name="mascota" placeholder="Ej: Max" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Tipo de Animal</label>
-        <select id="tipo" name="tipo">
-          <option>Perro</option>
-          <option>Gato</option>
-          <option>Otro</option>
-        </select>
-      </div>
+          <h3>Datos del Cliente</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre del Dueño</label>
+              <input
+                type="text"
+                id="dueno"
+                name="dueno"
+                placeholder="Ej: Juan Pérez"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Nombre de la Mascota</label>
+              <input
+                type="text"
+                id="mascota"
+                name="mascota"
+                placeholder="Ej: Max"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Animal</label>
+            <select id="tipo" name="tipo">
+              <option>Perro</option>
+              <option>Gato</option>
+              <option>Otro</option>
+            </select>
+          </div>
 
-      <h3>Pruebas Disponibles</h3>
-      <div><input type="checkbox" name="hemograma"> Hemograma</div>
-      <div><input type="checkbox" name="perfil_bioquimico"> Perfil Bioquímico</div>
-      <div><input type="checkbox" name="rayosx"> Rayos X</div>
-      <div><input type="checkbox" name="ultrasonido"> Ultrasonido</div>
-      <div><input type="checkbox" name="parvovirus"> Prueba de Parvovirus</div>
-      <div><input type="checkbox" name="moquillo"> Prueba de Moquillo</div>
+          <h3>Pruebas Disponibles</h3>
+          <div><input type="checkbox" name="hemograma" /> Hemograma</div>
+          <div>
+            <input type="checkbox" name="perfil_bioquimico" /> Perfil Bioquímico
+          </div>
+          <div><input type="checkbox" name="rayosx" /> Rayos X</div>
+          <div><input type="checkbox" name="ultrasonido" /> Ultrasonido</div>
+          <div>
+            <input type="checkbox" name="parvovirus" /> Prueba de Parvovirus
+          </div>
+          <div>
+            <input type="checkbox" name="moquillo" /> Prueba de Moquillo
+          </div>
 
-      <button type="submit">Generar Factura</button>
-    </form>
-  </main>
-</div>
-</body>
+          <button type="submit">Generar Factura</button>
+        </form>
+      </main>
+    </div>
+  </body>
 </html>
