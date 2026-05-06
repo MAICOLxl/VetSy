@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proveedores — VetSy</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+<script>
+  const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+  if (!user) window.location.href = "../../login.html";
+</script>
+
+<header class="top-menu">
+  <div class="logo-area"><h1>🐾 VetSy</h1></div>
+  <nav>
+    <a href="../../index.html">Inicio</a>
+    <a href="../Area Medica/Animales.html">Área Médica</a>
+    <a href="../Inventario/AgregarProducto.html" class="active">Inventario</a>
+    <a href="../Facturacion/Facturacion.html">Facturación</a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <h3>Inventario</h3>
+    <ul>
+      <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+      <li><a href="../Inventario/AgregarMovimientos.html"><span class="nav-icon">🔄</span> Registrar Movimiento</a></li>
+      <li><a href="../Inventario/ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+      <li><a href="../Inventario/AgregarProveedor.html" class="active"><span class="nav-icon">🏭</span> Proveedores</a></li>
+    </ul>
+  </aside>
+
+  <main class="contenido">
+    <h1 class="page-title">Proveedores</h1>
+    <p class="page-subtitle">Gestiona los proveedores del sistema</p>
+
+    <!-- FORMULARIO -->
+    <form class="f-area-medica" id="formProveedor">
+      <h2>Nuevo Proveedor</h2>
+
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="nombre" maxlength="50" required>
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" id="telefono" maxlength="13" required>
+      </div>
+
+      <div class="form-group">
+        <label>Extensión</label>
+        <input type="text" id="extensionTelefono" maxlength="10">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" maxlength="50">
+      </div>
+
+      <button type="submit" class="btn-primary">Guardar Proveedor</button>
+    </form>
+
+    <!-- TABLA -->
+    <section style="margin-top: 40px;">
+      <h2>Lista de Proveedores</h2>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Extensión</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProveedores"></tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<script src="/js/AgregarProveedor.js"></script>
+</body>
+</html>
