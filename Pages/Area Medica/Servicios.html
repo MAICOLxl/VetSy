@@ -15,7 +15,7 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      // Ruta relativa al login
+      // CORREGIDO: Ruta relativa al login
       if (!user) window.location.href = "../../login.html";
     </script>
 
@@ -51,33 +51,17 @@
         </ul>
         <h3>Área Médica</h3>
         <ul>
-          <li>
-            <a href="Clientes.html"><span class="nav-icon">👤</span> Clientes</a>
-          </li>
-          <li>
-            <a href="Animales.html"><span class="nav-icon">🐾</span> Animales</a>
-          </li>
-          <li>
-            <a href="Servicios.html" class="active"><span class="nav-icon">🩺</span> Servicios</a>
-          </li>
-          <li>
-            <a href="RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a>
-          </li>
-          <li>
-            <a href="AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a>
-          </li>
-          <li>
-            <a href="Historial.html"><span class="nav-icon">📊</span> Historial</a>
-          </li>
+          <li><a href="Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+          <li><a href="Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+          <li><a href="Servicios.html" class="active"><span class="nav-icon">🩺</span> Servicios</a></li>
+          <li><a href="RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+          <li><a href="AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+          <li><a href="Historial.html"><span class="nav-icon">📊</span> Historial</a></li>
         </ul>
         <h3>Gestión</h3>
         <ul>
-          <li>
-            <a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a>
-          </li>
-          <li>
-            <a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a>
-          </li>
+          <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+          <li><a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
         </ul>
       </aside>
 
@@ -93,7 +77,6 @@
             placeholder="Buscar servicio..."
             oninput="buscarServicioEditar(this.value)"
             autocomplete="off"
-            style="width: 100%; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-main); font-size: 14px; outline: none; margin-bottom: 8px;"
           />
           <div id="sugerenciasServicios" class="sugerencias"></div>
 
@@ -149,7 +132,7 @@
           <div class="form-row">
             <div class="form-group">
               <label>Descripción</label>
-              <input type="text" id="descripcion" placeholder="Descripción del servicio" />
+              <input type="text" id="descripcion" placeholder="Descripción" />
             </div>
             <div class="form-group">
               <label>Precio (RD$)</label>
