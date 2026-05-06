@@ -1,52 +1,55 @@
 const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  const errorBox = document.getElementById("loginError");
 
-    try {
+  try {
+    const respuesta = await fetch(
+      "https://vetsy-production.up.railway.app/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      }
+    );
 
-        const respuesta = await fetch(
-            "https://vetsy-production.up.railway.app/auth/login",
-            {
-                method: "POST",
+    const data = await respuesta.json();
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+    if (respuesta.ok) {
 
-                body: JSON.stringify({
-                    username,
-                    password
-                })
-            }
-        );
+      // Guardar sesión
+      localStorage.setItem(
+        "usuario",
+        JSON.stringify(data.user)
+      );
 
-        const data = await respuesta.json();
+      // Entrar al sistema
+      window.location.href = "index.html";
 
-        if (respuesta.ok) {
+    } else {
 
-            localStorage.setItem(
-                "usuario",
-                JSON.stringify(data.user)
-            );
-
-            window.location.href = "index.html";
-
-        } else {
-
-            document.getElementById("mensaje").innerText =
-                data.message;
-
-        }
-
-    } catch (error) {
-
-        console.log(error);
+      errorBox.style.display = "block";
+      errorBox.textContent = data.message;
 
     }
 
+  } catch (error) {
+
+    console.error(error);
+
+    errorBox.style.display = "block";
+    errorBox.textContent =
+      "Error conectando con el servidor";
+
+  }
 });

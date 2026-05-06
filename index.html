@@ -9,12 +9,12 @@
   </head>
   <body>
     <script>
-      /* const user = JSON.parse(
+       const user = JSON.parse(
         sessionStorage.getItem("usuario") ||
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "login.html"; */
+      if (!user) window.location.href = "login.html"; 
     </script>
 
     <header class="top-menu">
@@ -29,9 +29,14 @@
         <a href="Pages/Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-user" id="headerUser">
-        <div class="avatar" id="headerAvatar">V</div>
-        <span id="headerName">Usuario</span>
-      </div>
+  <div class="avatar" id="headerAvatar">V</div>
+
+  <span id="headerName">Usuario</span>
+
+  <button id="logoutBtn">
+    Cerrar sesión
+  </button>
+</div>
     </header>
 
     <div class="container">
@@ -272,6 +277,16 @@
             ejecutarBusqueda();
           }
         });
+
+        document
+  .getElementById("logoutBtn")
+  .addEventListener("click", () => {
+
+    localStorage.removeItem("usuario");
+
+    window.location.href = "login.html";
+
+});
 
       cargarStats();
     </script>
