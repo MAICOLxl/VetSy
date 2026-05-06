@@ -3,6 +3,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+import autenticacionRuta from "./endpoints/autenticacionRuta.js";
 import clienteRuta from "./endpoints/clienteRuta.js";
 import animalRuta from "./endpoints/animalRuta.js";
 import servicioRuta from "./endpoints/servicioRuta.js";
@@ -15,6 +16,7 @@ import desparasitanteRuta from "./endpoints/desparasitanteRuta.js";
 import productoRuta from "./endpoints/productoRuta.js";
 import proveedorRuta from "./endpoints/proveedorRuta.js";
 import cors from "cors";
+app.use("/auth", autenticacionRuta);
 app.use("/clientes", clienteRuta);
 app.use("/animales", animalRuta);
 app.use("/servicios", servicioRuta);
