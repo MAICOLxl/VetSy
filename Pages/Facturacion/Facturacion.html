@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facturación — VetSy</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
 <script>
   const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "/login.html";
+  if (!user) window.location.href = "../../login.html";
 </script>
 
 <header class="top-menu">
   <div class="logo-area"><h1>🐾 VetSy</h1></div>
   <nav>
-    <a href="/index.html">Inicio</a>
-    <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
-    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-    <a href="/Pages/Facturacion/Facturacion.html" class="active">Facturación</a>
+    <a href="../../index.html">Inicio</a>
+    <a href="../Area Medica/Animales.html">Área Médica</a>
+    <a href="../Inventario/AgregarProducto.html">Inventario</a>
+    <a href="../Facturacion/Facturacion.html" class="active">Facturación</a>
   </nav>
 </header>
 
@@ -27,12 +27,12 @@
   <aside class="sidebar">
     <h3>Facturación</h3>
     <ul>
-      <li><a href="/Pages/Facturacion/Facturacion.html" class="active"><span class="nav-icon">🧾</span> Nueva Factura</a></li>
+      <li><a href="../Facturacion/Facturacion.html" class="active"><span class="nav-icon">🧾</span> Nueva Factura</a></li>
     </ul>
     <h3>Área Médica</h3>
     <ul>
-      <li><a href="/Pages/Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
     </ul>
   </aside>
 
