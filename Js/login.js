@@ -5,25 +5,25 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const username = document.getElementById("username").value;
-
     const password = document.getElementById("password").value;
 
     try {
 
-        const respuesta = await fetch("http://localhost:3000/auth/login", {
+        const respuesta = await fetch(
+            "https://vetsy-production.up.railway.app/auth/login",
+            {
+                method: "POST",
 
-            method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                username,
-                password
-            })
-
-        });
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }
+        );
 
         const data = await respuesta.json();
 
