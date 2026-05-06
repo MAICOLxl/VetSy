@@ -1,14 +1,13 @@
 /* ── Controles de búsqueda ── */
 .lista-controles {
   display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
+  gap: 5px;
+  flex-wrap: nowrap;
   align-items: center;
+  justify-content: space-between;
 }
 
 .lista-controles input[type="text"] {
-  flex: 1;
   min-width: 200px;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
@@ -18,9 +17,11 @@
 
 .lista-controles select {
   padding: 8px 12px;
+  margin: 0 5px;
+  min-width: 200px;
+  min-height: 40px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
-  font-size: .9rem;
 }
 
 #contador {
@@ -63,7 +64,8 @@
 }
 
 .btn-editar,
-.btn-eliminar {
+.btn-eliminar,
+ {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -72,7 +74,8 @@
   font-weight: 500;
 }
 
-.btn-editar {
+.btn-editar,
+ {
   background: #dbeafe;
   color: #1d4ed8;
 }

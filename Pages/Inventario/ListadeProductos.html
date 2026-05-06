@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Productos — VetSy</title>
 
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/css/listaDeProducto.css" />
     <script src="/Js/themeSwitcher.js"></script>
     <script src="/Js/themeEvents.js"></script>
@@ -48,9 +48,7 @@
         <h3>Principal</h3>
         <ul>
           <li>
-            <a href="/index.html">
-              <span class="nav-icon">🏠</span> Inicio</a
-            >
+            <a href="/index.html"> <span class="nav-icon">🏠</span> Inicio</a>
           </li>
         </ul>
         <h3>Inventario</h3>
@@ -102,6 +100,7 @@
         >
 
         <div class="lista-controles">
+          
           <input
             type="text"
             id="buscador"
@@ -115,9 +114,9 @@
             <option value="Accesorio">Accesorio</option>
             <option value="Otro">Otro</option>
           </select>
-
-          <span id="contador"></span>
         </div>
+
+        <span id="contador"></span>
 
         <div id="loader">⏳ Cargando productos...</div>
 
