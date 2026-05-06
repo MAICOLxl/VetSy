@@ -4,33 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clientes — VetSy</title>
-    <link rel="stylesheet" href="/css/app.css" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/Js/themeSwitcher.js"></script>
-    <script src="/Js/themeEvents.js"></script>
-  </head>
-  <body>
+    <!-- Corregido: Subimos dos niveles para encontrar la carpeta css del proyecto -->
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="../../Js/themeSwitcher.js"></script>
+    <script src="../../Js/themeEvents.js"></script>
+</head>
+<body>
     <script>
       const user = JSON.parse(
         sessionStorage.getItem("usuario") ||
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "/login.html";
+      // Corregido: La ruta al login también debe ser relativa
+      if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area" >
-        <a href="/index.html">
-          <span id="logoArea">🐾 VetSy</span>
-        </a>
-      </div>
-      <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/Pages/Area Medica/Clientes.html" class="active">Área Médica</a>
-        <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
-      </nav>
+        <div class="logo-area" >
+         <!-- Corregido: Ruta al inicio -->
+         <a href="../../index.html">
+           <span id="logoArea">🐾 VetSy</span>
+         </a>
+       </div>
+       <nav>
+         <!-- Corregido: Rutas del menú de navegación -->
+         <a href="../../index.html">Inicio</a>
+         <a href="Clientes.html" class="active">Área Médica</a>
+         <a href="../Inventario/AgregarProducto.html">Inventario</a>
+         <a href="../Facturacion/Facturacion.html">Facturación</a>
+       </nav>
       <div class="header-controls">
         <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema de la aplicación">
           🌙
