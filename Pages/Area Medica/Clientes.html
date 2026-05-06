@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clientes — VetSy</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
 <script>
   const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
-  if (!user) window.location.href = "/login.html";
+  if (!user) window.location.href = "../../login.html";
 </script>
 
 <header class="top-menu">
   <div class="logo-area"><h1>🐾 VetSy</h1></div>
   <nav>
-    <a href="/index.html">Inicio</a>
-    <a href="/Pages/Area Medica/Clientes.html" class="active">Área Médica</a>
-    <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-    <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+    <a href="../../index.html">Inicio</a>
+    <a href="../Area Medica/Clientes.html" class="active">Área Médica</a>
+    <a href="../Inventario/AgregarProducto.html">Inventario</a>
+    <a href="../Facturacion/Facturacion.html">Facturación</a>
   </nav>
 </header>
 
@@ -27,17 +27,17 @@
   <aside class="sidebar">
     <h3>Área Médica</h3>
     <ul>
-      <li><a href="/Pages/Area Medica/Clientes.html" class="active"><span class="nav-icon">👤</span> Clientes</a></li>
-      <li><a href="/Pages/Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
-      <li><a href="/Pages/Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
-      <li><a href="/Pages/Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
-      <li><a href="/Pages/Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
-      <li><a href="/Pages/Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
+      <li><a href="../Area Medica/Clientes.html" class="active"><span class="nav-icon">👤</span> Clientes</a></li>
+      <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+      <li><a href="../Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+      <li><a href="../Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
+      <li><a href="../Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+      <li><a href="../Area Medica/Historial .html"><span class="nav-icon">📊</span> Historial</a></li>
     </ul>
     <h3>Gestión</h3>
     <ul>
-      <li><a href="/Pages/Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
-      <li><a href="/Pages/Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
+      <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+      <li><a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
     </ul>
   </aside>
 
@@ -123,7 +123,7 @@
   </main>
 </div>
 
-<script src="/Js/clientes.js"></script>
+<script src="../../Js/clientes.js"></script>
 <script>
 document.getElementById("formCliente").addEventListener("submit", async (e) => {
   e.preventDefault();
