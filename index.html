@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VetSy — Dashboard</title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <script>
@@ -14,7 +14,7 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "/login.html"; */
+      if (!user) window.location.href = "login.html"; */
     </script>
 
     <header class="top-menu">
@@ -23,10 +23,10 @@
       </div>
       <div class="header-welcome" id="headerWelcome"></div>
       <nav>
-        <a href="/index.html" class="active">Inicio</a>
-        <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+        <a href="index.html" class="active">Inicio</a>
+        <a href="Pages/Area Medica/Animales.html">Área Médica</a>
+        <a href="Pages/Inventario/AgregarProducto.html">Inventario</a>
+        <a href="Pages/Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
@@ -39,7 +39,7 @@
         <h3>Principal</h3>
         <ul>
           <li>
-            <a href="/index.html" class="active"
+            <a href="index.html" class="active"
               ><span class="nav-icon">🏠</span> Inicio</a
             >
           </li>
@@ -47,32 +47,32 @@
         <h3>Área Médica</h3>
         <ul>
           <li>
-            <a href="/Pages/Area Medica/Clientes.html"
+            <a href="Pages/Area Medica/Clientes.html"
               ><span class="nav-icon">👤</span> Clientes</a
             >
           </li>
           <li>
-            <a href="/Pages/Area Medica/Animales.html"
+            <a href="Pages/Area Medica/Animales.html"
               ><span class="nav-icon">🐾</span> Animales</a
             >
           </li>
           <li>
-            <a href="/Pages/Area Medica/Servicios.html"
+            <a href="Pages/Area Medica/Servicios.html"
               ><span class="nav-icon">🩺</span> Servicios</a
             >
           </li>
           <li>
-            <a href="/Pages/Area Medica/RegistrodeVacunas.html"
+            <a href="Pages/Area Medica/RegistrodeVacunas.html"
               ><span class="nav-icon">💉</span> Vacunas</a
             >
           </li>
           <li>
-            <a href="/Pages/Area Medica/AplicacióndeVacunas.html"
+            <a href="Pages/Area Medica/AplicacióndeVacunas.html"
               ><span class="nav-icon">📋</span> Aplicar Vacunas</a
             >
           </li>
           <li>
-            <a href="/Pages/Area Medica/Historial .html"
+            <a href="Pages/Area Medica/Historial .html"
               ><span class="nav-icon">📊</span> Historial</a
             >
           </li>
@@ -80,12 +80,12 @@
         <h3>Gestión</h3>
         <ul>
           <li>
-            <a href="/Pages/Inventario/AgregarProducto.html"
+            <a href="Pages/Inventario/AgregarProducto.html"
               ><span class="nav-icon">📦</span> Inventario</a
             >
           </li>
           <li>
-            <a href="/Pages/Facturacion/Facturacion.html"
+            <a href="Pages/Facturacion/Facturacion.html"
               ><span class="nav-icon">🧾</span> Facturación</a
             >
           </li>
@@ -245,13 +245,13 @@
 
           // Redirección priorizada
           if (mascota) {
-            window.location.href = `/Pages/Area Medica/Animales.html?buscar=${mascota.nombre}`;
+            window.location.href = `Pages/Area Medica/Animales.html?buscar=${mascota.nombre}`;
           } else if (cliente) {
-            window.location.href = `/Pages/Area Medica/Clientes.html?buscar=${cliente.nombre}`;
+            window.location.href = `Pages/Area Medica/Clientes.html?buscar=${cliente.nombre}`;
           } else if (producto) {
-            window.location.href = `/Pages/Inventario/AgregarProducto.html?buscar=${producto.nombre}`;
+            window.location.href = `Pages/Inventario/AgregarProducto.html?buscar=${producto.nombre}`;
           } else if (vacuna) {
-            window.location.href = `/Pages/Area Medica/RegistrodeVacunas.html?buscar=${vacuna.nombre}`;
+            window.location.href = `Pages/Area Medica/RegistrodeVacunas.html?buscar=${vacuna.nombre}`;
           } else {
             alert("No se encontró ningún registro que coincida con: " + query);
           }
