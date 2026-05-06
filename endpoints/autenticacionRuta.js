@@ -1,23 +1,21 @@
 import express from "express";
-import conexion from "../configuracionDB/db.js";
+import { pool } from "../configuracionDB/db.js";
 
 const router = express.Router();
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
 
-    const { username, password } = req.body;
+    try {
 
-    const sql = `
-        SELECT * 
-        FROM usuario 
-        WHERE username = ?
-    `;
+        const { username, password } = req.body;
 
-    conexion.query(sql, [username], (err, result) => {
+        const sql = `
+            SELECT *
+            FROM usuario
+            WHERE username = ?
+        `;
 
-        if (err) {
-            return res.status(500).json(err);
-        }
+        const [result] = await pool.query(sql, [username]);
 
         if (result.length === 0) {
 
@@ -42,11 +40,20 @@ router.post("/login", (req, res) => {
             user: {
                 id: user.idUsuario,
                 nombre: user.nombre,
+                username: user.username,
                 rol: user.rol
             }
         });
 
-    });
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            message: "Error del servidor"
+        });
+
+    }
 
 });
 
