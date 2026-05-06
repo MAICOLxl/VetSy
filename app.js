@@ -1,7 +1,5 @@
 import express from "express";
-const app = express();
-app.use(express.json());
-app.use(cors());
+import cors from "cors";
 
 import autenticacionRuta from "./endpoints/autenticacionRuta.js";
 import clienteRuta from "./endpoints/clienteRuta.js";
@@ -15,12 +13,20 @@ import aplicacionVacunaRuta from "./endpoints/aplicacionVacunaRuta.js";
 import desparasitanteRuta from "./endpoints/desparasitanteRuta.js";
 import productoRuta from "./endpoints/productoRuta.js";
 import proveedorRuta from "./endpoints/proveedorRuta.js";
+<<<<<<< HEAD
 import cors from "cors";
 app.use("/auth", autenticacionRuta);
+=======
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+>>>>>>> 36ff6040a0d46c25d3b4f8d3e835a55d9501ae2c
 app.use("/clientes", clienteRuta);
 app.use("/animales", animalRuta);
 app.use("/servicios", servicioRuta);
-app.use("/usuarios", usuarioRuta   );
+app.use("/usuarios", usuarioRuta);
 app.use("/vacunas", vacunaRuta);
 app.use("/historial", historialRuta);
 app.use("/movimientos", movimientoRuta);
@@ -29,9 +35,4 @@ app.use("/desparasitantes", desparasitanteRuta);
 app.use("/productos", productoRuta);
 app.use("/proveedores", proveedorRuta);
 
-
-
 export default app;
-
-
-
