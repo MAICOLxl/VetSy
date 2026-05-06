@@ -113,6 +113,41 @@ body {
   color: white;
 }
 
+/* Controles del header (tema, etc) */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: auto;
+  margin-left: 24px;
+}
+
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.theme-btn:hover {
+  background: var(--sidebar-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.theme-btn:active {
+  transform: scale(0.98);
+}
+
 /* ══════════════════════════════════════════════════════════════
    LAYOUT
 ══════════════════════════════════════════════════════════════ */
