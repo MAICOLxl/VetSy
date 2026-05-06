@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de Vacunas — VetSy</title>
-    <link rel="stylesheet" href="/css/app.css" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/Js/themeSwitcher.js"></script>
-    <script src="/Js/themeEvents.js"></script>
+    <link rel="stylesheet" href="../../css/app.css" />
+    <script src="../../Js/themeSwitcher.js"></script>
+    <script src="../../Js/themeEvents.js"></script>
   </head>
   <body>
     <script>
@@ -16,30 +15,29 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "/login.html";
+      // CORREGIDO: Ruta relativa al login
+      if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
        <div class="logo-area" >
-        <a href="/index.html">
+        <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
       </div>
       <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/Pages/Area Medica/Animales.html" class="active">Área Médica</a>
-        <a href="/Pages/Inventario/AgregarProducto.html">Inventario</a>
-        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../Area Medica/Animales.html" class="active">Área Médica</a>
+        <a href="../Inventario/AgregarProducto.html">Inventario</a>
+        <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema de la aplicación">
-          🌙
-        </button>
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn" aria-label="Cerrar sesión de usuario">Cerrar sesión</button>
+        <button id="logoutBtn">Cerrar sesión</button>
       </div>
     </header>
 
@@ -47,65 +45,29 @@
       <aside class="sidebar">
         <h3>Principal</h3>
         <ul>
-          <li>
-            <a href="index.html"><span class="nav-icon">🏠</span> Inicio</a>
-          </li>
+          <li><a href="../../index.html"><span class="nav-icon">🏠</span> Inicio</a></li>
         </ul>
         <h3>Área Médica</h3>
         <ul>
-          <li>
-            <a href="../Area Medica/Clientes.html"
-              ><span class="nav-icon">👤</span> Clientes</a
-            >
-          </li>
-          <li>
-            <a href="../Area Medica/Animales.html"
-              ><span class="nav-icon">🐾</span> Animales</a
-            >
-          </li>
-          <li>
-            <a href="../Area Medica/Servicios.html"
-              ><span class="nav-icon">🩺</span> Servicios</a
-            >
-          </li>
-          <li>
-            <a href="../Area Medica/RegistrodeVacunas.html" class="active"
-              ><span class="nav-icon">💉</span> Vacunas</a
-            >
-          </li>
-          <li>
-            <a href="../Area Medica/AplicacióndeVacunas.html"
-              ><span class="nav-icon">📋</span> Aplicar Vacunas</a
-            >
-          </li>
-          <li>
-            <a href="../Area Medica/Historial.html"
-              ><span class="nav-icon">📊</span> Historial</a
-            >
-          </li>
+          <li><a href="Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+          <li><a href="Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+          <li><a href="Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+          <li><a href="RegistrodeVacunas.html" class="active"><span class="nav-icon">💉</span> Vacunas</a></li>
+          <li><a href="AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a></li>
+          <li><a href="Historial.html"><span class="nav-icon">📊</span> Historial</a></li>
         </ul>
         <h3>Gestión</h3>
         <ul>
-          <li>
-            <a href="../Inventario/AgregarProducto.html"
-              ><span class="nav-icon">📦</span> Inventario</a
-            >
-          </li>
-          <li>
-            <a href="../Facturacion/Facturacion.html"
-              ><span class="nav-icon">🧾</span> Facturación</a
-            >
-          </li>
+          <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
+          <li><a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
         </ul>
       </aside>
 
       <main class="contenido">
         <h1 class="page-title">Registro de Vacunas</h1>
-        <p class="page-subtitle">
-          Administra el catálogo de vacunas disponibles
-        </p>
+        <p class="page-subtitle">Administra el catálogo de vacunas disponibles</p>
 
-        <div class="form-box">
+        <section class="f-area-medica">
           <h2>Nueva Vacuna</h2>
           <form id="formVacuna">
             <input type="hidden" id="idVacuna" />
@@ -122,16 +84,17 @@
               <label>Descripción</label>
               <textarea
                 id="descripcion"
-                placeholder="Descripción de la vacuna..."
+                placeholder="Escriba aquí los detalles de la vacuna..."
                 required
+                style="width: 100%; min-height: 100px; background: var(--bg); border: 1px solid var(--border); color: var(--text-main); border-radius: var(--radius-md); padding: 10px;"
               ></textarea>
             </div>
-            <button type="submit">Guardar Vacuna</button>
+            <button type="submit" class="btn-primary">Guardar Vacuna</button>
           </form>
-        </div>
+        </section>
 
         <div class="table-card" style="margin-top: 24px">
-          <div class="table-header"><h2>Vacunas Registradas</h2></div>
+          <div class="table-header"><h2>Catálogo de Vacunas</h2></div>
           <div class="table-wrapper">
             <table>
               <thead>
@@ -148,33 +111,6 @@
         </div>
       </main>
     </div>
-
-    <script>
-      // Al cargar la página, verificamos si venimos de una búsqueda del index
-      window.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const terminoABuscar = urlParams.get("buscar");
-
-        if (terminoABuscar) {
-          // 1. Buscamos el input de filtro de esa página (ajusta el ID si es diferente)
-          const buscadorLocal =
-            document.querySelector('input[type="text"]') ||
-            document.getElementById("search");
-
-          if (buscadorLocal) {
-            buscadorLocal.value = terminoABuscar;
-
-            // 2. Disparamos el evento de teclado para que la tabla se filtre sola
-            // Esto asume que ya tienes una función que filtra al escribir
-            buscadorLocal.dispatchEvent(new Event("input"));
-            buscadorLocal.dispatchEvent(new Event("keyup"));
-
-            // Opcional: Si tienes una función de filtrado específica, llámala aquí:
-            // filtrarTabla(terminoABuscar);
-          }
-        }
-      });
-    </script>
 
     <script src="../../Js/vacunas.js"></script>
   </body>
