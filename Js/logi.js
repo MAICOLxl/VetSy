@@ -30,7 +30,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
       // Guardar en ambos para compatibilidad
       sessionStorage.setItem("usuario", JSON.stringify(data.user));
       localStorage.setItem("usuario", JSON.stringify(data.user));
-      window.location.href = "/index.html";
+      window.location.href = "index.html";
     } else {
       errorBox.textContent = data.message || "Usuario o contraseña incorrectos.";
       errorBox.classList.add("visible");
