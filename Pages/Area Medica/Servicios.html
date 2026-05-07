@@ -1,43 +1,45 @@
 <!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Servicios — VetSy</title>
     <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <script src="../../Js/themeSwitcher.js"></script>
     <script src="../../Js/themeEvents.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <script>
       const user = JSON.parse(
         sessionStorage.getItem("usuario") ||
           localStorage.getItem("usuario") ||
           "null",
       );
-      // CORREGIDO: Ruta relativa al login
       if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area" >
+      <div class="logo-area">
         <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
       </div>
       <nav>
         <a href="../../index.html">Inicio</a>
-        <a href="Animales.html" class="active">Área Médica</a>
+        <a href="Clientes.html" class="active">Área Médica</a>
         <a href="../Inventario/AgregarProducto.html">Inventario</a>
         <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema">
+          🌙
+        </button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn">Cerrar sesión</button>
+        <button id="logoutBtn" aria-label="Cerrar sesión">Cerrar sesión</button>
       </div>
     </header>
 
@@ -74,9 +76,10 @@
           <input
             type="text"
             id="buscarServicio"
-            placeholder="Buscar servicio..."
+            placeholder="Buscar servicio por ID o descripción..."
             oninput="buscarServicioEditar(this.value)"
             autocomplete="off"
+            style="width: 100%; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-main); font-size: 14px; outline: none; margin-bottom: 8px;"
           />
           <div id="sugerenciasServicios" class="sugerencias"></div>
 
@@ -94,7 +97,7 @@
             </div>
             <div style="display: flex; gap: 10px; margin-top: 8px">
               <button type="button" onclick="actualizarServicio()" class="btn-primary" style="flex: 1; width: auto">Actualizar</button>
-              <button type="button" onclick="cerrarServicio()" class="btn-secondary" style="width: auto">Cerrar</button>
+              <button type="button" onclick="cerrarServicio()" class="btn btn-secondary" style="width: auto">Cerrar</button>
             </div>
           </div>
         </div>
@@ -132,7 +135,7 @@
           <div class="form-row">
             <div class="form-group">
               <label>Descripción</label>
-              <input type="text" id="descripcion" placeholder="Descripción" />
+              <input type="text" id="descripcion" placeholder="Ej: Chequeo general" />
             </div>
             <div class="form-group">
               <label>Precio (RD$)</label>
@@ -142,8 +145,13 @@
           <button type="submit" class="btn-primary">Guardar Servicio</button>
         </form>
 
+        <hr />
+
         <div class="table-card" style="margin-top: 24px">
-          <div class="table-header"><h2>Servicios Registrados</h2></div>
+          <div class="table-header">
+            <h2>Servicios Registrados</h2>
+            <button onclick="obtenerServicios()" class="btn btn-secondary btn-sm">Actualizar</button>
+          </div>
           <div class="table-wrapper">
             <table>
               <thead>
@@ -167,5 +175,15 @@
     </div>
 
     <script src="../../Js/servicios.js"></script>
-</body>
+    <script>
+      // Manejador para el envío del formulario
+      document.getElementById("formServicio").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (typeof crearServicio === 'function') {
+          await crearServicio();
+          document.getElementById("formServicio").reset();
+        }
+      });
+    </script>
+  </body>
 </html>
