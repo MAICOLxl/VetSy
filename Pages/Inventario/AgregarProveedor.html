@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proveedores — VetSy</title>
-    <link rel="stylesheet" href="/css/app.css" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/Js/themeSwitcher.js"></script>
-    <script src="/Js/themeEvents.js"></script>
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="../../Js/themeSwitcher.js"></script>
+    <script src="../../Js/themeEvents.js"></script>
   </head>
   <body>
     <script>
@@ -16,32 +16,28 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      if (!user) window.location.href = "/login.html";
+      if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area" >
-        <a href="/index.html">
+      <div class="logo-area">
+        <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
       </div>
       <nav>
-        <a href="/index.html">Inicio</a>
-        <a href="/Pages/Area Medica/Animales.html">Área Médica</a>
-        <a href="/Pages/Inventario/AgregarProducto.html" class="active"
-          >Inventario</a
-        >
-        <a href="/Pages/Facturacion/Facturacion.html">Facturación</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../Area Medica/Clientes.html">Área Médica</a>
+        <a href="AgregarProducto.html" class="active">Inventario</a>
+        <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
-      <div class="header-controls" >
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema de la aplicación">
-          🌙
-        </button>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn" aria-label="Cerrar sesión de usuario">Cerrar sesión</button>
+        <button id="logoutBtn" aria-label="Cerrar sesión">Cerrar sesión</button>
       </div>
     </header>
 
@@ -49,102 +45,91 @@
       <aside class="sidebar">
         <h3>Principal</h3>
         <ul>
-          <li>
-            <a href="/index.html"
-              ><span class="nav-icon">🏠</span> Inicio</a
-            >
-          </li>
+          <li><a href="../../index.html"><span class="nav-icon">🏠</span> Inicio</a></li>
         </ul>
         <h3>Inventario</h3>
         <ul>
-          <li>
-            <a href="/Pages/Inventario/AgregarProducto.html"
-              ><span class="nav-icon">➕</span> Agregar Producto</a
-            >
-          </li>
-          <li>
-            <a href="/Pages/Inventario/AgregarMovimientos.html"
-              ><span class="nav-icon">🔄</span> Registrar Movimiento</a
-            >
-          </li>
-          <li>
-            <a href="/Pages/Inventario/ListadeProductos.html"
-              ><span class="nav-icon">📋</span> Lista de Productos</a
-            >
-          </li>
-          <li>
-            <a href="/Pages/Inventario/AgregarProveedor.html" class="active"
-              ><span class="nav-icon">🏭</span> Proveedores</a
-            >
-          </li>
+          <li><a href="AgregarProducto.html"><span class="nav-icon">➕</span> Agregar Producto</a></li>
+          <li><a href="AgregarMovimientos.html"><span class="nav-icon">🔄</span> Registrar Movimiento</a></li>
+          <li><a href="ListadeProductos.html"><span class="nav-icon">📋</span> Lista de Productos</a></li>
+          <li><a href="AgregarProveedor.html" class="active"><span class="nav-icon">🏭</span> Proveedores</a></li>
         </ul>
         <h3>Gestión</h3>
         <ul>
-          <li>
-            <a href="/Pages/Area Medica/Clientes.html"
-              ><span class="nav-icon">🩺</span> Área Médica</a
-            >
-          </li>
-          <li>
-            <a href="/Pages/Facturacion/Facturacion.html"
-              ><span class="nav-icon">🧾</span> Facturación</a
-            >
-          </li>
+          <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">🩺</span> Área Médica</a></li>
+          <li><a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a></li>
         </ul>
       </aside>
 
       <main class="contenido">
-        <h1 class="page-title">Proveedores</h1>
-        <p class="page-subtitle">Gestiona los proveedores del sistema</p>
+        <h1 class="page-title">Gestión de Proveedores</h1>
+        <p class="page-subtitle">Administra los contactos de laboratorios y distribuidores</p>
 
-        <!-- FORMULARIO -->
         <form class="f-area-medica" id="formProveedor">
           <h2>Nuevo Proveedor</h2>
-
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" id="nombre" maxlength="50" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre / Laboratorio</label>
+              <input type="text" id="nombre" placeholder="Ej: Laboratorio VetPlus" maxlength="50" required />
+            </div>
+            <div class="form-group">
+              <label>Email de Contacto</label>
+              <input type="email" id="email" placeholder="proveedor@correo.com" maxlength="50" />
+            </div>
           </div>
 
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="text" id="telefono" maxlength="13" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Teléfono Principal</label>
+              <input type="text" id="telefono" placeholder="809-000-0000" maxlength="13" required />
+            </div>
+            <div class="form-group">
+              <label>Extensión</label>
+              <input type="text" id="extensionTelefono" placeholder="Opcional" maxlength="10" />
+            </div>
           </div>
 
-          <div class="form-group">
-            <label>Extensión</label>
-            <input type="text" id="extensionTelefono" maxlength="10" />
-          </div>
-
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email" maxlength="50" />
-          </div>
-
-          <button type="submit" class="btn-primary">Guardar Proveedor</button>
+          <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+            🏢 Guardar Proveedor
+          </button>
         </form>
 
-        <!-- TABLA -->
-        <section style="margin-top: 40px">
-          <h2>Lista de Proveedores</h2>
+        <hr />
 
-          <table class="tabla">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Extensión</th>
-                <th>Email</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tablaProveedores"></tbody>
-          </table>
-        </section>
+        <div class="table-card" style="margin-top: 24px">
+          <div class="table-header">
+            <h2>Lista de Proveedores</h2>
+            <button onclick="if(typeof cargarProveedores === 'function') cargarProveedores()" class="btn btn-secondary btn-sm">Actualizar</button>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 60px;">ID</th>
+                  <th>Nombre</th>
+                  <th>Teléfono</th>
+                  <th>Ext.</th>
+                  <th>Email</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaProveedores">
+                </tbody>
+            </table>
+          </div>
+        </div>
       </main>
     </div>
 
-    <script src="/js/AgregarProveedor.js"></script>
+    <script src="../../js/AgregarProveedor.js"></script>
+    <script>
+        // Manejo del formulario
+        document.getElementById("formProveedor").addEventListener("submit", async (e) => {
+            if (typeof guardarProveedor === 'function') {
+                e.preventDefault();
+                await guardarProveedor();
+            }
+        });
+    </script>
   </body>
 </html>
