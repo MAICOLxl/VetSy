@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de Vacunas — VetSy</title>
     <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <script src="../../Js/themeSwitcher.js"></script>
     <script src="../../Js/themeEvents.js"></script>
   </head>
@@ -15,29 +16,30 @@
           localStorage.getItem("usuario") ||
           "null",
       );
-      // CORREGIDO: Ruta relativa al login
       if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area" >
+      <div class="logo-area">
         <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
       </div>
       <nav>
         <a href="../../index.html">Inicio</a>
-        <a href="../Area Medica/Animales.html" class="active">Área Médica</a>
+        <a href="Clientes.html" class="active">Área Médica</a>
         <a href="../Inventario/AgregarProducto.html">Inventario</a>
         <a href="../Facturacion/Facturacion.html">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema">
+          🌙
+        </button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
         <span id="headerName">Usuario</span>
-        <button id="logoutBtn">Cerrar sesión</button>
+        <button id="logoutBtn" aria-label="Cerrar sesión">Cerrar sesión</button>
       </div>
     </header>
 
@@ -67,7 +69,16 @@
         <h1 class="page-title">Registro de Vacunas</h1>
         <p class="page-subtitle">Administra el catálogo de vacunas disponibles</p>
 
-        <section class="f-area-medica">
+        <div class="f-area-medica" style="margin-top: 0">
+            <h2>Gestionar Catálogo</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
+                Utilice el formulario de abajo para registrar o la tabla para editar.
+            </p>
+        </div>
+
+        <hr />
+
+        <section class="f-area-medica" id="seccionFormulario">
           <h2>Nueva Vacuna</h2>
           <form id="formVacuna">
             <input type="hidden" id="idVacuna" />
@@ -76,7 +87,7 @@
               <input
                 type="text"
                 id="nombre"
-                placeholder="Ej: Rabia, Parvovirus..."
+                placeholder="Ej: Rabia, Parvovirus, Triple Felina..."
                 required
               />
             </div>
@@ -84,9 +95,9 @@
               <label>Descripción</label>
               <textarea
                 id="descripcion"
-                placeholder="Escriba aquí los detalles de la vacuna..."
+                placeholder="Escriba aquí los detalles, dosis recomendada o indicaciones de la vacuna..."
                 required
-                style="width: 100%; min-height: 100px; background: var(--bg); border: 1px solid var(--border); color: var(--text-main); border-radius: var(--radius-md); padding: 10px;"
+                style="width: 100%; min-height: 100px; background: var(--bg); border: 1px solid var(--border); color: var(--text-main); border-radius: var(--radius-md); padding: 10px; font-family: inherit; resize: vertical;"
               ></textarea>
             </div>
             <button type="submit" class="btn-primary">Guardar Vacuna</button>
@@ -94,15 +105,20 @@
         </section>
 
         <div class="table-card" style="margin-top: 24px">
-          <div class="table-header"><h2>Catálogo de Vacunas</h2></div>
+          <div class="table-header">
+            <h2>Catálogo de Vacunas</h2>
+            <button onclick="obtenerVacunas()" class="btn btn-secondary btn-sm" aria-label="Actualizar lista">
+                Actualizar
+            </button>
+          </div>
           <div class="table-wrapper">
             <table>
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th style="width: 80px;">ID</th>
                   <th>Nombre</th>
                   <th>Descripción</th>
-                  <th>Acciones</th>
+                  <th style="width: 120px;">Acciones</th>
                 </tr>
               </thead>
               <tbody id="tablaVacunas"></tbody>
@@ -113,5 +129,18 @@
     </div>
 
     <script src="../../Js/vacunas.js"></script>
+    <script>
+      // Manejador del formulario para evitar recarga de página y limpiar tras guardar
+      document.getElementById("formVacuna").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        // Asumiendo que la función guardarVacuna o crearVacuna está en vacunas.js
+        if (typeof crearVacuna === 'function') {
+           await crearVacuna();
+        } else if (typeof guardarVacuna === 'function') {
+           await guardarVacuna();
+        }
+        document.getElementById("formVacuna").reset();
+      });
+    </script>
   </body>
 </html>
