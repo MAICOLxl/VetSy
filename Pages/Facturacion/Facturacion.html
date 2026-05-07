@@ -5,29 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Facturación — VetSy</title>
     <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <script src="../../Js/themeSwitcher.js"></script>
     <script src="../../Js/themeEvents.js"></script>
   </head>
   <body>
     <script>
-      const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
+      const user = JSON.parse(
+        sessionStorage.getItem("usuario") || 
+        localStorage.getItem("usuario") || 
+        "null"
+      );
       if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area">
+      <div class="logo-area">
         <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
       </div>
       <nav>
         <a href="../../index.html">Inicio</a>
-        <a href="../Area Medica/Animales.html">Área Médica</a>
+        <a href="../Area Medica/Clientes.html">Área Médica</a>
         <a href="../Inventario/AgregarProducto.html">Inventario</a>
         <a href="Facturacion.html" class="active">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn">🌙</button>
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
@@ -50,18 +55,23 @@
         <ul>
           <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
           <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
+          <li><a href="../Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
+        </ul>
+        <h3>Gestión</h3>
+        <ul>
+          <li><a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a></li>
         </ul>
       </aside>
 
       <main class="contenido">
-        <h1 class="page-title">Facturación</h1>
-        <p class="page-subtitle">Genera facturas para las pruebas y servicios realizados</p>
+        <h1 class="page-title">Módulo de Facturación</h1>
+        <p class="page-subtitle">Genera facturas detalladas por servicios y productos médicos</p>
 
-        <div class="f-facturacion">
-          <h2>Nueva Factura</h2>
+        <div class="f-area-medica" style="margin-top: 0">
+          <h2>Generar Nueva Factura</h2>
           <form id="formFacturacion">
-            <div class="sidebar-section">
-                <h3 class="sidebar-label">Datos del Cliente</h3>
+            <div class="sidebar-section" style="margin-bottom: 15px;">
+                <h3 class="sidebar-label" style="color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 5px;">Datos del Cliente y Paciente</h3>
             </div>
             
             <div class="form-row">
@@ -75,39 +85,54 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label>Tipo de Animal</label>
-              <select id="tipo">
-                <option>Perro</option>
-                <option>Gato</option>
-                <option>Otro</option>
+            <div class="form-group" style="max-width: 300px;">
+              <label>Especie de Animal</label>
+              <select id="tipo" required>
+                <option value="">Seleccione especie</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Ave">Ave</option>
+                <option value="Exótico">Exótico</option>
               </select>
             </div>
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-label">Pruebas Disponibles</h3>
+            <div class="sidebar-section" style="margin: 25px 0 15px 0;">
+                <h3 class="sidebar-label" style="color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 5px;">Servicios y Pruebas</h3>
             </div>
 
-            <div class="form-grid">
-              <div class="form-group-checkbox">
-                <input type="checkbox" id="h" name="hemograma"> <label for="h">Hemograma</label>
+            <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; background: var(--bg-alt); padding: 20px; border-radius: var(--radius-md);">
+              <div class="form-group-checkbox" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="h" name="hemograma" style="width: 18px; height: 18px;"> 
+                <label for="h" style="margin-bottom: 0; cursor: pointer;">Hemograma</label>
               </div>
-              <div class="form-group-checkbox">
-                <input type="checkbox" id="pb" name="perfil_bioquimico"> <label for="pb">Perfil Bioquímico</label>
+              <div class="form-group-checkbox" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="pb" name="perfil_bioquimico" style="width: 18px; height: 18px;"> 
+                <label for="pb" style="margin-bottom: 0; cursor: pointer;">Perfil Bioquímico</label>
               </div>
-              <div class="form-group-checkbox">
-                <input type="checkbox" id="rx" name="rayosx"> <label for="rx">Rayos X</label>
+              <div class="form-group-checkbox" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="rx" name="rayosx" style="width: 18px; height: 18px;"> 
+                <label for="rx" style="margin-bottom: 0; cursor: pointer;">Rayos X</label>
               </div>
-              <div class="form-group-checkbox">
-                <input type="checkbox" id="us" name="ultrasonido"> <label for="us">Ultrasonido</label>
+              <div class="form-group-checkbox" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="us" name="ultrasonido" style="width: 18px; height: 18px;"> 
+                <label for="us" style="margin-bottom: 0; cursor: pointer;">Ultrasonido</label>
+              </div>
+              <div class="form-group-checkbox" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="con" name="consulta" style="width: 18px; height: 18px;"> 
+                <label for="con" style="margin-bottom: 0; cursor: pointer;">Consulta General</label>
               </div>
             </div>
 
-            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Generar Factura</button>
+            <div style="margin-top: 30px; display: flex; justify-content: flex-end;">
+                <button type="submit" class="btn-primary" style="padding: 12px 40px; font-size: 16px;">
+                    📄 Generar Factura
+                </button>
+            </div>
           </form>
         </div>
       </main>
     </div>
+
     <script src="../../Js/facturacion.js"></script>
   </body>
 </html>
