@@ -10,17 +10,12 @@
   </head>
   <body>
     <script>
-      const user = JSON.parse(
-        sessionStorage.getItem("usuario") ||
-          localStorage.getItem("usuario") ||
-          "null",
-      );
-      // CORREGIDO: Ruta relativa al login
+      const user = JSON.parse(sessionStorage.getItem("usuario") || localStorage.getItem("usuario") || "null");
       if (!user) window.location.href = "../../login.html";
     </script>
 
     <header class="top-menu">
-       <div class="logo-area" >
+       <div class="logo-area">
         <a href="../../index.html">
           <span id="logoArea">🐾 VetSy</span>
         </a>
@@ -32,9 +27,7 @@
         <a href="Facturacion.html" class="active">Facturación</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">
-          🌙
-        </button>
+        <button id="themeToggleBtn" class="theme-btn">🌙</button>
       </div>
       <div class="header-user" id="headerUser">
         <div class="avatar" id="headerAvatar">V</div>
@@ -47,37 +40,30 @@
       <aside class="sidebar">
         <h3>Principal</h3>
         <ul>
-          <li>
-            <a href="../../index.html"><span class="nav-icon">🏠</span> Inicio</a>
-          </li>
+          <li><a href="../../index.html"><span class="nav-icon">🏠</span> Inicio</a></li>
         </ul>
         <h3>Facturación</h3>
         <ul>
-          <li>
-            <a href="Facturacion.html" class="active"><span class="nav-icon">🧾</span> Nueva Factura</a>
-          </li>
+          <li><a href="Facturacion.html" class="active"><span class="nav-icon">🧾</span> Nueva Factura</a></li>
         </ul>
         <h3>Área Médica</h3>
         <ul>
-          <li>
-            <a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a>
-          </li>
-          <li>
-            <a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a>
-          </li>
+          <li><a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
+          <li><a href="../Area Medica/Animales.html"><span class="nav-icon">🐾</span> Animales</a></li>
         </ul>
       </aside>
 
       <main class="contenido">
         <h1 class="page-title">Facturación</h1>
-        <p class="page-subtitle">
-          Genera facturas para las pruebas y servicios realizados
-        </p>
+        <p class="page-subtitle">Genera facturas para las pruebas y servicios realizados</p>
 
-        <section class="f-area-medica">
+        <div class="f-facturacion">
           <h2>Nueva Factura</h2>
           <form id="formFacturacion">
-            <h3>Datos del Cliente</h3>
+            <div class="sidebar-section">
+                <h3 class="sidebar-label">Datos del Cliente</h3>
+            </div>
+            
             <div class="form-row">
               <div class="form-group">
                 <label>Nombre del Dueño</label>
@@ -88,7 +74,7 @@
                 <input type="text" id="mascota" placeholder="Ej: Max" required />
               </div>
             </div>
-            
+
             <div class="form-group">
               <label>Tipo de Animal</label>
               <select id="tipo">
@@ -98,22 +84,30 @@
               </select>
             </div>
 
-            <h3 style="margin-top: 20px; color: var(--primary);">Pruebas Disponibles</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="hemograma" /> Hemograma</label>
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="perfil_bioquimico" /> Perfil Bioquímico</label>
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="rayosx" /> Rayos X</label>
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="ultrasonido" /> Ultrasonido</label>
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="parvovirus" /> Prueba de Parvovirus</label>
-              <label style="display: flex; gap: 8px; cursor: pointer;"><input type="checkbox" name="moquillo" /> Prueba de Moquillo</label>
+            <div class="sidebar-section">
+                <h3 class="sidebar-label">Pruebas Disponibles</h3>
             </div>
 
-            <button type="submit" class="btn-primary">Generar Factura</button>
+            <div class="form-grid">
+              <div class="form-group-checkbox">
+                <input type="checkbox" id="h" name="hemograma"> <label for="h">Hemograma</label>
+              </div>
+              <div class="form-group-checkbox">
+                <input type="checkbox" id="pb" name="perfil_bioquimico"> <label for="pb">Perfil Bioquímico</label>
+              </div>
+              <div class="form-group-checkbox">
+                <input type="checkbox" id="rx" name="rayosx"> <label for="rx">Rayos X</label>
+              </div>
+              <div class="form-group-checkbox">
+                <input type="checkbox" id="us" name="ultrasonido"> <label for="us">Ultrasonido</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Generar Factura</button>
           </form>
-        </section>
+        </div>
       </main>
     </div>
-    
     <script src="../../Js/facturacion.js"></script>
   </body>
 </html>
