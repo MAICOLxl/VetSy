@@ -170,14 +170,6 @@
     </div>
 
     <script src="../../js/Agregarproducto.js"></script>
-    <script>
-        // Manejo básico del envío para evitar recarga
-        document.getElementById("formProducto").addEventListener("submit", async (e) => {
-            if (typeof guardarProducto === 'function') {
-                e.preventDefault();
-                await guardarProducto();
-            }
-        });
-    </script>
+
   </body>
 </html>
