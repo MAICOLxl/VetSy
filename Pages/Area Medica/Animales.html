@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VetSy — Animales</title>
-    <link rel="stylesheet" href="../../css/app.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Animales — VetSy</title>
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <script src="../../Js/themeSwitcher.js"></script>
     <script src="../../Js/themeEvents.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <script>
       const user = JSON.parse(
         sessionStorage.getItem("usuario") ||
@@ -20,91 +20,139 @@
     </script>
 
     <header class="top-menu">
-        <div class="logo-area">
-            <a href="../../index.html">
-                <span>🐾 VetSy</span>
-            </a>
-        </div>
-        <nav>
-            <a href="../../index.html">Inicio</a>
-            <a href="Animales.html" class="active">Área Médica</a>
-            <a href="../Inventario/AgregarProducto.html">Inventario</a>
-            <a href="../Facturacion/Facturacion.html">Facturación</a>
-        </nav>
-        <div class="header-controls">
-            <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema">🌙</button>
-        </div>
-        <div class="header-user">
-            <div class="avatar">A</div>
-            <span>Admin</span>
-            <button id="logoutBtn">Cerrar sesión</button>
-        </div>
+      <div class="logo-area">
+        <a href="../../index.html">
+          <span id="logoArea">🐾 VetSy</span>
+        </a>
+      </div>
+      <nav>
+        <a href="../../index.html">Inicio</a>
+        <a href="Clientes.html" class="active">Área Médica</a>
+        <a href="../Inventario/AgregarProducto.html">Inventario</a>
+        <a href="../Facturacion/Facturacion.html">Facturación</a>
+      </nav>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-btn" title="Cambiar tema" aria-label="Cambiar tema">
+          🌙
+        </button>
+      </div>
+      <div class="header-user" id="headerUser">
+        <div class="avatar" id="headerAvatar">A</div>
+        <span id="headerName">Admin</span>
+        <button id="logoutBtn" aria-label="Cerrar sesión">Cerrar sesión</button>
+      </div>
     </header>
 
     <div class="container">
-        <aside class="sidebar">
-            <h3>Área Médica</h3>
-            <ul>
-                <li><a href="Clientes.html"><span class="nav-icon">👤</span> Clientes</a></li>
-                <li><a href="Animales.html" class="active"><span class="nav-icon">🐾</span> Animales</a></li>
-                <li><a href="Servicios.html"><span class="nav-icon">🩺</span> Servicios</a></li>
-                <li><a href="RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a></li>
-            </ul>
-        </aside>
+      <aside class="sidebar">
+        <h3>Principal</h3>
+        <ul>
+          <li>
+            <a href="../../index.html"><span class="nav-icon">🏠</span>Inicio</a>
+          </li>
+        </ul>
+        <h3>Área Médica</h3>
+        <ul>
+          <li>
+            <a href="../Area Medica/Clientes.html"><span class="nav-icon">👤</span> Clientes</a>
+          </li>
+          <li>
+            <a href="../Area Medica/Animales.html" class="active"><span class="nav-icon">🐾</span> Animales</a>
+          </li>
+          <li>
+            <a href="../Area Medica/Servicios.html"><span class="nav-icon">🩺</span> Servicios</a>
+          </li>
+          <li>
+            <a href="../Area Medica/RegistrodeVacunas.html"><span class="nav-icon">💉</span> Vacunas</a>
+          </li>
+          <li>
+            <a href="../Area Medica/AplicacióndeVacunas.html"><span class="nav-icon">📋</span> Aplicar Vacunas</a>
+          </li>
+          <li>
+            <a href="../Area Medica/Historial.html"><span class="nav-icon">📊</span> Historial</a>
+          </li>
+        </ul>
+        <h3>Gestión</h3>
+        <ul>
+          <li>
+            <a href="../Inventario/AgregarProducto.html"><span class="nav-icon">📦</span> Inventario</a>
+          </li>
+          <li>
+            <a href="../Facturacion/Facturacion.html"><span class="nav-icon">🧾</span> Facturación</a>
+          </li>
+        </ul>
+      </aside>
 
-        <main class="contenido">
-            <h1 class="page-title">Animales</h1>
-            <p class="page-subtitle">Gestión de pacientes veterinarios</p>
+      <main class="contenido">
+        <h1 class="page-title">Animales</h1>
+        <p class="page-subtitle">Gestión de pacientes veterinarios</p>
 
-            <section class="f-area-medica"> <h2>Registrar Animal</h2>
-                <form id="formAnimal">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>ID Cliente</label>
-                            <input type="number" id="idCliente" placeholder="ID del dueño" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nombre Mascota</label>
-                            <input type="text" id="nombre" placeholder="Nombre" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Raza</label>
-                            <input type="text" id="raza" placeholder="Raza">
-                        </div>
-                        <div class="form-group">
-                            <label>Género</label>
-                            <select id="genero" required>
-                                <option value="">Seleccione</option>
-                                <option value="Macho">Macho</option>
-                                <option value="Hembra">Hembra</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-primary">Guardar Mascota</button>
-                </form>
-            </section>
-
-            <div class="table-card" style="margin-top: 24px">
-                <div class="table-header"><h2>Pacientes Registrados</h2></div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Raza</th>
-                                <th>Dueño</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablaAnimales"></tbody>
-                    </table>
-                </div>
+        <form class="f-area-medica" id="formAnimal">
+          <h2>Registrar Animal</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>ID Cliente</label>
+              <input type="number" id="idCliente" placeholder="ID del dueño" required />
             </div>
-        </main>
+            <div class="form-group">
+              <label>Nombre Mascota</label>
+              <input type="text" id="nombre" placeholder="Nombre" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Raza</label>
+              <input type="text" id="raza" placeholder="Ej: Labrador, Siamés..." />
+            </div>
+            <div class="form-group">
+              <label>Género</label>
+              <select id="genero" required>
+                <option value="">Seleccione</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Guardar Mascota</button>
+        </form>
+
+        <hr />
+
+        <div class="table-card" style="margin-top: 24px">
+          <div class="table-header">
+            <h2>Pacientes Registrados</h2>
+            <button onclick="obtenerAnimales()" class="btn btn-secondary btn-sm">
+              Actualizar
+            </button>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Raza</th>
+                  <th>Dueño</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaAnimales"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </div>
+
     <script src="../../Js/animales.js"></script>
-</body>
+    <script>
+      // Manejador del formulario para evitar recarga de página
+      document.getElementById("formAnimal").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (typeof crearAnimal === 'function') {
+          await crearAnimal();
+          document.getElementById("formAnimal").reset();
+        }
+      });
+    </script>
+  </body>
 </html>
