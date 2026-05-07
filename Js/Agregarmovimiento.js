@@ -1,90 +1,195 @@
 const BASE_URL = "https://vetsy-production.up.railway.app";
 
+let productos = [];
+
 document.addEventListener("DOMContentLoaded", () => {
+
   cargarProductos();
 
   const form = document.getElementById("formMovimiento");
 
   form.addEventListener("submit", async (e) => {
+
     e.preventDefault();
 
     const btn = form.querySelector("button[type='submit']");
     const originalText = btn.textContent;
 
     const idProducto = parseInt(document.getElementById("idProducto").value);
+
     const tipoMovimiento = document.getElementById("tipoMovimiento").value;
+
     const cantidad = parseInt(document.getElementById("cantidad").value);
+
     const fechaMovimiento = document.getElementById("fechaMovimiento").value;
+
     const referencia = document.getElementById("referencia").value.trim();
 
-    if (!idProducto) return mostrarMensaje("Selecciona un producto.", "error");
-    if (!tipoMovimiento) return mostrarMensaje("Selecciona tipo de movimiento.", "error");
-    if (isNaN(cantidad) || cantidad <= 0) return mostrarMensaje("Cantidad inválida.", "error");
-    if (!fechaMovimiento) return mostrarMensaje("Selecciona fecha.", "error");
+    if (!idProducto) {
+      return mostrarMensaje("Selecciona un producto.", "error");
+    }
 
-    const payload = {
-      idProducto,
-      tipoMovimiento,
-      cantidad,
-      fechaMovimiento,
-      referencia
-    };
+    if (isNaN(cantidad) || cantidad <= 0) {
+      return mostrarMensaje("Cantidad inválida.", "error");
+    }
 
     btn.disabled = true;
     btn.textContent = "Guardando...";
 
     try {
-      const res = await fetch(`${BASE_URL}/movimientos`, {
+
+      // BUSCAR PRODUCTO EN MEMORIA
+      const producto = productos.find(
+        p => p.idProducto == idProducto
+      );
+
+      if (!producto) {
+        throw new Error("Producto no encontrado");
+      }
+
+      let nuevoStock = producto.stockActual;
+
+      // ENTRADA
+      if (tipoMovimiento === "E") {
+
+        nuevoStock += cantidad;
+
+      } else {
+
+        // VALIDAR STOCK
+        if (producto.stockActual < cantidad) {
+          throw new Error("Stock insuficiente");
+        }
+
+        nuevoStock -= cantidad;
+      }
+
+      // REGISTRAR MOVIMIENTO
+      const movimientoPayload = {
+        idProducto,
+        tipoMovimiento,
+        cantidad,
+        fechaMovimiento,
+        referencia
+      };
+
+      const movimientoRes = await fetch(`${BASE_URL}/movimientos`, {
+
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(movimientoPayload)
+
       });
 
-      const data = await res.json().catch(() => ({}));
+      if (!movimientoRes.ok) {
+        throw new Error("No se pudo registrar movimiento");
+      }
 
-      if (!res.ok) throw new Error(data.message || "Error al registrar");
+      // ACTUALIZAR PRODUCTO
+      const productoActualizado = {
+        ...producto,
+        stockActual: nuevoStock
+      };
+
+      const updateRes = await fetch(`${BASE_URL}/productos/${idProducto}`, {
+
+        method: "PUT",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(productoActualizado)
+
+      });
+
+      if (!updateRes.ok) {
+        throw new Error("No se pudo actualizar stock");
+      }
 
       mostrarMensaje("Movimiento registrado correctamente.", "success");
+
+      // ACTUALIZAR STOCK LOCAL
+      producto.stockActual = nuevoStock;
+
       form.reset();
 
+      // RECARGAR SELECT
+      document.getElementById("idProducto").innerHTML =
+        `<option value="">-- Selecciona un producto --</option>`;
+
+      cargarProductos();
+
     } catch (err) {
+
+      console.error(err);
+
       mostrarMensaje(err.message, "error");
+
     } finally {
+
       btn.disabled = false;
       btn.textContent = originalText;
     }
+
   });
+
 });
 
-/* CARGAR PRODUCTOS EN SELECT */
 async function cargarProductos() {
+
   try {
+
     const res = await fetch(`${BASE_URL}/productos`);
+
     let data = await res.json();
 
-    if (!Array.isArray(data) && data.data) data = data.data;
+    if (!Array.isArray(data) && data.data) {
+      data = data.data;
+    }
+
+    productos = data;
 
     const select = document.getElementById("idProducto");
 
-    data.forEach(p => {
+    data.forEach((p) => {
+
       const option = document.createElement("option");
+
       option.value = p.idProducto;
-      option.textContent = `${p.nombre} (Stock: ${p.stockActual})`;
+
+      option.textContent =
+        `${p.nombre} (Stock: ${p.stockActual})`;
+
       select.appendChild(option);
+
     });
 
   } catch (err) {
-    console.error("Error cargando productos", err);
+
+    console.error(err);
+
+    mostrarMensaje(
+      "No se pudieron cargar los productos",
+      "error"
+    );
   }
 }
 
-/* MENSAJES */
 function mostrarMensaje(texto, tipo) {
-  const old = document.getElementById("msg");
-  if (old) old.remove();
+
+  const anterior = document.getElementById("msg");
+
+  if (anterior) anterior.remove();
 
   const div = document.createElement("div");
+
   div.id = "msg";
+
   div.textContent = texto;
 
   div.style.cssText = `
